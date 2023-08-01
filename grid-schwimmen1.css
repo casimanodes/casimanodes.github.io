@@ -394,8 +394,8 @@ a[href="index.html"]{
     grid-column: 1 / span 5;
     grid-row: 1 / span 1;
     color: #e3711d;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+    /*border-top-left-radius: 5px;
+    border-top-right-radius: 5px;*/
     font-size: 1.3rem;
     border-bottom: solid 2px lightblue;
     display: flex;
