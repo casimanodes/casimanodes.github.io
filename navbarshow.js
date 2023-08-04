@@ -32,7 +32,7 @@ window.onscroll = function() {
 }
   prevScrollpos = currentScrollPos;
 };
-*/
+
 
 var prevScrollpos = window.pageYOffset;
 var navbar = document.querySelector(".navbar");
@@ -69,3 +69,4 @@ window.onscroll = function() {
 
   prevScrollpos = currentScrollPos;
 };
+*/
