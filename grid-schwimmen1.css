@@ -536,17 +536,19 @@ button:hover{
 /* mitgliedschaft start*/
 
 .mitgliedschaften{
-    display: flex;
-    font-size: 1rem;
-    padding: 5px;
-    width: 90vw;
-    margin: 1vh auto 0;
-    margin-bottom: 25px;
-    height: 300px;
-    background-color: white;
-    border-radius: 20px;
-    box-shadow: /*inset*/ 0px 2px 20px rgb(0, 0, 0);
+  display: flex;
+  font-size: 1rem;
+  padding: 5px;
+  width: 90vw;
+  margin: 3rem auto 0;
+  margin-bottom: 25px;
+  height: 300px;
+  background-color: white;
+  border: solid 2px black;  
+  border-radius: 5px;
+  /*box-shadow: /*inset*//* 0px 2px 20px rgb(0, 0, 0);*/
 }
+
 
 /* mitgliedschaft END*/
 
@@ -554,19 +556,18 @@ button:hover{
 
 /* placeholder start*/
 .parent-placeholder{
-    padding-bottom: 100px;
-    width: 90vw;
-    margin: 0 auto;
+  padding-bottom: 100px;
+  width: 90vw;
+  margin: 0 auto;
 }
 .placeholder{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 5px;
-    
-    
-    border-radius: 20px;
-    box-shadow: /*inset*/ 0px 2px 20px rgb(0, 0, 0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  border: solid 2px black;  
+  border-radius: 5px;
+  /*box-shadow: /*inset*/ /*0px 2px 20px rgb(0, 0, 0);*/
 }
 
 
