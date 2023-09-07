@@ -229,12 +229,6 @@ a[href="index.html"]{
         animation-delay: calc(13* var(--stagger-delay));
     }
 
-    /*.div16 { grid-area: 9 / 11 / 11 / 13; 
-        background-color: #f39c89;
-    }
-    .div17 { grid-area: 9 / 1 / 11 / 3; 
-        background-color: #f39c89;
-    }*/
 /*Awesome grid END*/
 
 
@@ -256,6 +250,7 @@ a[href="index.html"]{
 
 
 /* klicked elements*/
+
         .topleft { grid-area: 1 / 1 / 5 / 4; 
           background-color: #e3711d;
           display: grid;
