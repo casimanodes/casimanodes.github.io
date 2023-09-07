@@ -253,3 +253,108 @@ a[href="index.html"]{
     
 }
 /* responsive grid*/
+
+
+/* klicked elements*/
+        .topleft { grid-area: 1 / 1 / 5 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+        .bottomleft { grid-area: 9 / 1 / 13 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .leftcenter { grid-area: 5 / 1 / 9 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;}
+        
+
+        .topright { grid-area: 1 / 10 / 5 / 13; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;}
+
+        .rightcenter { grid-area: 5 / 10 / 9 / 13;
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+        .bottomright { grid-area: 9 / 10 / 13 / 13; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+          word-wrap: break-word;
+}
+
+        .bottomcenter { grid-area: 10 / 4 / 13 / 10;
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius:5px;
+          align-items: center;
+          justify-content: center;}
+
+        .topcenter { grid-area: 1 / 4 / 4 / 10; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+
+          .center { 
+          grid-area: 4 / 4 / 10 / 10; 
+          transition: all 0.5 ease-in-out;
+           background-color: red;
+          display: none;
+          
+        }
+
+/* end klicked elements*/
