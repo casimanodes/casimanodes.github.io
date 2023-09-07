@@ -1,27 +1,3 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-/*
-.navar ul li a .mind1:hover{
-    color: #f39c89;
-    text-decoration: underline;
-}
-
-Partner Seite nr 4 Zu welchen Zeiten sind wir Buchbar?
-Wasser-anklicken - Sonderaktion wie z.B. Meermaid mit icon
-
-elche Bilddateine brauchen wir, wie viele?
-quadratisch, 1:1
-collage  
-
-welche farbe ist mind, fitness, aqua? 
-
-*/
-
-
   *,
     *::before,
     *::after{
@@ -29,6 +5,7 @@ welche farbe ist mind, fitness, aqua?
         padding: 0;
         box-sizing: border-box;
     }
+
 :root{
     --fontsize: 0.6rem;
     --font-family: monospace;
@@ -37,18 +14,7 @@ welche farbe ist mind, fitness, aqua?
 }
 
 
-    body{
-        font-family: (var(--font-family));
-       /* background-image: url(ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg) ;
-        background-size: cover; 
-        background-position: center center;
-        background-repeat: no-repeat;*/
-        background-color: grey;
-        overflow: hidden;
-
-    }
-
-
+/* header start*/
     .logo{
         width: 40px;
         height: 40px;
@@ -116,7 +82,7 @@ welche farbe ist mind, fitness, aqua?
         display: flex;
      
     }
-
+/*simple header end*/
 
 body{
     font-family: monospace,sans-serif;
@@ -126,10 +92,7 @@ body{
     text-rendering: optimizeLegibility;
     padding: 0;
     margin: 0; 
-    /*background-image: url(schwymbad.jpeg);
-    background-size: cover;
-    background-repeat: repeat-x;
-    background-attachment: fixed;*/
+
 }
 
 
@@ -274,6 +237,8 @@ a[href="index.html"]{
     }*/
 /*Awesome grid END*/
 
+
+/* responsive grid*/
 @media screen and (min-width: 389px) {
     .awesome-grid {
      height: 63vh;
@@ -287,4 +252,4 @@ a[href="index.html"]{
     }
     
 }
-
+/* responsive grid*/
