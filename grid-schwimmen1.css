@@ -20,6 +20,104 @@ collage
 welche farbe ist mind, fitness, aqua? 
 
 */
+
+
+  *,
+    *::before,
+    *::after{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+:root{
+    --fontsize: 0.6rem;
+    --font-family: monospace;
+    --font-weight: 300;
+    --color: white;
+}
+
+
+    body{
+        font-family: (var(--font-family));
+       /* background-image: url(ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg) ;
+        background-size: cover; 
+        background-position: center center;
+        background-repeat: no-repeat;*/
+        background-color: grey;
+        overflow: hidden;
+
+    }
+
+
+    .logo{
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: white;
+        margin: 1px 0;
+        
+    }
+    header{
+        width: 100%;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+        font-family: var(--font-family);
+        height: 12%;
+    }
+
+    header nav{
+        max-width: 90%;
+        margin: 0 auto;
+        padding: 0 0.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        
+    }
+    header ul{
+        display: flex;
+        list-style: none;
+    }
+    header ul li{
+        margin-left: 1rem;
+    }
+    header ul a{
+        text-decoration: none;
+        color: white;
+       /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 1);*/
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        font-size: var(--fontsize);
+        font-weight: var(--font-weight);
+        overflow: hidden;
+    }
+    header .tracking{
+        display: flex;
+        flex-direction: column;
+}
+
+    header .mind{
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-bottom:none;
+        justify-content: center;
+        display: flex;
+      /*  transform: rotate(45deg);*/
+
+    }
+
+    header .schwimmen{
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        justify-content: center;
+        display: flex;
+    }
+    header .fitness{
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        border-top: none;
+        justify-content: center;
+        display: flex;
+     
+    }
+
+
 body{
     font-family: monospace,sans-serif;
     font-style: normal;
@@ -34,88 +132,7 @@ body{
     background-attachment: fixed;*/
 }
 
-main{
-    padding: 0;
-    margin: 0;
-    background: linear-gradient(to top, #0078bf 0%, white 1%);/*calc(100vh - var (--footer-height--)));*/
-}
 
-
-/* header start*/
-
-
-
-
-
-/*grid content start*/
-.parent {
-    display: grid;
-    grid-template-columns: repeat(12, minmax(12px, 1fr));
-    grid-template-rows: repeat(13, 1fr);
-    grid-column-gap: 0px;
-    grid-row-gap: 0px;
-    color: white;
-    width: 100vw;    
-    height: 93vh;
-    grid-gap: 5px;
-    overflow: hidden hidden;
-    padding: 20px;
-    margin: 0px;
-    margin-top: 7vh;
-}
-
-    
-.daughter{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px auto;
-    margin: 0px;
-    font-size: 2.5rem;
-    /*border-radius: 50%;
-    aspect-ratio: 1 /1;*/
-    overflow-wrap: break-word;
-    box-shadow: 0px 2px 10px rgb(0, 0, 0);
-    border-radius: 20px;
-    font-weight: bold;
-   
-    }
-
-.schwimmen{   /*row, column, row, column end - height - width */
-
-    grid-row: 1 / span 4;
-    grid-column: 2 / span 10;
-    background-color: #03b2cb;
-}
-/*
-heigt: 5vh;
-width: ratio 1:1;
-*/
-.kinder{
-    grid-column: 1 / span 6; /* width*/
-    grid-row: 5 / span 5; /* height*/
-    background-color: #e3711d;
-/*for the mind */ 
-/*background-color: #f39c89;*/
-}
-
-
-
-
-.familie{
-    grid-column: 7 / span 6; /* width*/
-    grid-row: 5 / span 5; /* height*/
-    background-color: green;
-}
-
-.erwachsene{
-    grid-column: 3 / span 8; /* width*/
-    grid-row: 10 / span 4; /* height*/
-    background-color: purple;
-   
-}
-
-/* grid content END*/
 
 /*Awesome grid start*/
 :root {
