@@ -13,30 +13,222 @@
 
 <body>
 <!--Grid Wordcloud start-->
-<div class="awesome-grid">
+<div class="awesome-grid" id="yourAwesomeGridElementId">
     
-    <div class="ani div1"> R-K</div>
-    <div class="ani div2"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">Swym</a></div>
-    <div class="ani div3"> yoga</div>
-    <div class="ani div4"><a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">K</a></div>
-    <div class="ani div5"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">F</a></div>
-    <div class="ani div6"><a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">E</a> </div>
-    <div class="ani div7"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">B</a></div>
-    <div class="ani div8"> Mind</div>
-    <div class="ani div9">Z </div>
-    <div class="ani div10"> Schach</div>
-    <div class="ani div11"> Med</div>
-    <div class="ani div12"> F</div>
-    <div class="ani div13"> F</div>
-    <div class="ani div14">F </div>
+    <div class="ani div1" id="div1"> R-K</div>
+    <div class="ani div2" id="div2"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">Swym</a></div>
+    <div class="ani div3" id="div3" > yoga</div>
+    <div class="ani div4" id="div4"><a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">K</a></div>
+    <div class="ani div5" id="div5"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">F</a></div>
+    <div class="ani div6" id="div6"><a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">E</a> </div>
+    <div class="ani div7" id="div7"> <a href="file:///C:/xampp/htdocs/xampp/grid-schwimmen.html">B</a></div>
+    <div class="ani div8" id="div8"> Mind</div>
+    <div class="ani div9" id="div9">Z </div>
+    <div class="ani div10" id="div10"> Schach</div>
+    <div class="ani div11" id="div11"> Med</div>
+    <div class="ani div12" id="div12"> F</div>
+    <div class="ani div13" id="div13"> F</div>
+    <div class="ani div14" id="div14">Fitness </div>
 
-    <!--<div class="div16">16 </div>
-    <div class="div17"> 17</div>-->
-    
+    <div class="center"> center</div>
+    <div class="topright">t-r</div>
+    <div class="topleft">t-l</div>
+    <div class="bottomleft">b-l</div>
+    <div class="bottomright"> b-r</div>
+    <div class="bottomcenter">b-c</div>
+    <div class="topcenter">t-c</div>
+    <div class="leftcenter">l-c</div>
+    <div class="rightcenter">r-c</div>
+
 </div>
-      <!--Grid Wordcloud end-->
 
+<style>
+       /*        .scaled-center {
+            display: grid;
+            transition: all 0.5s ease-in-out;
+            width: 200px;
+            height: 200px;
+            right: calc(50% - 100px);
+            top: calc(50% - 100px);
+        }*/
 
+        .topleft { grid-area: 1 / 1 / 5 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+        .bottomleft { grid-area: 9 / 1 / 13 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+          overflow: hidden;
+        }
+        .leftcenter { grid-area: 5 / 1 / 9 / 4; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;}
+        
+
+        .topright { grid-area: 1 / 10 / 5 / 13; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;}
+
+        .rightcenter { grid-area: 5 / 10 / 9 / 13;
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+        .bottomright { grid-area: 9 / 10 / 13 / 13; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+          word-wrap: break-word;
+}
+
+        .bottomcenter { grid-area: 10 / 4 / 13 / 10;
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius:5px;
+          align-items: center;
+          justify-content: center;}
+
+        .topcenter { grid-area: 1 / 4 / 4 / 10; 
+          background-color: #e3711d;
+          display: grid;
+          transition: opacity 0.7s ease;
+          opacity: 0;
+          z-index: 1;
+          pointer-events: none;
+          border-radius: 5px;
+          align-items: center;
+          justify-content: center;
+        }
+
+          .center { 
+          grid-area: 4 / 4 / 10 / 10; 
+          transition: all 0.5 ease-in-out;
+           background-color: red;
+          display: none;
+          
+        }
+    </style>
+    <!--best js code currently-->
+    <script>
+      let isScaled = false;
+      let savedGridArea = null; // Variable to store the original grid-area value
+    
+      function resetStylesForAllElements() {
+        const elementsToReset = document.querySelectorAll('.topcenter, .topright, .bottomright, .bottomleft,.bottomcenter,.leftcenter,.rightcenter,.topleft');
+        elementsToReset.forEach(function (element) {
+          element.style.opacity = ''; // Reset to default opacity
+        });
+      }
+    
+      function scaleAndCenter(element) {
+        const divElements = document.querySelectorAll('.ani');
+        const elementsToToggle = document.querySelectorAll('.topcenter, .topright, .bottomright, .bottomleft,.bottomcenter,.leftcenter,.rightcenter,.topleft');
+    
+        if (!element.classList.contains('center')) {
+          // Save the current grid-area value before hiding other elements
+          savedGridArea = element.style.gridArea;
+    
+          divElements.forEach(function (divElement) {
+            if (divElement !== element) {
+              divElement.style.display = 'none';
+            }
+          });
+    
+          element.classList.add('center');
+          element.style.display = 'grid';
+    
+          // Apply the dynamic grid-area style
+          element.style.gridArea = savedGridArea;
+    
+          isScaled = true;
+    
+          // Change the style of the elements when an .ani element is clicked
+          elementsToToggle.forEach(function (element) {
+            element.style.opacity = '1';
+          });
+        } else {
+          divElements.forEach(function (divElement) {
+            divElement.style.display = 'grid';
+          });
+    
+          // Restore the original grid-area value
+          element.style.gridArea = savedGridArea;
+    
+          element.classList.remove('center');
+    
+          isScaled = false;
+    
+          // Reset the style of the elements when the .ani element is unclicked
+          elementsToToggle.forEach(function (element) {
+            element.style.opacity = ''; // Reset to default opacity
+          });
+        }
+      }
+    
+      // Add event listeners to all elements with class 'ani'
+      const divElements = document.querySelectorAll('.ani');
+      divElements.forEach(function (divElement) {
+        divElement.addEventListener('click', function (event) {
+          scaleAndCenter(this);
+          event.stopPropagation(); // Prevent the click event from propagating to the document body
+        });
+      });
+    
+      // Add click event listener to the document body to reset elements and styles when body is clicked
+      document.body.addEventListener('click', function () {
+        divElements.forEach(function (divElement) {
+          divElement.style.display = 'grid'; // Reset the display style for all elements
+          divElement.classList.remove('center'); // Remove 'center' class from all elements
+        });
+        isScaled = false;
+        resetStylesForAllElements();
+      });
+    </script>
 
 <main>
 <!-- Schwimmen Content start-->
