@@ -1,4 +1,600 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <style>
+
+*{
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+  
+    body {
+      margin: 0;
+      font-family: 'Monospace';
+      overflow: hidden;
+        
+      background: linear-gradient(blue, transparent 15vh);
+      z-index: 9999;
+    }
+    nav {
+      background-color: transparent;
+      border-bottom: 1px solid lightgrey;
+      padding: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 7vh;
+    }
+    #logo {
+      font-size: 24px;
+    }
+    #nav-links {
+      display: flex;
+      flex-direction: column;
+    }
+    a {
+      text-decoration: none;
+      color: black;
+      margin-bottom: 5px;
+    }
+
+
+
+
+    #circles-container {
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(3, 1fr);
+      width: 100vw;
+      margin: auto;
+      align-items: center;
+      height: 83vh;
+      z-index:10;
+      transition:  0.5s ease-in-out;
+  
+    }
+
+.flexcircle-container1 {
+      display: flex;
+      justify-content: center;
+    position: relative;
+  height: 100%;
+  width: auto;
+  align-items: center;
+  
+}
+
+.flexcircle-container2 {
+  display: flex;
+  height: 100%;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.flexcircle-container3 {
+  display: flex;
+  height:100%;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+    .center { 
+      /*transform: scale(1.5) translateX(calc(50vw - 50% - 11rem/2)) translateY(calc(50vh - 50% - 11rem/2 - 7vh));*/
+      grid-area: 2 / 1 / 3 / 2;
+      transition: all 0.5s ease-in-out;
+    }
+
+
+
+    .main-circle {
+    
+      display: flex;
+      width: 11rem; /*with mediaquerie scaling*/
+      height: 11rem;
+      border-radius: 50%;
+      transition: all 0.5s ease-in-out;
+      
+      position: relative;   
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main-circle img{
+      height: 100%;
+      width: auto;
+      
+    }
+
+  #mind {
+  background-color: rgb(242, 85, 44);
+}
+
+#swym{
+/*background-image: url("jumpwater.jpg");*/
+background-color: #08d9f0;
+overflow:hidden;
+}
+
+#fitness{
+  background-color:rgb(0, 168, 107);
+}
+
+
+#mind-circle{
+  background-color: rgb(193, 68, 35);
+}
+#swym-circle{
+  background-color: rgb(0, 92, 125);
+}
+#fitness-circle{
+  background-color:rgb(51, 192, 141);
+}
+
+    .extra-circle {
+      display: flex ;
+      position: absolute;
+      height: 4rem;
+      width:4rem;
+      border-radius: 50%;
+      background-color: #12b62d;
+      justify-content: center;
+align-items: center;
+    }
+    /* Positioning extra circles around the main circle */
+
+/* Adjusted Positioning for extra circles */
+
+
+
+.top-left { top:1rem; left:3rem ;}
+.top-right { top:1rem ;  right: 3rem ;}
+.middle-left { left: 1rem; }
+.middle-right{ right: 1rem;}
+.bottom-left { bottom: 1rem; left: 3rem;}
+.bottom-right { bottom:1rem; right: 3rem;}
+
+/* current 
+.top-left { top:2rem; left:3rem ; 
+transform: translate(-50%, -50%);}
+.top-right { top:2rem ;  right: 3rem ;}
+.middle-left { left: 1rem; }
+.middle-right { right: 1rem;}
+.bottom-left { bottom: 1rem; left: 3rem;}
+.bottom-right { bottom:1rem; right: 3rem;}*/
+
+
+
+/*.top-left { top:-1.5rem; left:-1.5rem ; }
+.top-right { top:-1.5rem ;  right: -1.5rem ;}
+.middle-left { left: -3.5rem; }
+.middle-right { right: -3.5rem;}
+.bottom-left { bottom: -1.5rem; left: -1.5rem;}
+.bottom-right { bottom: -1.5rem; right: -1.5rem;}*/
+.klicked-container{
+  z-index: 50;
+  display: flex;
+  position: absolute;
+grid-template-columns: repeat(2, 1fr);
+grid-template-rows: 1fr;
+pointer-events: none;
+}
+.top-leftklick{
+  margin-top: 1rem;
+  border-radius: 10px;
+  display: block ;
+  position: fixed;
+  top: 8vh;
+  left: 1rem;
+  width: 10rem;
+  height: 10rem;
+  background-color:#12b62d;
+  opacity: 0;
+  
+}
+.top-rightklick{
+  display:block;
+  position: fixed;
+
+  background-color: red;
+
+  border-radius: 1rem;
+  width: 10rem;
+  height: 10rem;
+  top:8vh;
+  right: 1rem;
+  margin-top: 1rem;
+  opacity: 0;
+}
+
+
+  .middle-leftklick{
+  margin-top: 1rem;
+  border-radius: 10px;
+  display: block ;
+  position: fixed;
+  bottom: 1rem;
+  margin-bottom:4rem;
+  left: 1rem;
+  width: 10rem;
+  height: 10rem;
+  background-color:#f4f418;
+  opacity: 0;
+}
+.middle-rightklick{
+  display:block;
+  position: fixed;
+  border-radius: 10px;
+  background-color: red;
+  width: 10rem;
+  height: 10rem;
+  bottom:1rem;
+  right: 1rem;
+  margin-bottom: 4rem;
+background-color:#f4f418;
+opacity: 0;
+}
+
+
+.buchen{
+  display:block;
+  position: fixed;
+  border-radius: 10px;
+  background-color: red;
+  width: 7rem;
+  height: 3rem;
+  bottom:1rem;
+  right: 1rem;
+  margin-top: 1rem;
+background-color:#08d9f0;
+opacity: 1;
+}
+.back{
+  display:block;
+  position: fixed;
+  border-radius: 10px;
+  background-color: red;
+  width: 3rem;
+  height: 3rem;
+  bottom:1rem;
+  left: 1rem;
+  margin-top: 1rem;
+background-color:#08d9f0;
+pointer-events: all;
+opacity: 0;
+}
+
+
+section{
+  z-index: 1;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: rgb(245, 245, 245);
+  overflow: hidden;
+}
+section .air{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url(https://1.bp.blogspot.com/-xQUc-TovqDk/XdxogmMqIRI/AAAAAAAACvI/AizpnE509UMGBcTiLJ58BC6iViPYGYQfQCLcBGAsYHQ/s1600/wave.png);
+  background-size: 1000px 100px;
+
+}
+section .air.air1{
+  animation: wave 30s linear infinite;
+  z-index: 1000;
+  opacity: 1;
+  animation-delay: 0s;
+  bottom: 0;
+
+}
+section .air.air2{
+  animation: wave2 15s linear infinite;
+  z-index: 999;
+  opacity: 0.5;
+  animation-delay: -5s;
+  bottom: 10px;
+}
+section .air.air3{
+  animation: wave 30s linear infinite;
+  z-index: 998;
+  opacity: 0.2;
+  animation-delay: -2s;
+  bottom: 15px;
+}
+section .air.air4{
+  animation: wave2 5s linear infinite;
+  z-index: 997;
+  opacity: 0.7;
+  animation-delay: -5s;
+  bottom: 20px;
+}
+@keyframes wave{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: 1000px; 
+  }
+}
+@keyframes wave2{
+  0%{
+    background-position-x: 0px; 
+  }
+  100%{
+    background-position-x: -1000px; 
+  }
+}
+
+
+/*ripple effect*/
+
+.ripple {
+  z-index: 100;
+    position: fixed;
+    border-radius: 50%;
+    background: rgba(0, 0, 255, 0.7);
+    transform: scale(0);
+    pointer-events: none;
+}
+@keyframes ripple-animation {
+    to {
+      transform: scale(4);
+      opacity: 0;
+    }
+}
+
+.img-water{
+  height: 100%;
+  width: auto;
+}
+  </style>
+</head>
+<body>
+  <nav>
+    <div id="logo">Logo</div>
+    <div id="nav-links">
+      <a href="#mind">Mind</a>
+      <a href="#swym">Swym</a>
+      <a href="#fitness">Fitness</a>
+    </div>
+  </nav>
+
+<section>
+    <div class='air air1'></div>
+    <div class='air air2'></div>
+    <div class='air air3'></div>
+    <div class='air air4'></div>
+  
+  <div id="circles-container">
+    <div class="flexcircle-container1">
+        <div class="main-circle" id="mind">mind</div>
+          <div id="mind-circle" class="extra-circle top-left">tl</div>
+          <div id="mind-circle" class="extra-circle top-right">tr</div>
+          <div id="mind-circle" class="extra-circle middle-left">ml</div>
+          <div id="mind-circle" class="extra-circle middle-right">mr</div>
+          <div id="mind-circle" class="extra-circle bottom-left">bl</div>
+          <div id="mind-circle" class="extra-circle bottom-right">br</div>
+        
+      
+    </div> 
+
+    <div class="flexcircle-container2">
+      <div class="main-circle" id="swym"><img src="jumpwater.jpg"></div>
+        <div id="swym-circle" class="extra-circle top-left">tl</div>
+        <div id="swym-circle" class="extra-circle top-right">tr</div>
+        <div id="swym-circle" class="extra-circle middle-left">ml</div>
+        <div id="swym-circle" class="extra-circle middle-right">mr</div>
+        <div id="swym-circle" class="extra-circle bottom-left">bl</div>
+        <div id="swym-circle" class="extra-circle bottom-right">br</div>
+      
+    </div> 
+
+    <div class="flexcircle-container3">
+      <div class="main-circle" id="fitness">fitness</div>
+        <div id="fitness-circle" class="extra-circle top-left">tl</div>
+        <div id="fitness-circle" class="extra-circle top-right">tr</div>
+        <div id="fitness-circle" class="extra-circle middle-left">ml</div>
+        <div id="fitness-circle" class="extra-circle middle-right">mr</div>
+        <div id="fitness-circle" class="extra-circle bottom-left">bl</div>
+        <div id="fitness-circle" class="extra-circle bottom-right">br</div>
+      
+  </div>      
+
+
+</section>
+<div class="klicked-container">
+  <div class="top-leftklick">topleft</div>
+  <div class="top-rightklick">topright</div>
+  <div class="middle-leftklick">middle-left</div>
+  <div class="middle-rightklick">middle-right</div>
+  <div class="buchen">Buchen</div>
+  <div class="back">back</div>
+
+</div>
+
+</body>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+      let circleClicked = false; // Flag to check if any circle has been clicked
+  
+      // Function to handle the click event on a circle
+      function handleCircleClick(event) {
+          // Set the circleClicked flag to true
+          circleClicked = true;
+  
+          // Get all children of the "circles-container"
+          const allCircles = document.querySelectorAll('#circles-container > *');
+  
+          // Loop through all circles and remove the "center" class and set display to "none"
+          allCircles.forEach(circle => {
+              circle.classList.remove('center');
+              circle.style.display = 'none';
+              circle.style.transform = 'scale(1)'; // Reset the scale
+          });
+  
+          // Add the "center" class to the clicked circle and set its display to "flex"
+          event.currentTarget.style.display = 'flex';
+          event.currentTarget.classList.add('center');
+          event.currentTarget.style.transform = 'scale(1.5)';
+  
+          // Set opacity to 0 for all elements with the class "extra-circle"
+          const extraCircles = document.querySelectorAll('.extra-circle');
+          extraCircles.forEach(extraCircle => {
+              extraCircle.style.transition = 'opacity 0.5s';
+              extraCircle.style.opacity = '0';
+          });
+  
+          // Set opacity to 1 for the specified classes when a main circle is clicked
+          const classesToChangeOpacity = ['.top-leftklick', '.top-rightklick', '.middle-leftklick', '.middle-rightklick', '.back'];
+          classesToChangeOpacity.forEach(className => {
+              const elements = document.querySelectorAll(className);
+              elements.forEach(element => {
+                  element.style.transition = 'opacity 0.5s';
+                  element.style.opacity = '1';
+              });
+          });
+  
+          // Stop the event from bubbling up to the body
+          event.stopPropagation();
+      }
+  
+      // Function to handle the click event on elements with the class "back"
+      function handleBackClick() {
+          // Get all children of the "circles-container"
+          const allCircles = document.querySelectorAll('#circles-container > *');
+  
+          // Loop through all circles and remove the "center" class and set display to "flex"
+          allCircles.forEach(circle => {
+              circle.classList.remove('center');
+              circle.style.display = 'flex';
+              circle.style.transform = 'scale(1)'; // Reset the scale
+          });
+  
+          // Reset opacity for all elements with the class "extra-circle"
+          const extraCircles = document.querySelectorAll('.extra-circle');
+          extraCircles.forEach(extraCircle => {
+              extraCircle.style.opacity = '1';
+          });
+  
+          // Set opacity to 0 for the specified classes when the back button is clicked
+          const classesToChangeOpacity = ['.top-leftklick', '.top-rightklick', '.middle-leftklick', '.middle-rightklick', '.back'];
+          classesToChangeOpacity.forEach(className => {
+              const elements = document.querySelectorAll(className);
+              elements.forEach(element => {
+                  element.style.transition = 'opacity 0.5s';
+                  element.style.opacity = '0';
+              });
+          });
+      }
+  
+      // Add the click event listener to all children of the "circles-container"
+      const circles = document.querySelectorAll('#circles-container > *');
+      circles.forEach(circle => {
+          circle.addEventListener('click', handleCircleClick);
+      });
+  
+      // Add the click event listener to all elements with the class "back"
+      const backElements = document.querySelectorAll('.back');
+      backElements.forEach(element => {
+          element.addEventListener('click', handleBackClick);
+      });
+  });
+  </script>
+  
+  
+  
+
+</html>
+
+
+
+<!--<script>
+document.addEventListener('DOMContentLoaded', function() {
+    let circleClicked = false; // Flag to check if any circle has been clicked
+
+    // Function to handle the click event on a circle
+    function handleCircleClick(event) {
+        // Set the circleClicked flag to true
+        circleClicked = true;
+
+        // Get all children of the "circles-container"
+        const allCircles = document.querySelectorAll('#circles-container > *');
+
+        // Loop through all circles and remove the "center" class and set display to "none"
+        allCircles.forEach(circle => {
+            circle.classList.remove('center');
+            circle.style.display = 'none';
+            circle.style.transform = 'scale(1)'; // Reset the scale
+        });
+
+        // Add the "center" class to the clicked circle and set its display to "flex"
+        event.currentTarget.style.display = 'flex';
+        event.currentTarget.classList.add('center');
+        event.currentTarget.style.transform = 'scale(1.5)';
+        
+
+        // Set opacity to 0 for all elements with the class "extra-circle"
+        const extraCircles = document.querySelectorAll('.extra-circle');
+        extraCircles.forEach(extraCircle => {
+            extraCircle.style.transition = 'opacity 0.5s';
+            extraCircle.style.opacity = '0';
+        });
+
+        // Stop the event from bubbling up to the body
+        event.stopPropagation();
+    }
+
+    // Function to handle the click event on elements with the class "back"
+    function handleBackClick() {
+        // Get all children of the "circles-container"
+        const allCircles = document.querySelectorAll('#circles-container > *');
+
+        // Loop through all circles and remove the "center" class and set display to "flex"
+        allCircles.forEach(circle => {
+            circle.classList.remove('center');
+            circle.style.display = 'flex';
+            circle.style.transform = 'scale(1)'; // Reset the scale
+        });
+
+        // Reset opacity for all elements with the class "extra-circle"
+        const extraCircles = document.querySelectorAll('.extra-circle');
+        extraCircles.forEach(extraCircle => {
+            extraCircle.style.opacity = '1';
+        });
+    }
+
+    // Add the click event listener to all children of the "circles-container"
+    const circles = document.querySelectorAll('#circles-container > *');
+    circles.forEach(circle => {
+        circle.addEventListener('click', handleCircleClick);
+    });
+
+    // Add the click event listener to all elements with the class "back"
+    const backElements = document.querySelectorAll('.back');
+    backElements.forEach(element => {
+        element.addEventListener('click', handleBackClick);
+    });
+});
+
+</script>
+works great
+-->
+
+
+
+
+<!--<!DOCTYPE html>
 
 <html lang="de">
 <head>
@@ -143,7 +739,7 @@
 
 </body>
 </html> 
-
+-->
 
 
 
