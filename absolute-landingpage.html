@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Absolute LP</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+        body{
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            margin: 0;
+            padding: 0;
+        }
+        nav .logo{
+            max-width: 80%;
+            max-height: 80%;
+            border-radius: 50%;
+            background-color: rgb(255, 255, 255);
+            margin: 1px 0;
+        }
+        header{
+            width: 100%;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+            font-family: var(--font-family);
+            height: 10vh;
+            background-color: rgba(223, 66, 66, 0.5);
+        }
+        header nav{
+            max-width: 96%;
+            margin: 0 auto;
+            padding: 0 0.1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 10vh;
+        }
+        header ul{
+            display: flex;
+            list-style: none;
+        }
+        header ul li{
+            margin-left: 1rem;
+        }
+        header ul a{
+            text-decoration: none;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: var(--fontsize);
+            font-weight: var(--font-weight);
+            overflow: hidden;
+        }
+        header .tracking{
+            display: flex;
+            flex-direction: column;
+        }
+        header .mind{
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-bottom:none;
+            justify-content: center;
+            display: flex;
+        }
+        header .schwimmen{
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            justify-content: center;
+            display: flex;
+        }
+        header .fitness{
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-top: none;
+            justify-content: center;
+            display: flex;
+            overflow: hidden;
+        }
+        .container  {
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        #background::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -2;
+            transform: scale(var(--scale, 1));
+            transition: transform 0.3s ease;
+        }
+        #background {
+            background: none;
+        }
+        .absolute1{
+            display: block;
+            position: absolute;
+            margin: 5px auto;
+            top: 25vh;
+            background-color: red;
+            width: 50vw;
+            height: 50vw;
+            transform: translateY(-50%);
+            border-radius: 50%;
+        }
+        .absolute2{
+            display: block;
+            position: absolute;
+            top: 50vh;
+            margin: 5px auto;
+            background-color: green;
+            width: 50vw;
+            height: 50vw;
+            transform: translateY(-50%);
+            border-radius: 50%;
+
+        }
+        .absolute3{
+            display: block;
+            position: absolute;
+            top: 75vh;
+            margin: 5px auto;
+            background-color: blue;
+            width: 50vw;
+            height: 50vw;
+            transform: translateY(-50%);
+            border-radius: 50%;
+
+        }
+        @media screen and (min-width: 786px) {
+            .absolute1 {
+                top: 50vh;
+                left: 25vw;
+                width: 25vh;
+                height: 25vh;
+                transform: translate(-50%, -50%);
+                transition: left 0.9s ease, transform 1.3s ease; 
+            }
+            .absolute2 {                
+                top: 50vh;
+                left: 50vw;
+                width: 25vh;
+                height: 25vh;
+                transform: translate(-50%, -50%);
+                transition: transform 1.3s ease; 
+            }
+
+            .absolute3 {
+                top: 50vh;
+                right: 25vw;
+                width: 25vh;
+                height: 25vh;
+                transform: translateX(50%) translateY(-50%);
+                transition: right 0.9s ease, transform 1.3s ease; 
+            }
+        }
+        #first,
+        #second,
+        #third{
+            transition: top 0.9s ease, transform 1.3s ease; 
+        }
+        .buchen{
+            display:flex;
+            position: absolute;
+            border-radius: 10px;
+            background-color: red;
+            width: 7rem;
+            height: 3rem;
+            bottom:1rem;
+            right: 1rem;
+            margin-top: 1rem;
+            background-color:#08d9f0;
+            opacity: 1;
+        }
+        .back{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            border-radius: 10px;
+            background-color: red;
+            width: 3rem;
+            height: 3rem;
+            bottom:1rem;
+            left: 1rem;
+            margin-top: 1rem;
+            background-color:#08d9f0;
+        }
+        .klicked-container{
+            display: flex;
+            position: block;
+        }
+        .top-leftklick{
+            margin-top: 1rem;
+            border-radius: 10px;
+            display: flex ;
+            position: absolute;
+            top: 8vh;
+            left: 1rem;
+            width: 10rem;
+            height: 10rem;
+            background-color:#12b62d;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .top-rightklick{
+            display:flex;
+            position: absolute;
+            background-color: red;
+            border-radius: 1rem;
+            width: 10rem;
+            height: 10rem;
+            top:8vh;
+            right: 1rem;
+            margin-top: 1rem;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .middle-leftklick{
+            margin-top: 1rem;
+            border-radius: 10px;
+            display: flex ;
+            position: absolute;
+            bottom: 1rem;
+            margin-bottom:4rem;
+            left: 1rem;
+            width: 10rem;
+            height: 10rem;
+            background-color:#f4f418;
+            opacity: 0;
+            pointer-events: none;
+        }
+        .middle-rightklick{
+            display:flex;
+            position: absolute;
+            border-radius: 10px;
+            background-color: red;
+            width: 10rem;
+            height: 10rem;
+            bottom:1rem;
+            right: 1rem;
+            margin-bottom: 4rem;
+            background-color:#f4f418;
+            opacity: 0;
+            pointer-events: none;
+        }
+    </style>
+</head>
+
+<header>
+    <nav>
+        <img class="logo" src="images\swymi.jpg">
+        <ul class="tracking" id="tracking">
+            <li class="mind">
+                <a>Mind</a>
+            </li>
+            <li class="schwimmen" id="schwimmen">
+                <a>Schwimmen</a>
+            </li>
+            <li class="fitness" id="fitness">
+                <a>Fitness</a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<body>
+    <div class="container" id="background">
+        <div id="first" class="absolute1">1</div>
+        <div id="second" class="absolute2">2</div>
+        <div id="third" class="absolute3">3</div>
+        <button id="back" class="back">ZURÜCK</button>
+        <button class="buchen"> BUCHEN</button>
+    </div>
+
+    
+</body>
+
+
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+    const firstElement = document.getElementById("first");
+    const secondElement = document.getElementById("second");
+    const thirdElement = document.getElementById("third");
+    const backElement = document.getElementById("back");
+    const backgroundElement = document.getElementById("background");
+
+    const mediaQuery = window.matchMedia("(min-width: 786px)");
+
+    firstElement.addEventListener('click', function() {
+        if (mediaQuery.matches) {
+            firstElement.style.top = '50vh';
+            firstElement.style.left = "50vw";
+            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            secondElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+        } else {
+            firstElement.style.top = '50vh';
+            firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+            secondElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+    });
+
+    secondElement.addEventListener('click', function() {
+        if (mediaQuery.matches) {
+            secondElement.style.top = '50vh';
+            secondElement.style.left = "50vw";
+            secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            firstElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+        } else {
+            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+    });
+
+    thirdElement.addEventListener('click', function() {
+        if (mediaQuery.matches) {
+            thirdElement.style.top = '50vh';
+            thirdElement.style.right = "50vw";
+            thirdElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
+            firstElement.style.display = 'none';
+            secondElement.style.display = 'none';
+        } else {
+            thirdElement.style.top = '50vh';
+            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            secondElement.style.display = 'none';
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+    });
+
+    backElement.addEventListener('click', function() {
+        if (mediaQuery.matches) {
+            firstElement.style.top = '50vh';
+            firstElement.style.left = '25vw';
+            firstElement.style.transform = 'translate(-50%, -50%) scale(1)';
+            secondElement.style.top = '50vh';
+            secondElement.style.left = '50vw';
+            secondElement.style.transform = 'translate(-50%, -50%) scale(1)';
+            thirdElement.style.top = '50vh';
+            thirdElement.style.right = '25vw';
+            thirdElement.style.transform = 'translateX(50%) translateY(-50%) scale(1)';
+            firstElement.style.display = 'block';
+            secondElement.style.display = 'block';
+            thirdElement.style.display = 'block';
+        } else {
+            firstElement.style.top = '25vh';
+            firstElement.style.transform = 'translateY(-50%) scale(1)';
+            firstElement.style.display = 'block';
+            secondElement.style.transform = 'translateY(-50%) scale(1)';
+            secondElement.style.display = 'block';
+            thirdElement.style.top = '75vh';
+            thirdElement.style.transform = 'translateY(-50%) scale(1)';
+            thirdElement.style.display = 'block';
+        }
+        backgroundElement.style.setProperty('--scale', '1');
+    });
+});
+
+
+
+</script>
+
+<!-- 
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstElement = document.getElementById("first");
+        const secondElement = document.getElementById("second");
+        const thirdElement = document.getElementById("third");
+        const backElement = document.getElementById("back");
+        const backgroundElement = document.getElementById("background");
+
+        const mediaQuery = window.matchMedia("(min-width: 786px)");
+
+        firstElement.addEventListener('click', function() {
+    if (mediaQuery.matches) {
+        firstElement.style.top = '50vh';
+        firstElement.style.left = "50vw";
+        firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+
+    } else {
+        firstElement.style.top = '50vh';
+        firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+    }
+    secondElement.style.display = 'none';
+    thirdElement.style.display = 'none';
+    backgroundElement.style.setProperty('--scale', '1.5');
+
+});
+
+
+        secondElement.addEventListener('click', function() {
+            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+            backgroundElement.style.setProperty('--scale', '1.5');
+        });
+
+        thirdElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                thirdElement.style.right = "calc(50vw - 12.5vh)";
+            }
+            thirdElement.style.top = '50vh';
+            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            secondElement.style.display = 'none';
+            backgroundElement.style.setProperty('--scale', '1.5');
+        });
+
+        backElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                
+                firstElement.style.left = '25vw';
+
+    
+                thirdElement.style.right = '25vw';
+                thirdElement.style.bottom = '50vh';
+            }
+            
+            firstElement.style.top = '25vh';
+            firstElement.style.transform = 'translateY(-50%) scale(1)';
+            firstElement.style.display = 'block';
+            secondElement.style.transform = 'translateY(-50%) scale(1)';
+            secondElement.style.display = 'block';
+            thirdElement.style.top = '75vh';
+            thirdElement.style.transform = 'translateY(-50%) scale(1)';
+            thirdElement.style.display = 'block';
+            backgroundElement.style.setProperty('--scale', '1');
+        });
+    });
+</script> -->
+
+
+
+<!--
+
+<script>
+   
+    document.addEventListener('DOMContentLoaded', function() {
+        const firstElement = document.getElementById("first");
+        const secondElement = document.getElementById("second");
+        const thirdElement = document.getElementById("third");
+        const backElement = document.getElementById("back");
+        const backgroundElement = document.getElementById("background");
+
+        const mediaQuery = window.matchMedia("(min-width: 786px)");
+
+        firstElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                firstElement.style.top = '50vh';
+                firstElement.style.left = "calc(50vw - 12.5vh)";
+                firstElement.style.width = '25vh';
+                firstElement.style.height = '25vh';
+            }
+            
+            firstElement.style.transform = 'translateY(-50%) scale(1.5)';
+            secondElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+            backgroundElement.style.setProperty('--scale', '1.5');
+        });
+
+        secondElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                secondElement.style.width = '25vh';
+                secondElement.style.height = '25vh';
+            }
+            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            thirdElement.style.display = 'none';
+            backgroundElement.style.setProperty('--scale', '1.5');
+        });
+
+        thirdElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                thirdElement.style.top = '50vh';
+                thirdElement.style.right = '25vw';
+                thirdElement.style.width = '25vh';
+                thirdElement.style.height = '25vh';
+            }
+            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            firstElement.style.display = 'none';
+            secondElement.style.display = 'none';
+            backgroundElement.style.setProperty('--scale', '1.5');
+        });
+
+        backElement.addEventListener('click', function() {
+            if (mediaQuery.matches) {
+                firstElement.style.top = '';
+                firstElement.style.left = '';
+                firstElement.style.width = '';
+                firstElement.style.height = '';
+                secondElement.style.width = '';
+                secondElement.style.height = '';
+                thirdElement.style.top = '';
+                thirdElement.style.right = '';
+                thirdElement.style.width = '';
+                thirdElement.style.height = '';
+            }
+            firstElement.style.transform = 'translateY(-50%) scale(1)';
+            firstElement.style.display = 'block';
+            secondElement.style.transform = 'translateY(-50%) scale(1)';
+            secondElement.style.display = 'block';
+            thirdElement.style.transform = 'translateY(-50%) scale(1)';
+            thirdElement.style.display = 'block';
+            backgroundElement.style.setProperty('--scale', '1');
+        });
+    });
+</script>
+
+-->
+
+
+</html>
+
+
+
+
+
+
