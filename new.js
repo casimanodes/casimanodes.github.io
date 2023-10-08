@@ -1,6 +1,4 @@
 
-
-<script>
     document.addEventListener('DOMContentLoaded', function() {
     const firstElement = document.getElementById("first");
     const secondElement = document.getElementById("second");
@@ -86,5 +84,3 @@
 });
 
 
-
-</script>
