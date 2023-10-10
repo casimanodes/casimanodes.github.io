@@ -1,4 +1,4 @@
-       *{
+ *{
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -23,6 +23,7 @@
             width: 100%;
             border-bottom: 1px solid rgba(255, 255, 255, 0.5);
             font-family: var(--font-family);
+            
             height: 10vh;
             background-color: rgba(223, 66, 66, 0.5);
         }
@@ -34,10 +35,13 @@
             justify-content: space-between;
             align-items: center;
             height: 10vh;
+            
         }
         header ul{
+            height: 10vh;
             display: flex;
             list-style: none;
+            
         }
         header ul li{
             margin-left: 1rem;
@@ -52,26 +56,33 @@
             overflow: hidden;
         }
         header .tracking{
+            right: 30%;
+            position: absolute;
             display: flex;
             flex-direction: column;
-        }
-        header .mind{
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-bottom:none;
             justify-content: center;
-            display: flex;
+            height: 3.8em;
         }
-        header .schwimmen{
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            justify-content: center;
+        header #wordMind{
             display: flex;
+            font-size: 1rem;
+            position: absolute;
+            top: 0em;
+            line-height: 1.2em;
         }
-        header .fitness{
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            border-top: none;
-            justify-content: center;
+        header #wordSwym{
             display: flex;
-            overflow: hidden;
+            font-size: 1rem;
+            line-height: 1.2em;
+            position: absolute;
+            top: 1.2em;
+        }
+        header #wordFitness{
+            display: flex;
+            font-size: 1rem;
+            line-height: 1.2em;
+        position: absolute;
+        top: 2.4em;
         }
         .container  {
             height: 100%;
@@ -149,6 +160,8 @@
             background-position: center;
         }
 
+
+
        .picture img {
     display: flex;
     justify-content: center; /* Center horizontally */
@@ -163,6 +176,11 @@
 
 
         @media screen and (min-width: 786px) {
+            .absolute1:hover,
+        .absolute2:hover,
+        .absolute3:hover{
+        top: 48%;
+        }
             .absolute1 {
                 top: 50vh;
                 left: 25vw;
@@ -170,6 +188,7 @@
                 height: 25vh;
                 transform: translate(-50%, -50%);
                 transition: left 0.9s ease, transform 1.3s ease; 
+
             }
             .absolute2 {                
                 top: 50vh;
@@ -186,7 +205,7 @@
                 width: 25vh;
                 height: 25vh;
                 transform: translateX(50%) translateY(-50%);
-                transition: right 0.9s ease, transform 1.3s ease; 
+                transition: left 0.9s ease, transform 1.3s ease; 
             }
             #first{
                 transition: left 0.9s ease, transform 1.3s ease;}
@@ -195,9 +214,10 @@
 
         }
         #third{
-            transition: right 0.9s ease, transform 1.3s ease; 
+            transition: left 0.9s ease, transform 1.3s ease; 
         }
         }
+
         #first,
         #second,
         #third{
@@ -293,3 +313,6 @@
             opacity: 1;
             pointer-events: none;
         }
+#wordMind, #wordSwym, #wordFitness {
+    transition: top 0.5s; /* This will animate the top property over 0.5 seconds */
+}
