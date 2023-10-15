@@ -5,32 +5,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const thirdElement = document.getElementById("third");
     const backElement = document.getElementById("back");
     const backgroundElement = document.getElementById("background");
-    const clickedContainer = document.querySelector('.klicked-container'); // Assuming the class name is 'clicked-container'
+    const clickedContainer = document.querySelectorAll(".top-leftklick, .top-rightklick, .middle-leftklick, .middle-rightklick"); 
 
+    const mrContent = document.querySelector(".mrContent");
     const mediaQuery = window.matchMedia("(min-width: 786px)");
 
     let linkEnabledFirst = false;
     let linkEnabledSecond = false;
     let linkEnabledThird = false;
 
-    function handleCircleClick() {
-        clickedContainer.style.opacity = '1'; // Set opacity of clicked-container to 1
-
-        const extraCircles = document.querySelectorAll('.smallcircle');
-        extraCircles.forEach(extraCircle => {
-            extraCircle.style.transition = 'opacity 0.5s';
-            extraCircle.style.opacity = '0';
-        });
-
-        const classesToChangeOpacity = ['.top-leftklick', '.top-rightklick', '.middle-leftklick', '.middle-rightklick', '.back'];
-        classesToChangeOpacity.forEach(className => {
-            const elements = document.querySelectorAll(className);
-            elements.forEach(element => {
-                element.style.transition = 'opacity 0.5s';
-                element.style.opacity = '1';
-            });
-        });
-    }
 
     firstElement.addEventListener('click', function() {
         if (linkEnabledFirst) {
@@ -41,15 +24,27 @@ document.addEventListener('DOMContentLoaded', function() {
             firstElement.style.top = '50vh';
             firstElement.style.left = "50vw";
             firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            secondElement.style.display = 'none';
-            thirdElement.style.display = 'none';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
             linkEnabledFirst = true;
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            // mrContent = "mind";
+            document.querySelector('.mr-content').innerHTML = 'Heading for Item 3'
+        });
         } else {
             firstElement.style.top = '50vh';
             firstElement.style.transform = 'translateY(-50%)scale(1.5)';
-            secondElement.style.display = 'none';
-            thirdElement.style.display = 'none';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
             linkEnabledFirst = true;
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            document.querySelector('.mr-content').innerHTML = 'Heading for Item 3'
+
+        });
         }
         backgroundElement.style.setProperty('--scale', '1.5');
         handleCircleClick();
@@ -64,17 +59,28 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.top = '50vh';
             secondElement.style.left = "50vw";
             secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            firstElement.style.display = 'none';
-            thirdElement.style.display = 'none';
+            firstElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            linkEnabledSecond = true;
+        });
         } else {
             secondElement.style.transform = 'translateY(-50%) scale(1.5)';
-            firstElement.style.display = 'none';
-            thirdElement.style.display = 'none';
+            firstElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            linkEnabledSecond = true;
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
             linkEnabledSecond = true;
 
+        });
         }
         backgroundElement.style.setProperty('--scale', '1.5');
         handleCircleClick();
+         
     });
 
     thirdElement.addEventListener('click', function() {
@@ -83,18 +89,32 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-            thirdElement.style.top = '50vh';
-            thirdElement.style.right = "50vw";
-            thirdElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
-            firstElement.style.display = 'none';
-            secondElement.style.display = 'none';
+           
+            thirdElement.style.left = "50vw";
+            thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            // firstElement.style.pointerEvents = 'none';
+            
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            linkEnabledThird = true;
+
+        });
         } else {
             thirdElement.style.top = '50vh';
             thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
-            firstElement.style.display = 'none';
-            secondElement.style.display = 'none';
+
+            linkEnabledThird = true;
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
             linkEnabledThird = true;
 
+        });
         }
         backgroundElement.style.setProperty('--scale', '1.5');
         handleCircleClick();
@@ -103,18 +123,26 @@ document.addEventListener('DOMContentLoaded', function() {
     backElement.addEventListener('click', function() {
         
         if (mediaQuery.matches) {
-            firstElement.style.top = '50vh';
+           
             firstElement.style.left = '25vw';
             firstElement.style.transform = 'translate(-50%, -50%) scale(1)';
-            secondElement.style.top = '50vh';
+
             secondElement.style.left = '50vw';
             secondElement.style.transform = 'translate(-50%, -50%) scale(1)';
-            thirdElement.style.top = '50vh';
-            thirdElement.style.right = '25vw';
-            thirdElement.style.transform = 'translateX(50%) translateY(-50%) scale(1)';
-            firstElement.style.display = 'block';
-            secondElement.style.display = 'block';
-            thirdElement.style.display = 'block';
+
+            thirdElement.style.left = '75vw';
+            thirdElement.style.transform = 'translateX(-50%) translateY(-50%) scale(1)';
+
+            firstElement.style.opacity = '1';
+
+            secondElement.style.opacity = '1';
+
+            thirdElement.style.opacity = '1';
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(0)';
+
+        });
             linkEnabledFirst = false;
             linkEnabledSecond = false;
             linkEnabledThird = false;
@@ -126,19 +154,34 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             firstElement.style.top = '25vh';
             firstElement.style.transform = 'translateY(-50%) scale(1)';
-            firstElement.style.display = 'block';
+
+            firstElement.style.opacity = '1';
             secondElement.style.transform = 'translateY(-50%) scale(1)';
-            secondElement.style.display = 'block';
+
+            secondElement.style.opacity = '1';
             thirdElement.style.top = '75vh';
             thirdElement.style.transform = 'translateY(-50%) scale(1)';
-            thirdElement.style.display = 'block';
+
+            thirdElement.style.opacity = '1';
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(0)';
+
+        }); 
+                    /*wordbullet resets*/
+                    wordMind.style.fontWeight = 'normal';
+        wordSwym.style.fontWeight = 'normal';
+        wordFitness.style.fontWeight = 'normal';
+        wordFitness.style.textDecoration = "none";
+        wordSwym.style.textDecoration = "none";
+        wordMind.style.textDecoration = "none";
+
+        /*link reset*/
             linkEnabledFirst = false;
             linkEnabledSecond = false;
             linkEnabledThird = false;
         }
         backgroundElement.style.setProperty('--scale', '1');
         linkEnabledFirst = false;
-        clickedContainer.style.opacity = '0'; // Reset opacity of clicked-container to 0
     });
 });
 
@@ -168,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function() {
             swapPositions(wordMind, currentMiddleWord());
             resetFontWeights();
             wordMind.style.fontWeight = 'bold';
+            wordMind.style.textDecoration = "underline";
+            wordMind.style.textDecorationColor = "white";
         }
     });
 
@@ -176,6 +221,8 @@ document.addEventListener('DOMContentLoaded', function() {
             swapPositions(wordSwym, currentMiddleWord());
             resetFontWeights();
             wordSwym.style.fontWeight = 'bold';
+            wordSwym.style.textDecoration = "underline";
+            wordSwym.style.textDecorationColor = "white";
         }
     });
 
@@ -184,6 +231,9 @@ document.addEventListener('DOMContentLoaded', function() {
             swapPositions(wordFitness, currentMiddleWord());
             resetFontWeights();
             wordFitness.style.fontWeight = 'bold';
+            wordFitness.style.textDecoration = "underline";
+            wordFitness.style.textDecorationColor = "white";
+            
         }
     });
 
@@ -206,139 +256,18 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 /*wordbullet end*/
-// document.addEventListener('DOMContentLoaded', function() {
-//     const firstElement = document.getElementById("first");
-//     const secondElement = document.getElementById("second");
-//     const thirdElement = document.getElementById("third");
-//     const backElement = document.getElementById("back");
-//     const backgroundElement = document.getElementById("background");
-//     const clickedContainer = document.querySelector('.klicked-container'); // Assuming the class name is 'clicked-container'
 
-//     const mediaQuery = window.matchMedia("(min-width: 786px)");
 
-//     let linkEnabledFirst = false;
-//     let linkEnabledSecond = false;
-//     let linkEnabledThird = false;
+/*navbar start*/
+const toggler = document.querySelector('.menu__toggler');
+const menu    = document.querySelector('.menu');
 
-//     function handleCircleClick() {
-//         clickedContainer.style.opacity = '1'; // Set opacity of clicked-container to 1
-
-//         const extraCircles = document.querySelectorAll('.smallcircle');
-//         extraCircles.forEach(extraCircle => {
-//             extraCircle.style.transition = 'opacity 0.5s';
-//             extraCircle.style.opacity = '0';
-//         });
-
-//         const classesToChangeOpacity = ['.top-leftklick', '.top-rightklick', '.middle-leftklick', '.middle-rightklick', '.back'];
-//         classesToChangeOpacity.forEach(className => {
-//             const elements = document.querySelectorAll(className);
-//             elements.forEach(element => {
-//                 element.style.transition = 'opacity 0.5s';
-//                 element.style.opacity = '1';
-//             });
-//         });
-//     }
-
-//     firstElement.addEventListener('click', function() {
-//         if (linkEnabledFirst) {
-//             window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
-//             return;
-//         }
-//         if (mediaQuery.matches) {
-//             firstElement.style.top = '50vh';
-//             firstElement.style.left = "50vw";
-//             firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-//             secondElement.style.display = 'none';
-//             thirdElement.style.display = 'none';
-//         } else {
-//             firstElement.style.top = '50vh';
-//             firstElement.style.transform = 'translateY(-50%)scale(1.5)';
-//             secondElement.style.display = 'none';
-//             thirdElement.style.display = 'none';
-//             linkEnabledFirst = true;
-//         }
-//         backgroundElement.style.setProperty('--scale', '1.5');
-//         handleCircleClick();
-//     });
-
-//     secondElement.addEventListener('click', function() {
-//         if (linkEnabledSecond) {
-//             window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388b312-69de-11e8-bdc6-02bd505aa7b2";
-//             return;
-//         }
-//         if (mediaQuery.matches) {
-//             secondElement.style.top = '50vh';
-//             secondElement.style.left = "50vw";
-//             secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-//             firstElement.style.display = 'none';
-//             thirdElement.style.display = 'none';
-//         } else {
-//             secondElement.style.transform = 'translateY(-50%) scale(1.5)';
-//             firstElement.style.display = 'none';
-//             thirdElement.style.display = 'none';
-//             linkEnabledSecond = true;
-
-//         }
-//         backgroundElement.style.setProperty('--scale', '1.5');
-//         handleCircleClick();
-//     });
-
-//     thirdElement.addEventListener('click', function() {
-//         if (linkEnabledThird) {
-//             window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b38743da-69de-11e8-bdc6-02bd505aa7b2";
-//             return;
-//         }
-//         if (mediaQuery.matches) {
-//             thirdElement.style.top = '50vh';
-//             thirdElement.style.right = "50vw";
-//             thirdElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
-//             firstElement.style.display = 'none';
-//             secondElement.style.display = 'none';
-//         } else {
-//             thirdElement.style.top = '50vh';
-//             thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
-//             firstElement.style.display = 'none';
-//             secondElement.style.display = 'none';
-//             linkEnabledThird = true;
-
-//         }
-//         backgroundElement.style.setProperty('--scale', '1.5');
-//         handleCircleClick();
-//     });
-
-//     backElement.addEventListener('click', function() {
-//         if (mediaQuery.matches) {
-//             firstElement.style.top = '50vh';
-//             firstElement.style.left = '25vw';
-//             firstElement.style.transform = 'translate(-50%, -50%) scale(1)';
-//             secondElement.style.top = '50vh';
-//             secondElement.style.left = '50vw';
-//             secondElement.style.transform = 'translate(-50%, -50%) scale(1)';
-//             thirdElement.style.top = '50vh';
-//             thirdElement.style.right = '25vw';
-//             thirdElement.style.transform = 'translateX(50%) translateY(-50%) scale(1)';
-//             firstElement.style.display = 'block';
-//             secondElement.style.display = 'block';
-//             thirdElement.style.display = 'block';
-//             linkEnabledFirst = false;
-//             linkEnabledSecond = false;
-//             linkEnabledThird = false;
-//         } else {
-//             firstElement.style.top = '25vh';
-//             firstElement.style.transform = 'translateY(-50%) scale(1)';
-//             firstElement.style.display = 'block';
-//             secondElement.style.transform = 'translateY(-50%) scale(1)';
-//             secondElement.style.display = 'block';
-//             thirdElement.style.top = '75vh';
-//             thirdElement.style.transform = 'translateY(-50%) scale(1)';
-//             thirdElement.style.display = 'block';
-//             linkEnabledFirst = false;
-//             linkEnabledSecond = false;
-//             linkEnabledThird = false;
-//         }
-//         backgroundElement.style.setProperty('--scale', '1');
-//         linkEnabledFirst = false;
-//         clickedContainer.style.opacity = '0'; // Reset opacity of clicked-container to 0
-//     });
-// });
+/*
+ * Toggles on and off the 'active' class on the menu
+ * and the toggler button.
+ */
+toggler.addEventListener('click', () => {
+  toggler.classList.toggle('active');
+  menu.classList.toggle('active');
+})
 
