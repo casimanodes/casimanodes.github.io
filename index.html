@@ -2,15 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Swym LandingPage vscode</title>
+    <title>Absolute LP</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="landingpage.css">
-    
+    <!-- <link rel="stylesheet" href="absolute-landingpage.css"> -->
+    <link rel="stylesheet" href="absoluteLandingpage.css">
+        <!-- <link rel="stylesheet" href="safehtml.css"> -->
+
+
 </head>
 
 <body>
-    <header>
+    <header id="scroll-tag">
         <nav>
             <img class="logo" src="images\swymi.jpg">
             <ul class="tracking">
@@ -23,6 +26,9 @@
                 <li id="wordFitness">
                     <a>Fitness</a>
                 </li>
+                <li id="wordEvent">
+                    <a>Event</a>
+                </li>
             </ul>
 
             <div class="menu__toggler">
@@ -31,36 +37,57 @@
 
         </nav>
     </header>
-
-
-   
-
-
-
+    <!-- Navbar content -->
     <div class="menu">
-    
-    <p>Partner</p>
-    <p>Coockies coming soon</p>
-    <p>AGB</p>
-    <p>Buchen</p>
+        <p>Partner</p>
+        <p>Coockies coming soon</p>
+        <p>AGB</p>
+        <p>Buchen</p>
     </div>
  <!-- header end -->
 
-
  <!-- main content start  -->
 <main>
+    <div id="circle4">
+        <!-- MIND -->
+        <div id="first1" class="absolute1">
+            <img id="fingerTap" src="file:///C:/Users/cassk/Downloads/icons8-tap.gif" alt="Click Here" />
+            
+            <h3>Mind</h3>
+            <!-- <a href="https://www.eversports.de/widget/w/1_KoYk"></a> -->
+            <div class="innercircle"></div>
+            
+        </div>
+        <a href="https://www.eversports.de/widget/w/1_KoYk"><div class="babsolute1 disappear">Buchen</div></a>
 
-    <img id="fingerTap" src="file:///C:/Users/cassk/Downloads/icons8-tap.gif" alt="Click Here" />
-       
-        <div id="first" class="absolute1"></div>
-        <div id="second" class="absolute2"></div>
-        <div id="third" class="absolute3"></div>
-        <button id="back" class="back">ZURÜCK</button>
+        <!-- SWYM -->
+        <div id="second2" class="absolute2">
+            <a href="https://www.eversports.de/widget/w/1_KoYk"></a><div class="babsolute2 disappear">Buchen</div></a>
+            <h3>Swym</h3>
+            <div class="innercircle2"></div>     
+        </div>
+        
+        <!-- FITNESS -->
+        <div id="third3" class="absolute3">
+            <a href="https://www.eversports.de/widget/w/1_KoYk"><div class="babsolute3 disappear">Buchen</div></a>
+            <h3>Fitness</h3>
+            <div class="innercircle3"></div>
+        </div>
+
+        <!-- EVENTS -->
+        <div id="fourth4" class="absolute4"> <!-- Big circle-->
+            <a href="https://www.eversports.de/widget/w/1_KoYk"><div class="babsolute4 disappear">Buchen</div></a><!-- buttons for booking babsolute -->
+            <h3>Events</h3>
+            <div class="innercircle4"></div><!--Picture Container-->
+        </div>
+
+        <!-- Buttons zum zurück gehen und Buchen -->
+        <button id="back1" class="back1">ZURÜCK</button>
         <a href="https://www.eversports.de/widget/w/1_KoYk"><button class="buchen"> BUCHEN</button></a>
     
 
 
-        <!-- top leftklick -->
+        <!-- top left Content -->
         <div class="top-leftklick">
             <div class="swym-content">
                 <!-- <h3>Kurse</h3> -->
@@ -79,6 +106,7 @@
                     <li>Mind</li>
                 </ul>
             </div>
+
             <div class="fitness-content">
                 <!-- <h3>Fitness</h3> -->
                 <ul>
@@ -87,7 +115,13 @@
                     <li>Fitness</li>
                 </ul>
             </div>
-            
+            <div class="event-content">
+                <ul>
+                    <li>Event</li>
+                    <li>Event</li>
+                    <li>Event</li>
+                </ul>
+            </div>
         </div>
 
         <!-- top rightklick -->
@@ -115,6 +149,13 @@
                     <li>Fitness</li>
                     <li>Fitness</li>
                     <li>Fitness</li>
+                </ul>
+            </div>
+            <div class="event-content">
+                <ul>
+                    <li>Event</li>
+                    <li>Event</li>
+                    <li>Event</li>
                 </ul>
             </div>
         </div>
@@ -145,17 +186,30 @@
                     <li>Fitness</li>
                 </ul>
             </div> 
+            <div class="event-content">
+                <ul>
+                    <li>Event</li>
+                    <li>Event</li>
+                    <li>Event</li>
+                </ul>
+            </div>
         </div>
 
         <!-- middle rightklick -->
         <div class="middle-rightklick">
             <div class="swym-content">
-                <!-- <h3>Swym</h3> -->
-                <ul>
-                    <li>Functional Training</li>
-                    <li>HIIT</li>
-                    <li>TRX</li>
-                </ul>
+                <h4>Swym</h4><br>
+                    <p>Text1
+                        Text2
+                    </p>
+                    <!-- <p>Text1</p>
+                    <p>Text1</p> -->
+                    
+                    <ul>
+                        <li>Functional Training</li>
+                        <li>HIIT</li>
+                        <li>TRX</li>
+                    </ul>
             </div>
 
             <div class="mind-content">
@@ -175,11 +229,203 @@
                     <li>Fitness</li>
                 </ul>
             </div>
+            <div class="event-content">
+                <ul>
+                    <li>Event</li>
+                    <li>Event</li>
+                    <li>Event</li>
+                </ul>
+            </div>
         </div>
 
 
+    </div>
 
+<!-- Zweiter Abschnitt!!! -->
+
+    <div class="second-container">
+        
+            <!-- <img id="fingerTap" src="file:///C:/Users/cassk/Downloads/icons8-tap.gif" alt="Click Here" /> -->
+            <header id="second-header">
+                <nav id="header3">
+                    <img class="logo3" src="images\swymi.jpg">
+                    <ul class="tracking3">
+                        <li id="wordMind3">
+                            <a>Mind</a>
+                        </li>
+                        <li id="wordSwym3">
+                            <a>Swym</a>
+                        </li>
+                        <li id="wordFitness3">
+                            <a>Fitness</a>
+                        </li>
+                    </ul>
+        
+                    <div class="menu__toggler3">
+                        <span></span>
+                    </div>
+        
+                </nav>
+        
+            </header>
+
+            <div class="menu3">
+                <!-- <button id="toggleButton">Toggle</button> -->
+            <p>Partner</p>
+            <p>Coockies coming soon</p>
+
+            <a href="C:\xampp\htdocs\xampp\AGB-Swym.html"><button>AGB</button></a>
+            </div>
+
+            <div id="circle3">
+                <div id="first" class="simon1"></div>
+                <div id="second" class="simon2"></div>
+                <div id="third" class="simon3"></div>
+                <button id="back" class="back">ZURÜCK</button>
+                <a href="https://www.eversports.de/widget/w/1_KoYk"><button class="buchen"> BUCHEN</button></a>
+            
+                <button id="prevBtn"> <-</button>
+                <button id="nextBtn">-></button>
+                <button id="prevBtn2"> <-</button>
+                <button id="nextBtn2">-></button>
+                <button id="prevBtn3"> <-</button>
+                <button id="nextBtn3">-></button>
+                <!-- top leftklick -->
+                <div class="top-leftklick1">
+                    <div class="swym-content">
+                        <!-- <h3>Kurse</h3> -->
+                        <ul>
+                            <li>Vorschule</li>
+                            <li>Schwimmlernkurs</li>
+                            <li>Seepferdchenkurs</li>
+                        </ul>
+                    </div>
+        
+                    <div class="mind-content">
+                        <!-- <h3>Mind</h3> -->
+                        <ul>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                        </ul>
+                    </div>
+                    <div class="fitness-content">
+                        <!-- <h3>Fitness</h3> -->
+                        <ul>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                        </ul>
+                    </div>
+                    
+                </div>
+        
+                <!-- top rightklick -->
+                <div class="top-rightklick1">
+                    <div class="swym-content">
+                        <!-- <h3>Clubs</h3> -->
+                        <ul>
+                            <li>Club 3</li>
+                            <li>Club 4</li>
+                            <li>Club 5</li>
+                        </ul>
+                    </div>
+        
+                    <div class="mind-content">
+                        <!-- <h3>Mind</h3> -->
+                        <ul>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                        </ul>
+                    </div>
+                    <div class="fitness-content">
+                        <!-- <h3>Fitness</h3> -->
+                        <ul>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                        </ul>
+                    </div>
+                </div>
+        
+                <!-- middle leftklick -->
+                <div class="middle-leftklick1">
+                    <div class="swym-content">
+                        <!-- <h3>Clubs</h3> -->
+                        <ul>
+                            <li>swym</li>
+                            <li>swym</li>
+                            <li>swym</li>
+                        </ul>
+                    </div>   
+                    <div class="mind-content">
+                        <!-- <h3>Mind</h3> -->
+                        <ul>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                        </ul>
+                    </div>
+                    <div class="fitness-content">
+                        <!-- <h3>Fitness</h3> -->
+                        <ul>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                        </ul>
+                    </div> 
+                </div>
+        
+                <!-- middle rightklick -->
+                <div class="middle-rightklick1">
+                    <div class="swym-content">
+                        <!-- <h3>Swym</h3> -->
+                        <ul>
+                            <li>Functional Training</li>
+                            <li>HIIT</li>
+                            <li>TRX</li>
+                        </ul>
+                    </div>
+        
+                    <div class="mind-content">
+                        <!-- <h3>Mind</h3> -->
+                        <ul>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                            <li>Mind</li>
+                        </ul>
+                    </div>
+        
+                    <div class="fitness-content">
+                        <!-- <h3>Fitness</h3> -->
+                        <ul>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                            <li>Fitness</li>
+                        </ul>
+                    </div>
+                </div>
+        
+        
+            </div>
+        
+        
+            <!-- <div id="cookieConsentBanner" class="cookie-consent-banner">
+                <p>Diese Website verwendet Cookies. Weitere Informationen zu den Cookie-Arten 
+                    finden sich unter den jeweiligen Kategorien. Dort lassen sich auch einzelne 
+                    Cookies aktivieren. Die Cookie-Einstellungen können jederzeit über den Link 
+                    im Footer dieser Website angepasst werden.</p>
+                <button id="acceptCookieConsent" class="cookie-btn">Accept</button>
+              </div>
+         -->
+    </div> 
 </main>
+
+
+
+
 </body>
+
     <script src="Landingpage.js"></script>
 </html>
