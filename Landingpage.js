@@ -1,12 +1,551 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const firstElement = document.getElementById("first");
-    const secondElement = document.getElementById("second");
-    const thirdElement = document.getElementById("third");
-    const backElement = document.getElementById("back");
+    const firstElement = document.getElementById("first1");
+    const secondElement = document.getElementById("second2");
+    const thirdElement = document.getElementById("third3");
+    const fourthElement = document.getElementById("fourth4");
+    
+    const disappear = document.querySelectorAll(".disappear");
+    const backElement = document.getElementById("back1");
     const backgroundElement = document.getElementById("background");
     const clickedContainer = document.querySelectorAll(".top-leftklick, .top-rightklick, .middle-leftklick, .middle-rightklick"); 
 
     const mrContent = document.querySelector(".mrContent");
+    const mediaQuery = window.matchMedia("(min-width: 786px)");
+
+
+    /*mind/swym/fitness-content toggle*/
+    // let mindcontent = document.getElementById("mind-content-container");
+    // let swymcontent = document.getElementById("swym-content-container");
+    // let fitnesscontent = document.getElementById("fitness-content-container");
+    // let contentContainer = document.getElementById("content-container");
+
+    const swymContent = document.querySelectorAll('.swym-content');
+    const mindContent = document.querySelectorAll('.mind-content');
+    const fitnessContent = document.querySelectorAll('.fitness-content');
+    const eventContent = document.querySelectorAll('.event-content');
+    let linkEnabledFirst = false;
+    let linkEnabledSecond = false;
+    let linkEnabledThird = false;
+    const firstInnerCircle = document.querySelector('.innercircle')
+    const secondInnerCircle = document.querySelector('.innercircle2')
+    const thirdInnerCircle = document.querySelector('.innercircle3')
+    const fourthInnerCircle = document.querySelector('.innercircle4')
+    const header = document.querySelector('header');
+
+    firstElement.addEventListener('click', function() {
+        if (linkEnabledFirst) {
+            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
+            return;
+        }
+        if (mediaQuery.matches) {
+            firstElement.style.top = '50vh';
+            firstElement.style.left = "50vw";
+            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            linkEnabledFirst = true;
+            // secondElement.style.pointerEvents = 'none';
+
+
+
+
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
+
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+
+
+        });
+        } else {
+            firstInnerCircle.style.height = '100%';
+            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            firstElement.style.top = '50vh';
+            firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
+            
+            linkEnabledFirst = true;
+            thirdElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
+
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            
+            });
+            
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';          
+        });
+
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+        handleCircleClick();
+    });
+
+    secondElement.addEventListener('click', function() {
+        if (linkEnabledSecond) {
+            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388b312-69de-11e8-bdc6-02bd505aa7b2";
+            return;
+        }
+        if (mediaQuery.matches) {
+            secondElement.style.top = '50vh';
+            secondElement.style.left = "50vw";
+            secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            firstElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            linkEnabledSecond = true;
+
+            swymContent.forEach(content => {
+             content.style.display = "flex";
+                });
+        });
+        } else {
+            secondInnerCircle.style.height = '100%';/*changes*/
+            header.style.backgroundColor = 'rgb(0, 125, 195)';
+
+
+            secondElement.style.top = '50vh';
+            secondElement.style.transform = 'translateY(-50%) scale(1.7)';/*changes*/
+            firstElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
+
+            firstElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
+
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            });
+            swymContent.forEach(content => {
+            content.style.display = "flex";
+            });
+            linkEnabledSecond = true;
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+        });
+
+        }
+        // backgroundElement.style.setProperty('--scale', '1.5');
+        // handleCircleClick();
+         
+    });
+
+    thirdElement.addEventListener('click', function() {
+        if (linkEnabledThird) {
+            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b38743da-69de-11e8-bdc6-02bd505aa7b2";
+            return;
+        }
+        if (mediaQuery.matches) {
+           
+            thirdElement.style.left = "50vw";
+            thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            // firstElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+
+            fitnessContent.forEach(content => {
+             content.style.display = "flex";
+                });
+
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            linkEnabledThird = true;
+
+
+        });
+        } else {
+            thirdInnerCircle.style.height = '100%';
+            header.style.backgroundColor = 'rgb(198, 199, 196)';
+
+            thirdElement.style.top = '50vh';
+            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+
+            firstElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
+            linkEnabledThird = true;
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            linkEnabledThird = true;
+
+            fitnessContent.forEach(content => {
+             content.style.display = "flex";
+                });
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            
+            });
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            fourthElement.style.opacity = '0';
+
+        });
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+        handleCircleClick();
+    });
+
+
+    fourthElement.addEventListener('click', function() {
+        if (linkEnabledFirst) {
+            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
+            return;
+        }
+        if (mediaQuery.matches) {
+            fourthElement.style.top = '50vh';
+            fourthElement.style.left = "50vw";
+            fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+
+            linkEnabledFirst = true;
+            //add for all elements:
+            secondElement.style.pointerEvents = 'none';
+
+            // mindContent.forEach(content => {
+            //  content.style.display = "flex";
+            //     });
+
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+
+        });
+
+        } else {
+            fourthInnerCircle.style.height = '100%';
+            header.style.backgroundColor = 'Yellow';
+
+            fourthElement.style.top = '50vh';
+            fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            
+            firstElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
+
+            linkEnabledFirst = true;
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            
+            });
+            // mindContent.forEach(content => {
+            //  content.style.display = "flex";
+            //     });
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+            
+
+            eventContent.forEach(content => {
+             content.style.display = "flex";
+                });
+        });
+
+        }
+        backgroundElement.style.setProperty('--scale', '1.5');
+        handleCircleClick();
+    });
+
+
+    backElement.addEventListener('click', function() {
+        
+        if (mediaQuery.matches) {
+           
+            firstElement.style.left = '25vw';
+            firstElement.style.transform = 'translate(-50%, -50%) scale(1)';
+
+            secondElement.style.left = '50vw';
+            secondElement.style.transform = 'translate(-50%, -50%) scale(1)';
+
+            thirdElement.style.left = '75vw';
+            thirdElement.style.transform = 'translateX(-50%) translateY(-50%) scale(1)';
+
+            firstElement.style.opacity = '1';
+
+            secondElement.style.opacity = '1';
+            secondElement.style.pointerEvents = '';
+            thirdElement.style.opacity = '1';
+
+                                /*wordbullet resets*/
+                                wordMind.style.fontWeight = 'normal';
+        wordSwym.style.fontWeight = 'normal';
+        wordFitness.style.fontWeight = 'normal';
+        wordFitness.style.textDecoration = "normal";
+        wordSwym.style.textDecoration = "normal";
+        wordMind.style.textDecoration = "normal";
+
+        mindContent.forEach(content => {
+    content.style.display = "none";
+});
+swymContent.forEach(content => {
+    content.style.display = "none";
+});
+
+fitnessContent.forEach(content => {
+    content.style.display = "none";
+});
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(0)';
+
+
+
+
+        });
+
+        linkEnabledFirst = false;
+            linkEnabledSecond = false;
+            linkEnabledThird = false;
+        } else {
+            firstInnerCircle.style.height = '90%';
+            secondInnerCircle.style.height = '90%';
+            thirdInnerCircle.style.height = '90%';
+            fourthInnerCircle.style.height = '90%';
+
+            header.style.backgroundColor = '';
+
+            firstElement.style.top = '';
+            firstElement.style.transform = '';
+            firstElement.style.opacity = '';
+            firstElement.style.pointerEvents = '';
+
+            secondElement.style.top ="";
+            secondElement.style.transform = '';
+            secondElement.style.opacity = '';
+            secondElement.style.pointerEvents = '';
+
+            thirdElement.style.top = '';
+            thirdElement.style.transform = '';
+            thirdElement.style.opacity = '';
+            thirdElement.style.pointerEvents = '';
+
+            fourthElement.style.top = '';
+            fourthElement.style.transform = '';
+            fourthElement.style.opacity = '';
+            fourthElement.style.pointerEvents = '';
+
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity ="1";
+            
+            });
+
+
+            /*wordbullet resets*/ 
+
+        wordMind.style.textDecoration = "";
+        wordSwym.style.textDecoration = "";
+        wordFitness.style.textDecoration = "";
+        wordEvent.style.textDecoration = "";
+
+        wordMind.style.fontWeight = 'normal';
+        wordSwym.style.fontWeight = 'normal';
+        wordFitness.style.fontWeight = 'normal';
+        wordEvent.style.fontWeight = 'normal';
+
+
+
+
+
+        mindContent.forEach(content => {
+    content.style.display = "none";
+});
+swymContent.forEach(content => {
+    content.style.display = "none";
+});
+
+fitnessContent.forEach(content => {
+    content.style.display = "none";
+});
+eventContent.forEach(content => {
+    content.style.display= "none";
+});
+
+
+
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(0)';
+            secondElement.style.pointerEvents = '';
+
+
+        //     mindcontent.style.display ="none";
+        // swymcontent.style.display ="none";
+        // fitnesscontent.style.display="none";
+        
+
+        }); 
+
+
+        /*link reset*/
+            linkEnabledFirst = false;
+            linkEnabledSecond = false;
+            linkEnabledThird = false;
+
+            secondElement.style.pointerEvents = '';
+        }
+
+    });
+});
+
+/*fingerTap*/
+// Function to fade out the fingerTap element
+function fadeOutFingerTap() {
+    var fingerTapElement = document.getElementById('fingerTap');
+    
+    // Begin the opacity transition
+    fingerTapElement.style.opacity = '0';
+}
+
+// Fade out fingerTap after 3 seconds automatically
+setTimeout(fadeOutFingerTap, 3000);
+
+// Add event listeners to the elements 'first', 'second', and 'third'
+['first1', 'second2', 'third3'].forEach(function(id) {
+    document.getElementById(id).addEventListener('click', fadeOutFingerTap);
+});
+
+
+
+
+/*wordbullet*/
+document.addEventListener('DOMContentLoaded', function() {
+    const firstTrigger = document.getElementById('first1');
+    const secondTrigger = document.getElementById('second2');
+    const thirdTrigger = document.getElementById('third3');
+    const fourthTrigger = document.getElementById('fourth4');
+    const wordMind = document.getElementById('wordMind');
+    const wordSwym = document.getElementById('wordSwym');
+    const wordFitness = document.getElementById('wordFitness');
+    const wordEvent = document.getElementById('wordEvent');
+    // Initialize the inline styles based on the CSS values
+    wordMind.style.top = '0em';
+    wordSwym.style.top = '1.2em';
+    wordFitness.style.top = '2.4em';
+    wordEvent.style.top = '3.6em';
+
+    let topPosition = '0em';
+    let middlePosition1 = '1.2em';
+    let middlePosition2 = '2.4em';
+    let bottomPosition = '3.6em';
+
+    firstTrigger.addEventListener('click', function() {
+        if (wordMind.style.top !== bottomPosition) {
+            swapPositions(wordMind, currentMiddleWord());
+            resetFontWeights();
+            wordMind.style.fontWeight = 'bold';
+            wordMind.style.textDecoration = "underline";
+            wordMind.style.textDecorationColor = "white";
+        }
+    });
+
+    secondTrigger.addEventListener('click', function() {
+        if (wordSwym.style.top !== bottomPosition) {
+            swapPositions(wordSwym, currentMiddleWord());
+            resetFontWeights();
+            wordSwym.style.fontWeight = 'bold';
+            wordSwym.style.textDecoration = "underline";
+            wordSwym.style.textDecorationColor = "white";
+        }
+    });
+
+    thirdTrigger.addEventListener('click', function() {
+        if (wordFitness.style.top !== bottomPosition) {
+            swapPositions(wordFitness, currentMiddleWord());
+            resetFontWeights();
+            wordFitness.style.fontWeight = 'bold';
+            wordFitness.style.textDecoration = "underline";
+            wordFitness.style.textDecorationColor = "white";
+            
+        }
+    });
+
+    fourthTrigger.addEventListener('click', function() {
+        if (wordEvent.style.top !== bottomPosition) {
+            swapPositions(wordEvent, currentMiddleWord());
+            resetFontWeights();
+            wordEvent.style.fontWeight = 'bold';
+            wordEvent.style.textDecoration = "underline";
+            wordEvent.style.textDecorationColor = "white";
+        }
+    });
+
+    function currentMiddleWord() {
+        if (wordMind.style.top === bottomPosition) return wordMind;
+        if (wordSwym.style.top === bottomPosition) return wordSwym;
+        if (wordFitness.style.top === bottomPosition) return wordFitness;
+        if(wordEvent.style.top === bottomPosition) return wordEvent;
+    }
+
+    function swapPositions(word1, word2) {
+        let temp = word1.style.top;
+        word1.style.top = word2.style.top;
+        word2.style.top = temp;
+        
+    }
+
+    function resetFontWeights() {
+        wordMind.style.fontWeight = 'normal';
+        wordSwym.style.fontWeight = 'normal';
+        wordFitness.style.fontWeight = 'normal';
+        wordEvent.style.fontweight = "normal";
+    }
+});
+/*wordbullet end*/
+
+
+/*navbar start*/
+const toggler = document.querySelector('.menu__toggler');
+const menu    = document.querySelector('.menu');
+
+/*
+ * Toggles on and off the 'active' class on the menu
+ * and the toggler button.
+ */
+toggler.addEventListener('click', () => {
+  toggler.classList.toggle('active');
+  menu.classList.toggle('active');
+})
+
+
+
+/*second container*/
+
+document.addEventListener('DOMContentLoaded', function() {
+    const firstElement = document.getElementById("first");
+    const secondElement = document.getElementById("second");
+    const thirdElement = document.getElementById("third");
+    const backElement = document.getElementById("back");
+    // const backgroundElement = document.getElementById("background");
+    const clickedContainer = document.querySelectorAll(".top-leftklick1, .top-rightklick1, .middle-leftklick1, .middle-rightklick1"); 
+
+    // const mrContent = document.querySelector(".mrContent");
     const mediaQuery = window.matchMedia("(min-width: 786px)");
 
 
@@ -38,6 +577,7 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.opacity = '0';
             linkEnabledFirst = true;
             secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
 
             mindContent.forEach(content => {
              content.style.display = "flex";
@@ -52,31 +592,26 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         } else {
             firstElement.style.top = '50vh';
-            firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+            firstElement.style.transform = 'translateY(-50%)translateX(-50%)scale(1.5)';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             linkEnabledFirst = true;
             secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
 
-            mindContent.forEach(content => {
+        // ANZEIGEFLÄCHE
+        fitnessContent.forEach(content => {
              content.style.display = "flex";
                 });
 
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
-            container.style.visibility = 'visible';
-            // document.querySelector('.mr-content').innerHTML = 'Heading for Item 3'
-            
-
-            // mindcontent.style.transform ="scale(1)";
-
-            
-            
+            container.style.visibility = 'visible';          
         });
 
+        
         }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
     });
 
     secondElement.addEventListener('click', function() {
@@ -100,24 +635,24 @@ document.addEventListener('DOMContentLoaded', function() {
              content.style.display = "flex";
                 });
         });
+        
         } else {
-            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
+            secondElement.style.transform = 'translateY(-50%) translateX(-50%) scale(1.5)';
             firstElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
+            firstElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
+            linkEnabledSecond = true;
+
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
-            linkEnabledSecond = true;
 
-            // swymcontent.style.display ="flex";
             swymContent.forEach(content => {
     content.style.display = "flex";
 });
-
         });
         }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
          
     });
 
@@ -132,7 +667,7 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
-            // firstElement.style.pointerEvents = 'none';
+            firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fitnessContent.forEach(content => {
              content.style.display = "flex";
@@ -148,7 +683,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         } else {
             thirdElement.style.top = '50vh';
-            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            thirdElement.style.transform = 'translateY(-50%) translateX(-50%) scale(1.5)';
             secondElement.style.pointerEvents = 'none';
             linkEnabledThird = true;
             firstElement.style.opacity = '0';
@@ -165,8 +700,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
         }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
     });
 
     backElement.addEventListener('click', function() {
@@ -220,27 +753,37 @@ fitnessContent.forEach(content => {
             linkEnabledThird = false;
         } else {
 
-
+/*absolute elements*/
             firstElement.style.top = '25vh';
-            firstElement.style.transform = 'translateY(-50%) scale(1)';
-
+            firstElement.style.transform = 'translateY(-50%)translateX(-50%) scale(1)';
             firstElement.style.opacity = '1';
-            secondElement.style.transform = 'translateY(-50%) scale(1)';
 
+            secondElement.style.top = '50vh';
+            secondElement.style.transform = 'translateY(-50%)translateX(-50%) scale(1)';
             secondElement.style.opacity = '1';
-            thirdElement.style.top = '75vh';
-            thirdElement.style.transform = 'translateY(-50%) scale(1)';
 
+            thirdElement.style.top = '75vh';
+            thirdElement.style.transform = 'translateY(-50%)translateX(-50%) scale(1)';
             thirdElement.style.opacity = '1';
+
+            firstElement.style.pointerEvents = '';
+            secondElement.style.pointerEvents = '';
+            thirdElement.style.pointerEvents = '';
+
+            linkEnabledFirst = false;
+            linkEnabledSecond = false;
+            linkEnabledThird = false;
+
             /*wordbullet resets*/ 
-            wordMind.style.fontWeight = 'normal';
+        wordMind.style.fontWeight = 'normal';
         wordSwym.style.fontWeight = 'normal';
         wordFitness.style.fontWeight = 'normal';
         wordFitness.style.textDecoration = "none";
         wordSwym.style.textDecoration = "none";
         wordMind.style.textDecoration = "none";
 
-        mindContent.forEach(content => {
+/*Content Resets*/
+mindContent.forEach(content => {
     content.style.display = "none";
 });
 swymContent.forEach(content => {
@@ -250,8 +793,6 @@ swymContent.forEach(content => {
 fitnessContent.forEach(content => {
     content.style.display = "none";
 });
-
-
 
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
@@ -267,9 +808,7 @@ fitnessContent.forEach(content => {
 
 
         /*link reset*/
-            linkEnabledFirst = false;
-            linkEnabledSecond = false;
-            linkEnabledThird = false;
+
 
 
             function resetFontWeights() {
@@ -285,67 +824,49 @@ fitnessContent.forEach(content => {
     });
 });
 
-/*fingerTap*/
-// Function to fade out the fingerTap element
-function fadeOutFingerTap() {
-    var fingerTapElement = document.getElementById('fingerTap');
-    
-    // Begin the opacity transition
-    fingerTapElement.style.opacity = '0';
-}
-
-// Fade out fingerTap after 3 seconds automatically
-setTimeout(fadeOutFingerTap, 3000);
-
-// Add event listeners to the elements 'first', 'second', and 'third'
-['first', 'second', 'third'].forEach(function(id) {
-    document.getElementById(id).addEventListener('click', fadeOutFingerTap);
-});
-
-
 
 
 /*wordbullet*/
 document.addEventListener('DOMContentLoaded', function() {
-    const firstTrigger = document.getElementById('first');
-    const secondTrigger = document.getElementById('second');
-    const thirdTrigger = document.getElementById('third');
-    const wordMind = document.getElementById('wordMind');
-    const wordSwym = document.getElementById('wordSwym');
-    const wordFitness = document.getElementById('wordFitness');
+    const firstTrigger1 = document.getElementById('first1');
+    const secondTrigger1 = document.getElementById('second2');
+    const thirdTrigger1 = document.getElementById('third3');
+    const wordMind1 = document.getElementById('wordMind3');
+    const wordSwym1 = document.getElementById('wordSwym3');
+    const wordFitness1 = document.getElementById('wordFitness3');
 
     // Initialize the inline styles based on the CSS values
-    wordMind.style.top = '0em';
-    wordSwym.style.top = '1.2em';
-    wordFitness.style.top = '2.4em';
+    wordMind1.style.top = '0em';
+    wordSwym1.style.top = '1.2em';
+    wordFitness1.style.top = '2.4em';
 
-    let topPosition = '0em';
-    let middlePosition = '1.2em';
-    let bottomPosition = '2.4em';
+    let topPosition1 = '0em';
+    let middlePosition1 = '1.2em';
+    let bottomPosition1 = '2.4em';
 
-    firstTrigger.addEventListener('click', function() {
-        if (wordMind.style.top !== middlePosition) {
-            swapPositions(wordMind, currentMiddleWord());
+    firstTrigger1.addEventListener('click', function() {
+        if (wordMind1.style.top !== middlePosition) {
+            swapPositions(wordMind1, currentMiddleWord());
             resetFontWeights();
-            wordMind.style.fontWeight = 'bold';
-            wordMind.style.textDecoration = "underline";
-            wordMind.style.textDecorationColor = "white";
+            wordMind1.style.fontWeight = 'bold';
+            wordMind1.style.textDecoration = "underline";
+            wordMind1.style.textDecorationColor = "white";
         }
     });
 
-    secondTrigger.addEventListener('click', function() {
-        if (wordSwym.style.top !== middlePosition) {
-            swapPositions(wordSwym, currentMiddleWord());
+    secondTrigger1.addEventListener('click', function() {
+        if (wordSwym1.style.top !== middlePosition) {
+            swapPositions(wordSwym1, currentMiddleWord());
             resetFontWeights();
-            wordSwym.style.fontWeight = 'bold';
-            wordSwym.style.textDecoration = "underline";
-            wordSwym.style.textDecorationColor = "white";
+            wordSwym1.style.fontWeight = 'bold';
+            wordSwym1.style.textDecoration = "underline";
+            wordSwym1.style.textDecorationColor = "white";
         }
     });
 
-    thirdTrigger.addEventListener('click', function() {
-        if (wordFitness.style.top !== middlePosition) {
-            swapPositions(wordFitness, currentMiddleWord());
+    thirdTrigger1.addEventListener('click', function() {
+        if (wordFitness1.style.top !== middlePosition) {
+            swapPositions(wordFitness1, currentMiddleWord());
             resetFontWeights();
             wordFitness.style.fontWeight = 'bold';
             wordFitness.style.textDecoration = "underline";
@@ -376,14 +897,44 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 /*navbar start*/
-const toggler = document.querySelector('.menu__toggler');
-const menu    = document.querySelector('.menu');
+const toggler1 = document.querySelector('.menu__toggler3');
+const menu1    = document.querySelector('.menu3');
 
 /*
  * Toggles on and off the 'active' class on the menu
  * and the toggler button.
  */
-toggler.addEventListener('click', () => {
-  toggler.classList.toggle('active');
-  menu.classList.toggle('active');
+toggler1.addEventListener('click', () => {
+  toggler1.classList.toggle('active');
+  menu1.classList.toggle('active');
 })
+
+
+// IMAGE SLIDER
+// script.js
+document.addEventListener("DOMContentLoaded", function() {
+    setupSlider('#circle3 .simon1', 'prevBtn', 'nextBtn', ['url(Yoga-colored.jpg)', 'url(yoga1.jpg)']);
+    setupSlider('#circle3 .simon2', 'prevBtn2', 'nextBtn2', ['url(jumpwater.jpg)', 'url(schwimmen-colored.jpg)', 'url(schwimmentrainer-colored.jpg)','url(Aquafitness-colored.jpg)','url(sschwimmenteach-colored.jpg)','url(schwimmenatmung-colored.jpg)']); // Replace with actual images for simon2
+    setupSlider('#circle3 .simon3', 'prevBtn3', 'nextBtn3', ['url(fitness.jpg)', 'url(Fitness-colored.jpg)']); // Replace with actual images for simon3
+});
+
+function setupSlider(sliderSelector, prevBtnId, nextBtnId, images) {
+    let slider = document.querySelector(sliderSelector);
+    let currentIndex = 0;
+
+    function showSlide(index) {
+        slider.style.backgroundImage = images[index];
+    }
+
+    document.getElementById(prevBtnId).addEventListener('click', function() {
+        currentIndex = (currentIndex > 0) ? currentIndex - 1 : images.length - 1;
+        showSlide(currentIndex);
+    });
+
+    document.getElementById(nextBtnId).addEventListener('click', function() {
+        currentIndex = (currentIndex + 1) % images.length;
+        showSlide(currentIndex);
+    });
+
+    showSlide(currentIndex); // Initialize with the first image
+}
