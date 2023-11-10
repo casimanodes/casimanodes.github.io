@@ -1,374 +1,596 @@
-      *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-size: 16px;
-        }
-        body{
-            height: 100vh;
-            width: 100vw;
-            overflow: hidden;
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(90deg,#e52e71,#ff8a00);
-        }
-        nav .logo{
-            max-width: 80%;
-            max-height: 80%;
-            border-radius: 50%;
-            background-color: rgb(255, 255, 255);
-            margin: 1px 0;
-        }
-        header{
-            width: 100%;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.5);
-            font-family: var(--font-family);
-            
-            height: 10vh;
-            background-color: rgba(223, 66, 66, 0.5);
-        }
-        header nav{
-            max-width: 96%;
-            margin: 0 auto;
-            padding: 0 0.1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 10vh;
-            z-index: 1;
-        }
-        header ul{
-            height: 10%;
-            display: flex;
-            list-style: none;
-            justify-content: center;
-            align-items: center;
-        }
-        header ul li{
-            margin-left: 1rem;
-        }
-        header ul a{
-            text-decoration: none;
-            color: white;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-size: var(--fontsize);
-            font-weight: var(--font-weight);
-            overflow: hidden;
-        }
-        header .tracking{
-            right: 50%;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            height: 3.8em;
-            
-        }
-        header .tracking li{
-            margin-left: 1rem;
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-
-            transition: all 0.5s ease;
-            flex-direction: row;
-        }
-        header #wordMind{
-            display: flex;
-            font-size: 1rem;
-            position: absolute;
-            top: 0em;
-            line-height: 1.2em;
-        }
-        header #wordSwym{
-            display: flex;
-            font-size: 1rem;
-            line-height: 1.2em;
-            position: absolute;
-            top: 1.2em;
-        }
-        header #wordFitness{
-            display: flex;
-            font-size: 1rem;
-            line-height: 1.2em;
-        position: absolute;
-        top: 2.4em;
-        }
-        main  {
-            height: 100%;
-            width: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            overflow: hidden;   
-        }
-        #background::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: -2;
-            transform: scale(var(--scale, 1));
-            transition: transform 0.3s ease;
-        }
-        #background {
-            background: none;
-        }
-        .absolute1{
-            display: block;
-            position: absolute;
-            
-            top: 25%;
-            background-color: red;
-            aspect-ratio: 1/1;
-            height: 25%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            margin: 1rem 0px;
-            overflow: hidden;
-            background-image: url('yoga1.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-            transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-        }
-        .absolute2{
-            
-            display: block;
-            position: absolute;
-            top: 50%;
-
-            background-color: green;
-            aspect-ratio: 1/1;
-            height: 25%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            margin: 1rem 0px;
-            overflow: hidden;
-            background-image: url('jumpwater.jpg');
-            background-size: cover;
-            background-position: center;
-            transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-            z-index: 1;
-        }
-        .absolute3{
-            transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-            display: block;
-            position: absolute;
-            top: 75%;
-
-            background-color: blue;
-            aspect-ratio: 1/1;
-            height: 25%;
-            transform: translateY(-50%);
-            border-radius: 50%;
-            margin: 1rem 0px;
-            overflow: hidden;
-            background-image: url('fitness.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: 1;
-        }
 
 
 
-       .picture img {
-    display: flex;
-    justify-content: center; /* Center horizontally */
-    align-items: center;     /* Center vertically */
-    width: auto;             /* Take full width of the parent */
-    height: 50%;            /* Take full height of the parent */
-    overflow: hidden; 
-            position: relative;
-            
-            }
 
-
-
-        @media screen and (min-width: 786px) {
-            .absolute1:hover,
-        .absolute2:hover,
-        .absolute3:hover{
-        transform: translate(-50%, -50%) scale(1.2)
-        }
-
-
-            .absolute1 {
-                top: 50vh;
-                left: 25vw;
-                width: 25vh;
-                height: 25vh;
-                transform: translate(-50%, -50%);
-                transition: left 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-            }
-            .absolute2 {                
-                top: 50vh;
-                left: 50vw;
-                width: 25vh;
-                height: 25vh;
-                transform: translate(-50%, -50%);
-                transition: transform 1.3s ease, opacity 0.9s ease;
-            }
-
-            .absolute3 {
-                top: 50vh;
-                left: 75vw;
-                width: 25vh;
-                height: 25vh;
-                transform: translateX(-50%) translateY(-50%);
-                transition: left 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
-            }
-            #fingerTap{
-                display: none;
-            }
-        }
-
-
- 
-        .buchen{
-            background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
-    box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
-
-            display:flex;
-            position: absolute;
-            align-items: center;
-            justify-content: center;
-            border-radius: 10px;
-            width: 7rem;
-            height: 3rem;
-            bottom:1rem;
-            right: 1rem;
-            margin-top: 1rem;
-            background-color:#08d9f0;
-            opacity: 1;
-            color: white;
-            border: none;
-            font-weight: bold;
-
-            background-size: 300% 100%;
-        }
-        .buchen:hover {
-    background-position: 100% 0;
-    -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 16px;
+    scroll-snap-type: y mandatory;
+    /* scroll-padding-top: 10vh; */
 }
-        .back{
-            background-size: 300% 100%;
-            display:flex;
-            align-items: center;
-            justify-content: center;
-            position: absolute;
-            border-radius: 10px;
-            background-color: red;
-            width: 5rem;
-            height: 3rem;
-            bottom:1rem;
-            left: 1rem;
-            margin-top: 1rem;
-            border: none;
-            background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
-            -moz-transition: all .4s ease-in-out;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
-    color: white;
-    font-size: 1rem;
-    font-weight: bold;
-        }
-.back:hover {
-    background-position: 100% 0;
-    -o-transition: all .4s ease-in-out;
-    -webkit-transition: all .4s ease-in-out;
-    transition: all .4s ease-in-out;
+body{
+     height: 200vh;
+   /* width: 100vw; */
+   /* overflow-y: scroll; */
+    overflow-X: hidden;
+    background: linear-gradient(90deg,#e52e71,#ff8a00);
 }
 
-        .top-leftklick{
-            
-            display: flex ;
-            position: absolute;
-            top: 12vh;
-            left: 1rem;
-            width: 8rem;
-            height:8rem;
-            border-radius: 1rem;
-            background-color:#12b62d;
-            pointer-events: none;
-            transform: scale(0);
-            transition: transform 0.9s /*opacity 0.9s*/;
-            visibility: hidden;
-        }
-        .top-leftklick .tl-content{
-            padding: 0.5rem;
-        }
 
-        .top-leftklick .tl-content ul li{
-            list-style-type: none;
-            text-decoration: none;
-        }
+/* main{
+    background: linear-gradient(180deg, 
+                    #402ee5 10%,    
+                    #f44f08 30%,   
+                    green 55%,     
+                    yellow 80%,  
+                    red 95%);
     
-        .top-rightklick{
-            display:flex;
-            position: absolute;
-            background-color: red;
-            border-radius: 1rem;
+} */
+header #wordEvent{
+    display: flex;
+    position: absolute;
+    font-size: 1rem;
+    line-height: 1.2em;
+    top: 3.6em;
+}
 
-            width: 8rem;
-            height: 8rem;
-            top:12vh;
-            right: 1rem;
-            pointer-events: none;
-            transform: scale(0);
-            transition: transform 0.9s;
-            visibility: hidden;
-        }
 
-        .middle-leftklick{
-            border-radius: 10px;
-            display: flex ;
-            position: absolute;
-            
-            bottom: 4rem;
-            left: 1rem;
-            width: 8rem;
-            height: 8rem;
-            /* background-color: rgb(255, 255, 255, 0.1); */
-            box-shadow: inset 0 0 0 0.5px #fff;
-            pointer-events: none;
-            margin-bottom: 0.5rem;
-            transform: scale(0);
-            transition: transform 0.9s;
-            visibility: hidden;
-        }
-        .middle-rightklick{
-            display:flex;
-            position: absolute;
-            border-radius: 10px;
-            
+#circle4{
+    height: 100%;
+    width: 100%;
+    overflow: hidden;  
+}
+nav .logo{
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin: 1px 0;
+}
+header{
+    width: 100%;
+    font-family: var(--font-family);
+    transition: background-color 0.9s;
+    height: 10vh;
+    background-color: rgb(0, 0, 0, 0);
+}
+header nav{
+    max-width: 96%;
+    margin: 0 auto;
+    /* padding: 0 0.1rem; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    z-index: 1;
+    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
 
-            width: 8rem;
-            height: 8rem;
-            bottom:4rem;
-            right: 1rem;
-            margin-bottom: 0.5rem;
-            background-color:#f4f418;
-            transform: scale(0);
-            transition: transform 0.9s;
-            
-            visibility: hidden;
-            pointer-events: none;
-        }
-#wordMind, #wordSwym, #wordFitness {
-    transition: top 0.5s; /* This will animate the top property over 0.5 seconds */
-    text-decoration-color: white;
+}
+header ul{
+    /* padding-top: ; */
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    margin-left: 1rem;
+}
+header ul a{
+    text-decoration: none;
+    color: rgb(4, 4, 4);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: var(--fontsize);
+    font-weight: var(--font-weight);
+    overflow: hidden;
+}
+header .tracking{
+    right: 50%;
+    position: relative;
+    display: flex;
+    /* height: 3.8em; */
+    height: 10vh;
+    
+    padding: auto;
+}
+header .tracking li{
+    position: relative;
+    transition: all 0.5s ease;
+    flex-direction: row;
+}
+header #wordMind{
+    display: flex;
+    font-size: 1rem;
+    position: absolute;
+    top: 0em;
+    line-height: 1.2em;
+}
+header #wordSwym{
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.2em;
+    position: absolute;
+    top: 1.2em;
+}
+header #wordFitness{
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.2em;
+position: absolute;
+top: 2.4em;
+}
+
+header #wordEvent{
+    display: flex;
+    position: absolute;
+    font-size: 1rem;
+    line-height: 1.2em;
+    top: 3.6em;
+}
+
+/* #background::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /* background-image: url('ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg'); */
+    /* background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -2;
+    transform: scale(var(--scale, 1));
+    transition: transform 0.3s ease;
+}
+#background {
+    background: none; 
+} */
+
+
+
+ #first1 h3, 
+ #second2 h3,
+ #third3 h3,
+ #fourth4 h3
+  {
+    color: white;
+    font-size: 1.5rem;
+    position: absolute;
+    left: 50%;
+    top: -28px;
+    transform: translateX(-50%);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+    z-index: 100;      
+}
+
+.absolute1{
+    display: block;
+    position: absolute;
+    left: 30%;
+    top: 25%;
+    /* left: 2rem; */
+    background-color: rgb(246, 177, 166);
+    aspect-ratio: 1/1;
+    height: 20%;
+    transform: translateY(-50%) translateX(-50%);
+    border-radius: 50%;
+    margin:0px;
+    /* overflow: hidden;             */
+
+    z-index: 2;
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+}
+.innercircle{
+    background-image: url('yoga1.jpg');
+    background-size: cover;
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-position: center;
+    z-index: 5;
+    height: 90%;
+    aspect-ratio: 1/1;
+    transition: height 0.9s;
+
+}
+.absolute2{
+    display: block;
+    position: absolute;
+    right: 30%;
+    top: 42.5%;
+    background-color: rgb(0, 125, 195);
+    aspect-ratio: 1/1;
+    height: 20%;
+    transform: translateX(50%) translateY(-50%);
+    border-radius: 50%;
+    margin:  0px;
+    overflow: default;
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    z-index: 1;
+}
+
+.innercircle2{
+    background-image: url('jumpwater.jpg');
+    background-size: cover;
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-position: center;
+    z-index: 5;
+    height: 90%;
+    aspect-ratio: 1/1;
+    opacity: 1;
+    transition: height 0.9s;
+}
+.absolute3{
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    display: block;
+    position: absolute;
+    top: 62.5%;
+    left: 30%;
+    background-color: rgb(198, 199, 196);
+    aspect-ratio: 1/1;
+    height: 20%;
+    transform: translateX(-50%) translateY(-50%);
+    border-radius: 50%;
+    margin:  0px;
+    overflow: default;
+    z-index: 1;
+}
+
+.innercircle3{
+    background-image: url('fitness.jpg');
+    background-size: cover;
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-position: center;
+    z-index: 5;
+    height: 90%;
+    aspect-ratio: 1/1;
+    transition: height 0.9s;
+
+}
+
+.absolute4{
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    display: block;
+    position: absolute;
+    top: 80%;
+    right: 30%;
+    aspect-ratio: 1/1;
+    height: 20%;
+    transform: translateX(50%) translateY(-50%);
+    border-radius: 50%;
+    margin:  0px;
+    /* overflow: auto; */
+    z-index: 1;
+    background-color: #f4f418;
+}
+
+
+.innercircle4{
+    background-image: url('yoga1.jpg');
+    background-size: cover;
+    display: flex;
+    position: relative;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-position: center;
+    z-index: 5;
+    aspect-ratio: 1/1;
+
+    height: 90%;
+    transition: height 0.9s;
+}
+
+.babsolute1{
+    display:flex;
+    position: absolute;
+    top: 30%;
+    left: 20%;
+    transform: translateX(-100%);
+    /* transform: translateX(0) translateY(-50%); */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(246, 177, 166);
+    height: 8%;
+    aspect-ratio: 1/1;
+    border: none;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+    font-weight: bold;
+    z-index: 1;
+}
+/* .babsolute1::after{
+    content: '';
+    position: absolute;
+    height: 12.5%;
+    width: 12.5%;
+    border-top-right-radius: 50%;
+    box-shadow: 4px 4px 0px 4px rgb(212, 36, 8);
+} */
+.babsolute2{
+    display:flex;
+    position: absolute;
+    /* top: 42.5%;
+    left: 25%; */
+    /* transform: translateX(-50%) translateY(-50%); */
+    /* transform: translateX(0) translateY(-50%); */
+    bottom: -10%;
+    right: -10%;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(0, 125, 195);
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+    font-weight: bold;
+}
+
+.babsolute3{
+    display:flex;
+    position: absolute;
+    bottom: -10%;
+    left: -10%;
+    /* top: 62.5%;
+    right: 25%; */
+    /* transform: translateX(-50%) translateY(-50%); */
+    /* transform: translateX(0) translateY(-50%); */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: rgb(198, 199, 196);
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+    font-weight: bold;
+}
+
+.babsolute4{
+    display:flex;
+    position: absolute;
+    bottom: -10%;
+    right: -10%;
+    /* top: 80%;
+    left: 25%; */
+    /* transform: translateX(-50%) translateY(-50%); */
+    /* transform: translateX(5px) translateY(-50%); */
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background-color: #f4f418;
+    /* background-color: orangelinear-gradient(90deg, rgb(246, 177, 166), rgb(0, 125, 195), rgb(198, 199, 196)); */
+    width: 4rem;
+    height: 4rem;
+    border: none;
+    z-index: 1;
+    color: white;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
+    font-weight: bold;
+}
+
+.disappear{
+    transition: opacity 0.9s ease;
+}
+
+.picture img {
+display: flex;
+justify-content: center; /* Center horizontally */
+align-items: center;     /* Center vertically */
+width: auto;             /* Take full width of the parent */
+height: 50%;            /* Take full height of the parent */
+overflow: hidden; 
+    position: relative;
+    
+    }
+
+
+@media screen and (min-width: 786px) {
+    .absolute1:hover,
+.absolute2:hover,
+.absolute3:hover{
+transform: translate(-50%, -50%) scale(1.2)
+}
+
+
+    .absolute1 {
+        top: 50vh;
+        left: 25vw;
+        width: 25vh;
+        height: 25vh;
+        transform: translate(-50%, -50%);
+        transition: left 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    }
+    .absolute2 {                
+        top: 50vh;
+        left: 50vw;
+        width: 25vh;
+        height: 25vh;
+        transform: translate(-50%, -50%);
+        transition: transform 1.3s ease, opacity 0.9s ease;
+    }
+
+    .absolute3 {
+        top: 50vh;
+        left: 75vw;
+        width: 25vh;
+        height: 25vh;
+        transform: translateX(-50%) translateY(-50%);
+        transition: left 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+    }
+    #fingerTap{
+        display: none;
+    }
+}
+
+
+
+.buchen{
+    background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
+box-shadow: 0 4px 15px 0 rgba(65, 132, 234, 0.75);
+
+    display:flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    width: 7rem;
+    height: 3rem;
+    bottom:0.5rem;
+    right: 0.5rem;
+    margin-top: 1rem;
+    background-color:#08d9f0;
+    opacity: 1;
+    color: white;
+    border: none;
+    font-weight: bold;
+
+    background-size: 300% 100%;
+}
+.buchen:hover {
+background-position: 100% 0;
+-moz-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+-webkit-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+.back1{
+    background-size: 300% 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px;
+    background-color: red;
+    width: 5rem;
+    height: 3rem;
+    bottom:0.5rem;
+    left: 0.5rem;
+    border: none;
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    -moz-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+-webkit-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+color: white;
+font-size: 1rem;
+font-weight: bold;
+}
+.back:hover {
+background-position: 100% 0;
+-o-transition: all .4s ease-in-out;
+-webkit-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+
+.top-leftklick{
+    
+    display: flex ;
+    position: absolute;
+    top: 12vh;
+    left: 1rem;
+    width: 8rem;
+    height:8rem;
+    border-radius: 1rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.9s /*opacity 0.9s*/;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}
+.top-leftklick .tl-content{
+    padding: 0.5rem;
+}
+
+.top-leftklick .tl-content ul li{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.top-rightklick{
+    display:flex;
+    position: absolute;
+    background-color:rgb(245, 245, 245, 0.5);
+    border-radius: 1rem;
+
+    width: 8rem;
+    height: 8rem;
+    top:12vh;
+    right: 1rem;
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.9s;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}
+
+.middle-leftklick{
+    border-radius: 10px;
+    display: flex ;
+    position: absolute;
+    
+    bottom: 4rem;
+    left: 1rem;
+    width: 8rem;
+    height: 8rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    box-shadow: inset 0 0 0 0.5px #fff;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+    transform: scale(0);
+    transition: transform 0.9s;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}/*maybe let the rotate on the z? axis while zooming in and out?*/
+.middle-rightklick{
+    display:flex;
+    position: absolute;
+    border-radius: 10px;
+    width: 8rem;
+    height: 8rem;
+    bottom:4rem;
+    right: 1rem;
+    margin-bottom: 0.5rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    transform: scale(0);
+    transition: transform 0.9s;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+    visibility: hidden;
+    pointer-events: none;
+}
+#wordMind, #wordSwym, #wordFitness, #wordEvent {
+transition: top 0.5s; /* This will animate the top property over 0.5 seconds */
+text-decoration-color: white;
 }
 
 
@@ -377,111 +599,111 @@
 /*add nav start*/
 
 .menu__toggler {
-  position: absolute;
-  top: 5%;
-  right: 0.1rem;
-  transform: translate(-50%, -50%);
-  z-index: 999;
-  height: 28px;
-  width: 28px;
-  outline: none;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
+position: absolute;
+top: 5%;
+right: 0.1rem;
+transform: translate(-50%, -50%);
+z-index: 999;
+height: 28px;
+width: 28px;
+outline: none;
+cursor: pointer;
+display: flex;
+align-items: center;
 }
 
 .menu__toggler span,
 .menu__toggler span::before,
 .menu__toggler span::after {
-  position: absolute;
-  content: '';
-  width: 28px;
-  height: 2.5px;
-  background: #fafafa;
-  border-radius: 20px;
-  transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+position: absolute;
+content: '';
+width: 28px;
+height: 2.5px;
+background: #fff;
+border-radius: 20px;
+transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
 }
 
 .menu__toggler span::before {
-  top: -8px;
+top: -8px;
 }
 
 .menu__toggler span::after {
-  top: 8px;
+top: 8px;
 }
 
 .menu__toggler.active > span {
-  background: transparent;
+background: transparent;
 }
 
 .menu__toggler.active > span::before,
 .menu__toggler.active > span::after {
-  background: #005c9c;
-  top: 0px;
+background: #005c9c;
+top: 0px;
 }
 
 .menu__toggler.active > span::before {
-  transform: rotate(-225deg);
+transform: rotate(-225deg);
 }
 
 .menu__toggler.active > span::after {
-  transform: rotate(225deg);
+transform: rotate(225deg);
 }
 
 .menu {
-    top: 0;
-  position: fixed;
-  right: -90%;
-  z-index: 998;
-  color: #005c9c;
-  background: rgba(7, 159, 224, 0.9); /* Corrected the rgba function syntax */
-  clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
-  width: 90%;
-  height: 100%;
-  padding: 100px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  transition: 300ms right cubic-bezier(0.77, 0, 0.175, 1);
-  overflow: hidden;
+top: 0;
+position: fixed;
+right: -90%;
+z-index: 998;
+color: #005c9c;
+background: rgba(7, 159, 224, 0.9); /* Corrected the rgba function syntax */
+clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+width: 90%;
+height: 100%;
+padding: 100px;
+display: flex;
+flex-direction: column;
+justify-content: center;
+transition: 300ms right cubic-bezier(0.77, 0, 0.175, 1);
+overflow: hidden;
 }
 
 
 
 .menu.active {
-  right: 0;
+right: 0;
 }
 
 .menu p {
-    color: white;
-  font-size: 1.4rem;
-  margin-bottom: 1rem;
+color: white;
+font-size: 1.4rem;
+margin-bottom: 1rem;
 }
 /*add nav end*/
 
 
 
 /* @keyframes tapAnimation {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
+0% { transform: translateY(0); }
+50% { transform: translateY(-10px); }
+100% { transform: translateY(0); }
 } */
 
 #fingerTap{
-    pointer-events: none;
-    position: absolute;
-    top: calc(25% - 5%);
-    left: 50%;
-    width: 50px;
-    height: 50px;
-    background: url('https://i.stack.imgur.com/4ZjZl.png');
-    animation: tapAnimation 1s infinite;
-    z-index: 100;
-    display: absolute;
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0);
-    transition: opacity 1s ease;
+pointer-events: none;
+position: absolute;
+top: 50%;
+left: 50%;
+width: 50px;
+height: 50px;
+background: url('https://i.stack.imgur.com/4ZjZl.png');
+animation: tapAnimation 1s infinite;
+z-index: 100;
+display: absolute;
+border-radius: 50%;
+transform: translate(-50%, -50%);
+background-color: rgba(255, 255, 255, 0);
+transition: opacity 1s ease;
 
 }
 
@@ -491,19 +713,447 @@
 
 
 .swym-content{
-    display: none;
+height: 100%;
+width: 100%;
+overflow: hidden;
+position: relative;
+display: none;
 
-padding-left: 1.5rem;
+padding-left: 1rem;
 padding-top: 1rem;
+}
+.swym-content h4{
+position: absolute;
+top: 0%;
+left:50%;
+transform: translateX(-50%);
 }
 
 .mind-content{
-    display: none;
-    padding-left: 1.5rem;
+display: none;
+padding-left: 1.5rem;
 padding-top: 1rem;
 }
 .fitness-content{
-    display: none;
-    padding-left: 1.5rem;
+display: none;
+padding-left: 1.5rem;
 padding-top: 1rem;
 }
+.event-content{
+display: none;
+padding-left: 1.5rem;
+padding-top: 1rem;
+
+}
+
+#scroll-tag{
+    scroll-snap-align: start;
+
+}
+/*Second Part of Page*/
+
+
+.second-container{
+display: flex;
+/* justify-content: center; */
+position: relative;
+top: 90vh;
+height: 100vh;
+width: 100%;
+background-color: #fff;
+z-index: 900;
+scroll-snap-align: start;
+
+}
+
+
+#circle3 .simon1{
+    display: block;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    /* background-color: red; */
+    aspect-ratio: 1/1;
+    height: 25%;
+    transform: translateY(-50%)translateX(-50%);
+    border-radius: 50%;
+    margin: 1rem 0px;
+    /* overflow: hidden; */
+    /* background-image: url('yoga1.jpg'); */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+}
+#prevBtn{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 25%;
+    left: 2rem;
+}
+#nextBtn{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 25%;
+    right: 2rem;
+}
+
+#prevBtn2{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 50%;
+    left: 2rem;
+}
+#nextBtn2{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 50%;
+    right: 2rem;
+}
+
+#prevBtn3{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 75%;
+    left: 2rem;
+}
+#nextBtn3{
+    position: absolute;
+    height: 3rem;
+    width: 2rem;
+    opacity: 0.5;
+    top: 75%;
+    right: 2rem;
+}
+
+
+#circle3 .simon2{
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1/1;
+    height: 25%;
+    transform: translateY(-50%)translateX(-50%);
+    border-radius: 50%;
+    margin: 1rem 0px;
+    overflow: hidden;
+    background-image: url('jumpwater.jpg');
+    background-size: cover;
+    background-position: center;
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    z-index: 1;
+}
+
+#circle3 .simon3{
+    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+    display: flex;
+    position: absolute;
+    top: 75%;
+    left: 50%;
+    aspect-ratio: 1/1;
+    height: 25%;
+    transform: translateY(-50%)translateX(-50%);
+    border-radius: 50%;
+    margin: 1rem 0px;
+    overflow: hidden;
+    /* background-image: url('fitness.jpg'); */
+    background-size: cover;
+    background-position: center;
+    z-index: 1;
+}
+
+.back{
+    background-size: 300% 100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    border-radius: 10px;
+    background-color: red;
+    width: 5rem;
+    height: 3rem;
+    bottom:1rem;
+    left: 1rem;
+    /* margin-bottom: 1rem; */
+    border: none;
+    background-image: linear-gradient(to right, #eb3941, #f15e64, #e14e53, #e2373f);  box-shadow: 0 5px 15px rgba(242, 97, 103, .4);
+    -moz-transition: all .4s ease-in-out;
+-o-transition: all .4s ease-in-out;
+-webkit-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+color: white;
+font-size: 1rem;
+font-weight: bold;
+}
+.back:hover {
+background-position: 100% 0;
+-o-transition: all .4s ease-in-out;
+-webkit-transition: all .4s ease-in-out;
+transition: all .4s ease-in-out;
+}
+
+
+/*KLICKED CONTAINER*/
+.top-leftklick1{
+    
+    display: flex ;
+    position: absolute;
+    top: 12vh;
+    left: 1rem;
+    width: 8rem;
+    height:8rem;
+    border-radius: 1rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.9s /*opacity 0.9s*/;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}
+.top-leftklick1 .tl-content{
+    padding: 0.5rem;
+}
+
+.top-leftklick1 .tl-content ul li{
+    list-style-type: none;
+    text-decoration: none;
+}
+
+.top-rightklick1{
+    display:flex;
+    position: absolute;
+    background-color:rgb(245, 245, 245, 0.5);
+    border-radius: 1rem;
+
+    width: 8rem;
+    height: 8rem;
+    top:12vh;
+    right: 1rem;
+    pointer-events: none;
+    transform: scale(0);
+    transition: transform 0.9s;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}
+
+.middle-leftklick1{
+    border-radius: 10px;
+    display: flex ;
+    position: absolute;
+    
+    bottom: 4rem;
+    left: 1rem;
+    width: 8rem;
+    height: 8rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    box-shadow: inset 0 0 0 0.5px #fff;
+    pointer-events: none;
+    margin-bottom: 0.5rem;
+    transform: scale(0);
+    transition: transform 0.9s;
+    visibility: hidden;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+}/*maybe let the rotate on the z? axis while zooming in and out?*/
+.middle-rightklick1{
+    display:flex;
+    position: absolute;
+    border-radius: 10px;
+    width: 8rem;
+    height: 8rem;
+    bottom:4rem;
+    right: 1rem;
+    margin-bottom: 0.5rem;
+    background-color:rgb(245, 245, 245, 0.5);
+    transform: scale(0);
+    transition: transform 0.9s;
+    box-shadow: inset 0 0 0 0.5px #fff;
+
+    visibility: hidden;
+    pointer-events: none;
+}
+
+
+
+/*HEADER*/
+
+
+nav .logo3{
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin: 1px 0;
+}
+#second-header{
+    width: 100%;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+    font-family: var(--font-family);
+    height: 10vh;
+    background-color: rgba(223, 66, 66, 0.5);
+}
+#second-header nav{
+    max-width: 96%;
+    margin: 0 auto;
+    padding: 0 0.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+    z-index: 1;
+}
+
+header ul{
+    height: 10%;
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    align-items: center;
+}
+header ul li{
+    margin-left: 1rem;
+}
+header ul a{
+    text-decoration: none;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: var(--fontsize);
+    font-weight: var(--font-weight);
+    overflow: hidden;
+}
+header .tracking3{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 3.8em;
+    transform: translateX(-50%);
+    right: 50%;
+}
+header .tracking3 li{
+    margin-left: 1rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.5s ease;
+    flex-direction: row;
+}
+
+header #wordMind3{
+    display: flex;
+    font-size: 1rem;
+    position: absolute;
+    top: 0em;
+    line-height: 1.2em;
+}
+header #wordSwym3{
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.2em;
+    position: absolute;
+    top: 1.2em;
+}
+header #wordFitness3{
+    display: flex;
+    font-size: 1rem;
+    line-height: 1.2em;
+position: absolute;
+top: 2.4em;
+}
+
+.menu__toggler3 {
+    position: absolute;
+    top: 5%;
+    right: 0.1rem;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+    height: 28px;
+    width: 28px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    }
+    
+    .menu__toggler3 span,
+    .menu__toggler3 span::before,
+    .menu__toggler3 span::after {
+    position: absolute;
+    content: '';
+    width: 28px;
+    height: 2.5px;
+    background: #fafafa;
+    border-radius: 20px;
+    transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
+    }
+    
+    .menu__toggler3 span::before {
+    top: -8px;
+    }
+    
+    .menu__toggler3 span::after {
+    top: 8px;
+    }
+    
+    .menu__toggler3.active > span {
+    background: transparent;
+    }
+    
+    .menu__toggler3.active > span::before,
+    .menu__toggler3.active > span::after {
+    background: #005c9c;
+    top: 0px;
+    }
+    
+    .menu__toggler3.active > span::before {
+    transform: rotate(-225deg);
+    }
+    
+    .menu__toggler3.active > span::after {
+    transform: rotate(225deg);
+    }
+    
+    .menu3 {
+        top: 0;
+        position: fixed;
+        right: -90%;
+        z-index: 998;
+        color: #005c9c;
+        background: rgba(7, 159, 224, 0.9); /* Corrected the rgba function syntax */
+        clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
+        width: 90%;
+        height: 100%;
+        padding: 100px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        transition: 300ms right cubic-bezier(0.77, 0, 0.175, 1);
+        overflow: hidden;
+        }
+        
+        
+        
+        .menu3.active {
+        right: 0;
+        }
+        
+        .menu3 p {
+        color: white;
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        }
