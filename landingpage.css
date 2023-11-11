@@ -16,8 +16,15 @@ body{
    /* overflow-y: scroll; */
     overflow-X: hidden;
     background: linear-gradient(90deg,#e52e71,#ff8a00);
+    font-family: NeoTechPro-Light, Sans-Serif;
 }
-
+@font-face {
+    font-family: 'NeoTechPro-Light';
+    src: url('/NeoTechPro-Light.woff2') format('woff2'),
+         url('/NeoTechPro-Light.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /* main{
     background: linear-gradient(180deg, 
