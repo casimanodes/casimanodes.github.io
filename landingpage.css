@@ -16,7 +16,7 @@ body{
    /* overflow-y: scroll; */
     overflow-X: hidden;
     background: linear-gradient(90deg,#e52e71,#ff8a00);
-    font-family: NeoTechPro-Light, Sans-Serif;
+    font-family: 'NeoTechPro-Light', sans-serif;
 }
 @font-face {
     font-family: 'NeoTechPro-Light';
