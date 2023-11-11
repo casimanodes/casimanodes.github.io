@@ -21,6 +21,7 @@ body{
 @font-face {
     font-family: 'NeoTechPro-Light';
     src: url('NeoTechPro-Light (2) (1).woff2') format('woff2'),
+    url('path-to-fonts/NeoTechPro-Light.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
