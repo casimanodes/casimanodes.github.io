@@ -192,7 +192,7 @@ header #wordEvent{
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
 }
 .innercircle{
-    background-image: url('yoga1.jpg');
+    background-image: url('Images/yoga1.jpg');
     background-size: cover;
     display: flex;
     position: relative;
@@ -224,7 +224,7 @@ header #wordEvent{
 }
 
 .innercircle2{
-    background-image: url('jumpwater.jpg');
+    background-image: url('Images/jumpwater.jpg');
     background-size: cover;
     display: flex;
     position: relative;
@@ -256,7 +256,7 @@ header #wordEvent{
 }
 
 .innercircle3{
-    background-image: url('fitness.jpg');
+    background-image: url('Images/fitness.jpg');
     background-size: cover;
     display: flex;
     position: relative;
@@ -290,7 +290,7 @@ header #wordEvent{
 
 
 .innercircle4{
-    background-image: url('yoga1.jpg');
+    background-image: url('Images/yoga1.jpg');
     background-size: cover;
     display: flex;
     position: relative;
@@ -786,7 +786,7 @@ scroll-snap-align: start;
     border-radius: 50%;
     margin: 1rem 0px;
     /* overflow: hidden; */
-    /* background-image: url('yoga1.jpg'); */
+    /* background-image: url('Images/yoga1.jpg'); */
     background-size: cover;
     background-position: center;
     z-index: 1;
@@ -855,7 +855,7 @@ scroll-snap-align: start;
     border-radius: 50%;
     margin: 1rem 0px;
     overflow: hidden;
-    background-image: url('jumpwater.jpg');
+    background-image: url('Images/jumpwater.jpg');
     background-size: cover;
     background-position: center;
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
@@ -874,7 +874,7 @@ scroll-snap-align: start;
     border-radius: 50%;
     margin: 1rem 0px;
     overflow: hidden;
-    /* background-image: url('fitness.jpg'); */
+    /* background-image: url('Images/fitness.jpg'); */
     background-size: cover;
     background-position: center;
     z-index: 1;
