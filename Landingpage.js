@@ -913,9 +913,9 @@ toggler1.addEventListener('click', () => {
 // IMAGE SLIDER
 // script.js
 document.addEventListener("DOMContentLoaded", function() {
-    setupSlider('#circle3 .simon1', 'prevBtn', 'nextBtn', ['url(Yoga-colored.jpg)', 'url(yoga1.jpg)']);
-    setupSlider('#circle3 .simon2', 'prevBtn2', 'nextBtn2', ['url(jumpwater.jpg)', 'url(schwimmen-colored.jpg)', 'url(schwimmentrainer-colored.jpg)','url(Aquafitness-colored.jpg)','url(sschwimmenteach-colored.jpg)','url(schwimmenatmung-colored.jpg)']); // Replace with actual images for simon2
-    setupSlider('#circle3 .simon3', 'prevBtn3', 'nextBtn3', ['url(fitness.jpg)', 'url(Fitness-colored.jpg)']); // Replace with actual images for simon3
+    setupSlider('#circle3 .simon1', 'prevBtn', 'nextBtn', ['url(Images/Yoga-colored.jpg)', 'url(Images/yoga1.jpg)']);
+    setupSlider('#circle3 .simon2', 'prevBtn2', 'nextBtn2', ['url(Images/jumpwater.jpg)', 'url(Images/schwimmen-colored.jpg)', 'url(Images/schwimmentrainer-colored.jpg)','url(Images/Aquafitness-colored.jpg)','url(Images/sschwimmenteach-colored.jpg)','url(Images/schwimmenatmung-colored.jpg)']); // Replace with actual images for simon2
+    setupSlider('#circle3 .simon3', 'prevBtn3', 'nextBtn3', ['url(Images/fitness.jpg)', 'url(Images/Fitness-colored.jpg)']); // Replace with actual images for simon3
 });
 
 function setupSlider(sliderSelector, prevBtnId, nextBtnId, images) {
