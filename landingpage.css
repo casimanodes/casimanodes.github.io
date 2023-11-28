@@ -178,7 +178,7 @@ header #wordEvent{
     display: block;
     position: absolute;
     left: 30%;
-    top: 25%;
+    top: 23%;
     /* left: 2rem; */
     background-color: rgb(246, 177, 166);
     aspect-ratio: 1/1;
@@ -220,7 +220,7 @@ header #wordEvent{
     margin:  0px;
     overflow: default;
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    z-index: 1;
+    z-index:999;
 }
 
 .innercircle2{
@@ -252,7 +252,7 @@ header #wordEvent{
     border-radius: 50%;
     margin:  0px;
     overflow: default;
-    z-index: 1;
+    z-index:999;
 }
 
 .innercircle3{
@@ -286,6 +286,7 @@ header #wordEvent{
     /* overflow: auto; */
     z-index: 1;
     background-color: #f4f418;
+    z-index:999;
 }
 
 
@@ -311,13 +312,12 @@ header #wordEvent{
     position: absolute;
     top: 30%;
     left: 20%;
-    transform: translateX(-100%);
-    /* transform: translateX(0) translateY(-50%); */
+    transform: translateX(-100%) ;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background-color: rgb(246, 177, 166);
-    height: 8%;
+    height: min(4rem, 6rem);
     aspect-ratio: 1/1;
     border: none;
     z-index: 1;
@@ -326,29 +326,19 @@ header #wordEvent{
     font-weight: bold;
     z-index: 1;
 }
-/* .babsolute1::after{
-    content: '';
-    position: absolute;
-    height: 12.5%;
-    width: 12.5%;
-    border-top-right-radius: 50%;
-    box-shadow: 4px 4px 0px 4px rgb(212, 36, 8);
-} */
+
 .babsolute2{
     display:flex;
     position: absolute;
-    /* top: 42.5%;
-    left: 25%; */
-    /* transform: translateX(-50%) translateY(-50%); */
-    /* transform: translateX(0) translateY(-50%); */
-    bottom: -10%;
-    right: -10%;
+    transform: translateX(100%) ;
+    top: 47.5%;
+    right: 20%;
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background-color: rgb(0, 125, 195);
-    width: 4rem;
-    height: 4rem;
+    height: min(4rem, 6rem);
+    aspect-ratio: 1/1;
     border: none;
     z-index: 1;
     color: white;
@@ -359,18 +349,15 @@ header #wordEvent{
 .babsolute3{
     display:flex;
     position: absolute;
-    bottom: -10%;
-    left: -10%;
-    /* top: 62.5%;
-    right: 25%; */
-    /* transform: translateX(-50%) translateY(-50%); */
-    /* transform: translateX(0) translateY(-50%); */
+    top: 67.5%;
+    left: 20%;
+    transform: translateX(-100%);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background-color: rgb(198, 199, 196);
-    width: 4rem;
-    height: 4rem;
+    height: min(4rem, 6rem);
+    aspect-ratio: 1/1;
     border: none;
     z-index: 1;
     color: white;
@@ -381,19 +368,16 @@ header #wordEvent{
 .babsolute4{
     display:flex;
     position: absolute;
-    bottom: -10%;
-    right: -10%;
-    /* top: 80%;
-    left: 25%; */
-    /* transform: translateX(-50%) translateY(-50%); */
-    /* transform: translateX(5px) translateY(-50%); */
+    top: 85%;
+    right: 20%;
+    transform: translateX(100%);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
     background-color: #f4f418;
     /* background-color: orangelinear-gradient(90deg, rgb(246, 177, 166), rgb(0, 125, 195), rgb(198, 199, 196)); */
-    width: 4rem;
-    height: 4rem;
+    height: min(4rem, 6rem);
+    aspect-ratio: 1/1;
     border: none;
     z-index: 1;
     color: white;
