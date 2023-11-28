@@ -26,11 +26,14 @@ document.addEventListener('DOMContentLoaded', function() {
     let linkEnabledFirst = false;
     let linkEnabledSecond = false;
     let linkEnabledThird = false;
+    let linkEnabledFourth = false;
     const firstInnerCircle = document.querySelector('.innercircle')
     const secondInnerCircle = document.querySelector('.innercircle2')
     const thirdInnerCircle = document.querySelector('.innercircle3')
     const fourthInnerCircle = document.querySelector('.innercircle4')
     const header = document.querySelector('header');
+
+    // MIND ELEMENT
 
     firstElement.addEventListener('click', function() {
         if (linkEnabledFirst) {
@@ -38,60 +41,59 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-            firstElement.style.top = '50vh';
-            firstElement.style.left = "50vw";
-            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            linkEnabledFirst = true;
-            // secondElement.style.pointerEvents = 'none';
+            // firstElement.style.top = '50vh';
+            // firstElement.style.left = "50vw";
+            // firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            // secondElement.style.opacity = '0';
+            // thirdElement.style.opacity = '0';
+            // linkEnabledFirst = true;
+            // // secondElement.style.pointerEvents = 'none';
+            // mindContent.forEach(content => {
+            //  content.style.display = "flex";
+            //     });
+            // clickedContainer.forEach(function(container) {
+            // container.style.transform = 'scale(1)';
+            // container.style.visibility = 'visible';
+        // });
 
-
-
-
-            mindContent.forEach(content => {
-             content.style.display = "flex";
-                });
-
-
-            clickedContainer.forEach(function(container) {
-            container.style.transform = 'scale(1)';
-            container.style.visibility = 'visible';
-
-
-        });
         } else {
+            linkEnabledFirst = true;
             firstInnerCircle.style.height = '100%';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             firstElement.style.top = '50vh';
             firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+
+// Passive circles
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
-            
-            linkEnabledFirst = true;
+            fourthElement.style.opacity = '0';            
             thirdElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
 
+         
+         
+            // Zoom content Container Visible
+            clickedContainer.forEach(function(container) {
+                container.style.transform = 'scale(1)';
+                container.style.visibility = 'visible';          
+            });
+
+            // Zoom Content disappear
             disappear.forEach(function(disappear) {
                 disappear.style.opacity="0";
             
             });
-            
+            // Zoom Content klicked element Appear
             mindContent.forEach(content => {
              content.style.display = "flex";
                 });
-
-            clickedContainer.forEach(function(container) {
-            container.style.transform = 'scale(1)';
-            container.style.visibility = 'visible';          
-        });
-
         }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
+
+
     });
+
+    // SWYM ELEMENT 
 
     secondElement.addEventListener('click', function() {
         if (linkEnabledSecond) {
@@ -114,13 +116,17 @@ document.addEventListener('DOMContentLoaded', function() {
              content.style.display = "flex";
                 });
         });
+
         } else {
             secondInnerCircle.style.height = '100%';/*changes*/
             header.style.backgroundColor = 'rgb(0, 125, 195)';
+            linkEnabledSecond = true;
 
 
             secondElement.style.top = '50vh';
-            secondElement.style.transform = 'translateY(-50%) scale(1.7)';/*changes*/
+            secondElement.style.transform = 'translateY(-50%) scale(1.5)';/*changes*/
+
+            // Passive circles
             firstElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
@@ -129,24 +135,24 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
 
+            // Zoom Content Conainter Appear
+            clickedContainer.forEach(function(container) {
+                container.style.transform = 'scale(1)';
+                container.style.visibility = 'visible';
+            });
+
+            // Zoom Content disappear
             disappear.forEach(function(disappear) {
                 disappear.style.opacity="0";
             });
+            // Zoom content Klicked element appear
             swymContent.forEach(content => {
             content.style.display = "flex";
             });
-            linkEnabledSecond = true;
-
-            clickedContainer.forEach(function(container) {
-            container.style.transform = 'scale(1)';
-            container.style.visibility = 'visible';
-        });
-
         }
-        // backgroundElement.style.setProperty('--scale', '1.5');
-        // handleCircleClick();
-         
     });
+
+    // FITNESS ELEMENT
 
     thirdElement.addEventListener('click', function() {
         if (linkEnabledThird) {
@@ -203,45 +209,49 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
         }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
+
     });
 
+    // EVENT ELEMENT
 
     fourthElement.addEventListener('click', function() {
-        if (linkEnabledFirst) {
+        if (linkEnabledFourth) {
             window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
             return;
         }
         if (mediaQuery.matches) {
-            fourthElement.style.top = '50vh';
-            fourthElement.style.left = "50vw";
-            fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
+            // fourthElement.style.top = '50vh';
+            // fourthElement.style.left = "50vw";
+            // fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            // firstElement.style.opacity = '0';
+            // secondElement.style.opacity = '0';
+            // thirdElement.style.opacity = '0';
 
-            linkEnabledFirst = true;
-            //add for all elements:
-            secondElement.style.pointerEvents = 'none';
+            // linkEnabledFirst = true;
+            // //add for all elements:
+            // secondElement.style.pointerEvents = 'none';
 
-            // mindContent.forEach(content => {
-            //  content.style.display = "flex";
-            //     });
+            // // mindContent.forEach(content => {
+            // //  content.style.display = "flex";
+            // //     });
 
 
-            clickedContainer.forEach(function(container) {
-            container.style.transform = 'scale(1)';
-            container.style.visibility = 'visible';
+            // clickedContainer.forEach(function(container) {
+            // container.style.transform = 'scale(1)';
+            // container.style.visibility = 'visible';
 
-        });
+        // });
 
         } else {
             fourthInnerCircle.style.height = '100%';
             header.style.backgroundColor = 'Yellow';
+            linkEnabledFourth = true;
 
             fourthElement.style.top = '50vh';
             fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
+            
+
+            // passive circles
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
@@ -250,30 +260,26 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.pointerEvents = 'none';
             thirdElement.style.pointerEvents = 'none';
 
-            linkEnabledFirst = true;
-            disappear.forEach(function(disappear) {
-                disappear.style.opacity="0";
-            
-            });
-            // mindContent.forEach(content => {
-            //  content.style.display = "flex";
-            //     });
 
+            // Zoom clicked container visible
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
             
-
+            // Zoom content Container passive content disappear
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            
+            });
+            // Zoom content container klicked element visible
             eventContent.forEach(content => {
              content.style.display = "flex";
                 });
-        });
 
-        }
-        backgroundElement.style.setProperty('--scale', '1.5');
-        handleCircleClick();
+        });}
     });
 
+// ZURÜCK BUTTON
 
     backElement.addEventListener('click', function() {
         
@@ -295,14 +301,16 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.opacity = '1';
 
                                 /*wordbullet resets*/
-                                wordMind.style.fontWeight = 'normal';
+        wordMind.style.fontWeight = 'normal';
+        wordMind.style.textDecoration = "normal";
         wordSwym.style.fontWeight = 'normal';
+        wordSwym.style.textDecoration = "normal";
         wordFitness.style.fontWeight = 'normal';
         wordFitness.style.textDecoration = "normal";
-        wordSwym.style.textDecoration = "normal";
-        wordMind.style.textDecoration = "normal";
 
-        mindContent.forEach(content => {
+
+
+mindContent.forEach(content => {
     content.style.display = "none";
 });
 swymContent.forEach(content => {
@@ -313,24 +321,23 @@ fitnessContent.forEach(content => {
     content.style.display = "none";
 });
 
+
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
-
-
-
-
         });
 
         linkEnabledFirst = false;
-            linkEnabledSecond = false;
-            linkEnabledThird = false;
-        } else {
-            firstInnerCircle.style.height = '90%';
-            secondInnerCircle.style.height = '90%';
-            thirdInnerCircle.style.height = '90%';
-            fourthInnerCircle.style.height = '90%';
+        linkEnabledSecond = false;
+        linkEnabledThird = false;
+        linkEnabledFourth = false;
 
-            header.style.backgroundColor = '';
+        } else {
+            firstInnerCircle.style.height = '';
+            secondInnerCircle.style.height = '';
+            thirdInnerCircle.style.height = '';
+            fourthInnerCircle.style.height = '';
+
+  
 
             firstElement.style.top = '';
             firstElement.style.transform = '';
@@ -361,20 +368,27 @@ fitnessContent.forEach(content => {
             /*wordbullet resets*/ 
 
         wordMind.style.textDecoration = "";
+        wordMind.style.fontWeight = '';
+        wordMind.style.fontSize = "";
+
         wordSwym.style.textDecoration = "";
+        wordSwym.style.fontWeight = '';
+        wordSwym.style.fontSize = "";
+
         wordFitness.style.textDecoration = "";
+        wordFitness.style.fontSize = "";
+        wordFitness.style.fontWeight = '';
+
+        wordEvent.style.fontWeight = '';
+        wordEvent.style.fontSize = "";        
         wordEvent.style.textDecoration = "";
 
-        wordMind.style.fontWeight = 'normal';
-        wordSwym.style.fontWeight = 'normal';
-        wordFitness.style.fontWeight = 'normal';
-        wordEvent.style.fontWeight = 'normal';
+        // wordMind.style.topPosition = '0.1rem'; try again later
 
 
 
-
-
-        mindContent.forEach(content => {
+// content container
+mindContent.forEach(content => {
     content.style.display = "none";
 });
 swymContent.forEach(content => {
@@ -389,26 +403,18 @@ eventContent.forEach(content => {
 });
 
 
-
+// Zoom content container zoom away
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
             secondElement.style.pointerEvents = '';
-
-
-        //     mindcontent.style.display ="none";
-        // swymcontent.style.display ="none";
-        // fitnesscontent.style.display="none";
-        
-
         }); 
-
 
         /*link reset*/
             linkEnabledFirst = false;
             linkEnabledSecond = false;
             linkEnabledThird = false;
-
-            secondElement.style.pointerEvents = '';
+            linkEnabledFourth = false;
+            header.style.backgroundColor = '';
         }
 
     });
@@ -444,56 +450,62 @@ document.addEventListener('DOMContentLoaded', function() {
     const wordSwym = document.getElementById('wordSwym');
     const wordFitness = document.getElementById('wordFitness');
     const wordEvent = document.getElementById('wordEvent');
-    // Initialize the inline styles based on the CSS values
-    wordMind.style.top = '0em';
-    wordSwym.style.top = '1.2em';
-    wordFitness.style.top = '2.4em';
-    wordEvent.style.top = '3.6em';
 
-    let topPosition = '0em';
-    let middlePosition1 = '1.2em';
-    let middlePosition2 = '2.4em';
-    let bottomPosition = '3.6em';
+    // Initialize the inline styles based on the CSS values
+    wordMind.style.top = '0%';
+    wordSwym.style.top = '24%';
+    wordFitness.style.top = '46%';
+    wordEvent.style.top = '69%';
+
+    let topPosition = '0%';
+    let middlePosition1 = '25%';
+    let middlePosition2 = '50%'; /*use this value to take the word back to its original spot even after klicking the back button*/
+    let bottomPosition = '69%';
 
     firstTrigger.addEventListener('click', function() {
         if (wordMind.style.top !== bottomPosition) {
             swapPositions(wordMind, currentMiddleWord());
+        }
             resetFontWeights();
             wordMind.style.fontWeight = 'bold';
             wordMind.style.textDecoration = "underline";
             wordMind.style.textDecorationColor = "white";
-        }
+            wordMind.style.fontSize = "1.1rem";
+            
     });
 
     secondTrigger.addEventListener('click', function() {
         if (wordSwym.style.top !== bottomPosition) {
             swapPositions(wordSwym, currentMiddleWord());
+        }
             resetFontWeights();
             wordSwym.style.fontWeight = 'bold';
             wordSwym.style.textDecoration = "underline";
             wordSwym.style.textDecorationColor = "white";
-        }
+            wordSwym.style.fontSize = "1.1rem";
     });
 
     thirdTrigger.addEventListener('click', function() {
         if (wordFitness.style.top !== bottomPosition) {
             swapPositions(wordFitness, currentMiddleWord());
+        }
             resetFontWeights();
             wordFitness.style.fontWeight = 'bold';
             wordFitness.style.textDecoration = "underline";
             wordFitness.style.textDecorationColor = "white";
-            
-        }
+            wordFitness.style.fontSize = "1.1rem";
     });
 
     fourthTrigger.addEventListener('click', function() {
         if (wordEvent.style.top !== bottomPosition) {
             swapPositions(wordEvent, currentMiddleWord());
+        }
             resetFontWeights();
             wordEvent.style.fontWeight = 'bold';
             wordEvent.style.textDecoration = "underline";
             wordEvent.style.textDecorationColor = "white";
-        }
+            wordEvent.style.fontSize = "1.1rem";
+
     });
 
     function currentMiddleWord() {
@@ -532,6 +544,9 @@ toggler.addEventListener('click', () => {
   toggler.classList.toggle('active');
   menu.classList.toggle('active');
 })
+
+
+
 
 
 
@@ -729,28 +744,32 @@ document.addEventListener('DOMContentLoaded', function() {
         wordSwym.style.textDecoration = "none";
         wordMind.style.textDecoration = "none";
 
-        mindContent.forEach(content => {
-    content.style.display = "none";
-});
-swymContent.forEach(content => {
-    content.style.display = "none";
-});
 
-fitnessContent.forEach(content => {
-    content.style.display = "none";
-});
+        /* What is the funktionality here? i thought to make the content disappear from the boxes that zoom in, but it works without the code*/
+
+//         mindContent.forEach(content => {
+//     content.style.display = "none";
+// });
+// swymContent.forEach(content => {
+//     content.style.display = "none";
+// });
+
+// fitnessContent.forEach(content => {
+//     content.style.display = "none";
+// });
+// eventContent.forEach(content => {
+//     content.style.display = "none";
+// })
 
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
 
-
-
-
         });
 
         linkEnabledFirst = false;
-            linkEnabledSecond = false;
-            linkEnabledThird = false;
+        linkEnabledSecond = false;
+        linkEnabledThird = false;
+        linkEnabledFourth = false; /*does not Worke*/
         } else {
 
 /*absolute elements*/
