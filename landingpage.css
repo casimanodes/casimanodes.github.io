@@ -35,13 +35,7 @@ body{
                     red 95%);
     
 } */
-header #wordEvent{
-    display: flex;
-    position: absolute;
-    font-size: 1rem;
-    line-height: 1.2em;
-    top: 3.6em;
-}
+
 
 
 #circle4{
@@ -49,13 +43,7 @@ header #wordEvent{
     width: 100%;
     overflow: hidden;  
 }
-nav .logo{
-    max-width: 80%;
-    max-height: 80%;
-    border-radius: 50%;
-    background-color: rgb(255, 255, 255);
-    margin: 1px 0;
-}
+
 header{
     width: 100%;
     font-family: var(--font-family);
@@ -66,96 +54,75 @@ header{
 header nav{
     max-width: 96%;
     margin: 0 auto;
-    /* padding: 0 0.1rem; */
     display: flex;
-    justify-content: space-between;
+    /* justify-content: space-between; */
     align-items: center;
     height: 10vh;
     z-index: 1;
-    border-bottom: 3px solid rgba(0, 0, 0, 0.5);
+    border-bottom: 2px solid rgba(0, 0, 0, 0.5);
 
 }
+
+header nav .logo{
+    max-width: 80%;
+    max-height: 80%;
+    border-radius: 50%;
+    background-color: rgb(255, 255, 255);
+    margin: 1px 0;
+}
+
 header ul{
-    /* padding-top: ; */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
     display: flex;
-    list-style: none;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    padding: 0;
+    height: 8vh;
+    align-items: flex-start;
 }
-header ul li{
-    margin-left: 1rem;
+
+header nav ul li{
+    list-style-type: none;
+    color: white;
+    margin: 0;
+    padding: 0;
 }
-header ul a{
-    text-decoration: none;
-    color: rgb(4, 4, 4);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: var(--fontsize);
-    font-weight: var(--font-weight);
-    overflow: hidden;
-}
-header .tracking{
-    right: 50%;
-    position: relative;
+
+header nav ul #wordMind{
     display: flex;
-    /* height: 3.8em; */
-    height: 10vh;
-    
-    padding: auto;
-}
-header .tracking li{
-    position: relative;
+    position: absolute;
+    font-size: 1rem;
     transition: all 0.5s ease;
-    flex-direction: row;
+    padding: 0;
+    margin: 0;
 }
-header #wordMind{
+header nav ul #wordSwym{
     display: flex;
-    font-size: 1rem;
     position: absolute;
-    top: 0em;
-    line-height: 1.2em;
-}
-header #wordSwym{
-    display: flex;
     font-size: 1rem;
-    line-height: 1.2em;
+    transition: all 0.5s ease;
+    padding: 0;
+    margin: 0;
+}
+header nav ul #wordFitness{
+    display: flex;
     position: absolute;
-    top: 1.2em;
-}
-header #wordFitness{
-    display: flex;
     font-size: 1rem;
-    line-height: 1.2em;
-position: absolute;
-top: 2.4em;
+transition: all 0.5s ease;
+padding: 0;
+margin: 0;
 }
 
-header #wordEvent{
+header nav ul #wordEvent{
     display: flex;
     position: absolute;
     font-size: 1rem;
-    line-height: 1.2em;
-    top: 3.6em;
+    transition: all 0.5s ease;
+    padding: 0;
+    margin: 0;
 }
 
-/* #background::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    /* background-image: url('ein-klares-blaues-meer-mit-bunten-fischen-die-von-ki-generiert-werden.jpg'); */
-    /* background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -2;
-    transform: scale(var(--scale, 1));
-    transition: transform 0.3s ease;
-}
-#background {
-    background: none; 
-} */
 
 
 
@@ -178,7 +145,7 @@ header #wordEvent{
     display: block;
     position: absolute;
     left: 30%;
-    top: 23%;
+    top: 25%;
     /* left: 2rem; */
     background-color: rgb(246, 177, 166);
     aspect-ratio: 1/1;
@@ -211,7 +178,7 @@ header #wordEvent{
     display: block;
     position: absolute;
     right: 30%;
-    top: 42.5%;
+    top: 42%;
     background-color: rgb(0, 125, 195);
     aspect-ratio: 1/1;
     height: 20%;
@@ -220,7 +187,7 @@ header #wordEvent{
     margin:  0px;
     overflow: default;
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    z-index:999;
+    z-index:2;
 }
 
 .innercircle2{
@@ -243,7 +210,7 @@ header #wordEvent{
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
     display: block;
     position: absolute;
-    top: 62.5%;
+    top: 58%;
     left: 30%;
     background-color: rgb(198, 199, 196);
     aspect-ratio: 1/1;
@@ -252,7 +219,7 @@ header #wordEvent{
     border-radius: 50%;
     margin:  0px;
     overflow: default;
-    z-index:999;
+    z-index:2;
 }
 
 .innercircle3{
@@ -276,17 +243,17 @@ header #wordEvent{
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
     display: block;
     position: absolute;
-    top: 80%;
+    bottom: 25%;
     right: 30%;
     aspect-ratio: 1/1;
     height: 20%;
-    transform: translateX(50%) translateY(-50%);
+    transform: translateX(50%) translateY(50%);
     border-radius: 50%;
     margin:  0px;
-    /* overflow: auto; */
+    overflow: default;
     z-index: 1;
     background-color: #f4f418;
-    z-index:999;
+    z-index:2;
 }
 
 
@@ -312,7 +279,7 @@ header #wordEvent{
     position: absolute;
     top: 30%;
     left: 20%;
-    transform: translateX(-100%) ;
+    transform: translateX(-90%) translateY(-10%) rotate(45deg);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -325,13 +292,14 @@ header #wordEvent{
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
     font-weight: bold;
     z-index: 1;
+    
 }
 
 .babsolute2{
     display:flex;
     position: absolute;
-    transform: translateX(100%) ;
-    top: 47.5%;
+    transform: translateX(90%) translateY(-10%)rotate(-45deg);
+    top: 47%;
     right: 20%;
     align-items: center;
     justify-content: center;
@@ -349,9 +317,9 @@ header #wordEvent{
 .babsolute3{
     display:flex;
     position: absolute;
-    top: 67.5%;
+    top: 63%;
     left: 20%;
-    transform: translateX(-100%);
+    transform: translateX(-90%) translateY(-10%)rotate(45deg);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -363,14 +331,15 @@ header #wordEvent{
     color: white;
     text-shadow: 2px 2px 5px rgba(0, 0, 0, 1); 
     font-weight: bold;
+    
 }
 
 .babsolute4{
     display:flex;
     position: absolute;
-    top: 85%;
+    top: 80%;
     right: 20%;
-    transform: translateX(100%);
+    transform: translateX(90%) translateY(-10%)rotate(-45deg);
     align-items: center;
     justify-content: center;
     border-radius: 50%;
@@ -401,6 +370,8 @@ overflow: hidden;
     }
 
 
+
+    /* Computer Screen */
 @media screen and (min-width: 786px) {
     .absolute1:hover,
 .absolute2:hover,
@@ -439,6 +410,7 @@ transform: translate(-50%, -50%) scale(1.2)
     }
 }
 
+/* Media querie End */
 
 
 .buchen{
@@ -470,6 +442,7 @@ background-position: 100% 0;
 -webkit-transition: all .4s ease-in-out;
 transition: all .4s ease-in-out;
 }
+
 .back1{
     background-size: 300% 100%;
     display:flex;
@@ -492,6 +465,7 @@ color: white;
 font-size: 1rem;
 font-weight: bold;
 }
+
 .back:hover {
 background-position: 100% 0;
 -o-transition: all .4s ease-in-out;
@@ -499,6 +473,8 @@ background-position: 100% 0;
 transition: all .4s ease-in-out;
 }
 
+
+/* Zoom content  */
 .top-leftklick{
     
     display: flex ;
@@ -581,7 +557,6 @@ transition: all .4s ease-in-out;
 }
 #wordMind, #wordSwym, #wordFitness, #wordEvent {
 transition: top 0.5s; /* This will animate the top property over 0.5 seconds */
-text-decoration-color: white;
 }
 
 
@@ -701,7 +676,7 @@ transition: opacity 1s ease;
 
 
 
-
+/* Zoom content styles  */
 
 .swym-content{
 height: 100%;
@@ -739,8 +714,10 @@ padding-top: 1rem;
 
 #scroll-tag{
     scroll-snap-align: start;
-
 }
+
+
+
 /*Second Part of Page*/
 
 
@@ -1033,7 +1010,7 @@ header .tracking3{
     align-items: center;
     height: 3.8em;
     transform: translateX(-50%);
-    right: 50%;
+    left: -50%;
 }
 header .tracking3 li{
     margin-left: 1rem;
