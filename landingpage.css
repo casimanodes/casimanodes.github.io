@@ -499,21 +499,35 @@ transition: all .4s ease-in-out;
 
 
 /* Zoom content  */
+
+
+:root{
+  --width: 8rem;
+  --height: 8rem;
+  --display: flex;
+  --position: absolute;
+  --border-radius: 1rem;
+  --background-color:rgb(245, 245, 245, 0.5);
+  --pointer-events: none;
+  --transform: scale(0);
+  --transition: transform 0.9s;
+  --visibility: hidden;
+  --box-shadow: inset 0 0 0 0.5px #fff;
+}
 .top-leftklick{
-    
-    display: flex ;
-    position: absolute;
-    top: 12vh;
-    left: 1rem;
-    width: 8rem;
-    height:8rem;
-    border-radius: 1rem;
-    background-color:rgb(245, 245, 245, 0.5);
-    pointer-events: none;
-    transform: scale(0);
-    transition: transform 0.9s /*opacity 0.9s*/;
-    visibility: hidden;
-    box-shadow: inset 0 0 0 0.5px #fff;
+  top: 12vh;
+  left: 1rem;
+  display: var(--display);
+  position: var(--position);
+  width: var(--width);
+  height:var(--height);
+  border-radius: var(--border-radius);
+  background-color:var(--background-color);
+  pointer-events: var(--pointer-events);
+  transform: var(--transform);
+  transition: var(--transition);
+  visibility: var(--visibility);
+  box-shadow: var(--box-shadow);
 
 }
 .top-leftklick .tl-content{
@@ -526,58 +540,52 @@ transition: all .4s ease-in-out;
 }
 
 .top-rightklick{
-    display:flex;
-    position: absolute;
-    background-color:rgb(245, 245, 245, 0.5);
-    border-radius: 1rem;
-
-    width: 8rem;
-    height: 8rem;
-    top:12vh;
-    right: 1rem;
-    pointer-events: none;
-    transform: scale(0);
-    transition: transform 0.9s;
-    visibility: hidden;
-    box-shadow: inset 0 0 0 0.5px #fff;
+  top:12vh;
+  right: 1rem;
+  display: var(--display);
+  position: var(--position);
+  width: var(--width);
+  height:var(--height);
+  border-radius: var(--border-radius);
+  background-color:var(--background-color);
+  pointer-events: var(--pointer-events);
+  transform: var(--transform);
+  transition: var(--transition);
+  visibility: var(--visibility);
+  box-shadow: var(--box-shadow);
 
 }
 
 .middle-leftklick{
-    border-radius: 10px;
-    display: flex ;
-    position: absolute;
-    
-    bottom: 4rem;
-    left: 1rem;
-    width: 8rem;
-    height: 8rem;
-    background-color:rgb(245, 245, 245, 0.5);
-    box-shadow: inset 0 0 0 0.5px #fff;
-    pointer-events: none;
-    margin-bottom: 0.5rem;
-    transform: scale(0);
-    transition: transform 0.9s;
-    visibility: hidden;
-    box-shadow: inset 0 0 0 0.5px #fff;
+  bottom: 4rem;
+  left: 1rem;
+  display: var(--display);
+  position: var(--position);
+  width: var(--width);
+  height:var(--height);
+  border-radius: var(--border-radius);
+  background-color:var(--background-color);
+  pointer-events: var(--pointer-events);
+  transform: var(--transform);
+  transition: var(--transition);
+  visibility: var(--visibility);
+  box-shadow: var(--box-shadow);
 
 }/*maybe let the rotate on the z? axis while zooming in and out?*/
 .middle-rightklick{
-    display:flex;
-    position: absolute;
-    border-radius: 10px;
-    width: 8rem;
-    height: 8rem;
-    bottom:4rem;
-    right: 1rem;
-    margin-bottom: 0.5rem;
-    background-color:rgb(245, 245, 245, 0.5);
-    transform: scale(0);
-    transition: transform 0.9s;
-    box-shadow: inset 0 0 0 0.5px #fff;
-
-    visibility: hidden;
-    pointer-events: none;
+  bottom:4rem;
+  right: 1rem;
+  display: var(--display);
+  position: var(--position);
+  width: var(--width);
+  height:var(--height);
+  border-radius: var(--border-radius);
+  background-color:var(--background-color);
+  pointer-events: var(--pointer-events);
+  transform: var(--transform);
+  transition: var(--transition);
+  visibility: var(--visibility);
+  box-shadow: var(--box-shadow);
 }
 #wordMind, #wordSwym, #wordFitness, #wordEvent {
 transition: top 0.5s; /* This will animate the top property over 0.5 seconds */
@@ -1112,34 +1120,48 @@ padding-top: 1rem;
   header nav ul #wordMind{
     display: flex;
     position: absolute;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: all 0.5s ease;
-    padding: 0;
+    /* padding-top: 1px; */
     margin: 0;
-  
+    top: 0rem;
+    left: 50%;
+    transform: translateX(-50%);
+
   }
   header nav ul #wordSwym{
     display: flex;
     position: absolute;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: all 0.5s ease;
     padding: 0;
     margin: 0;
+    top: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+
   }
   header nav ul #wordFitness{
     display: flex;
     position: absolute;
-    font-size: 1rem;
+    font-size: 0.9rem;
   transition: all 0.5s ease;
   padding: 0;
   margin: 0;
+  top: 1.9rem;
+  left: 50%;
+  transform: translateX(-50%);
+
   }
   
   header nav ul #wordEvent{
     display: flex;
     position: absolute;
-    font-size: 1rem;
+    font-size: 0.9rem;
     transition: all 0.5s ease;
     padding: 0;
     margin: 0;
+    top: 2.8rem;
+    left: 50%;
+transform: translateX(-50%);
   }

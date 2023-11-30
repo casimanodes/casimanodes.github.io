@@ -491,15 +491,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const wordEvent = document.getElementById('wordEvent');
 
     // Initialize the inline styles based on the CSS values
-    wordMind.style.top = '0%';
-    wordSwym.style.top = '24%';
-    wordFitness.style.top = '46%';
-    wordEvent.style.top = '69%';
+    wordMind.style.top = '0rem';
+    wordSwym.style.top = '0.7rem';
+    wordFitness.style.top = '1.4rem';
+    wordEvent.style.top = '2.1rem';
 
-    let topPosition = '0%';
-    let middlePosition1 = '25%';
-    let middlePosition2 = '50%'; /*use this value to take the word back to its original spot even after klicking the back button*/
-    let bottomPosition = '69%';
+    let topPosition = '0rem';
+    let middlePosition1 = '0.7rem';
+    let middlePosition2 = '1.4rem'; /*use this value to take the word back to its original spot even after klicking the back button*/
+    let bottomPosition = '2.1rem';
 
     firstTrigger.addEventListener('click', function() {
         if (wordMind.style.top !== bottomPosition) {
