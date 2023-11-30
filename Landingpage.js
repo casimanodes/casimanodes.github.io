@@ -41,20 +41,27 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-            // firstElement.style.top = '50vh';
-            // firstElement.style.left = "50vw";
-            // firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            // secondElement.style.opacity = '0';
-            // thirdElement.style.opacity = '0';
-            // linkEnabledFirst = true;
-            // // secondElement.style.pointerEvents = 'none';
-            // mindContent.forEach(content => {
-            //  content.style.display = "flex";
-            //     });
-            // clickedContainer.forEach(function(container) {
-            // container.style.transform = 'scale(1)';
-            // container.style.visibility = 'visible';
-        // });
+            firstElement.style.top = '50vh';
+            firstElement.style.left = "50vw";
+            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            // PASSIVE CIRCLES
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
+            linkEnabledFirst = true;
+            secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';  
+            fourthElement.style.pointerEvents = 'none';
+
+            // Zoom Container content Visible
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
+                // Zoom container visible
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+        });
 
         } else {
             linkEnabledFirst = true;
@@ -104,14 +111,22 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.top = '50vh';
             secondElement.style.left = "50vw";
             secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            linkEnabledSecond = true;
+
+            // PASSIVE CIRCLES
             firstElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
 
+            firstElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
+
+            // Zoom Content Container Visible
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
-            linkEnabledSecond = true;
-
+            // Swym content visible
             swymContent.forEach(content => {
              content.style.display = "flex";
                 });
@@ -160,19 +175,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-           
+            thirdElement.style.top = '50vh';
             thirdElement.style.left = "50vw";
             thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            linkEnabledThird = true;
+
+            // PASSIVE CIRCLES
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
-            // firstElement.style.pointerEvents = 'none';
+            fourthElement.style.opacity = '0';
+            firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
 
+            // Zoom Container content visible
             fitnessContent.forEach(content => {
              content.style.display = "flex";
                 });
 
-
+            // Zoom Container visible
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
@@ -220,27 +241,31 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-            // fourthElement.style.top = '50vh';
-            // fourthElement.style.left = "50vw";
-            // fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            // firstElement.style.opacity = '0';
-            // secondElement.style.opacity = '0';
-            // thirdElement.style.opacity = '0';
+            // Event Circle
+            fourthElement.style.top = '50vh';
+            fourthElement.style.left = "50vw";
+            fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            linkEnabledFirst = true;
 
-            // linkEnabledFirst = true;
-            // //add for all elements:
-            // secondElement.style.pointerEvents = 'none';
+            // PASSIVE CIRCLES
+            firstElement.style.opacity = '0';
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            firstElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';
 
-            // // mindContent.forEach(content => {
-            // //  content.style.display = "flex";
-            // //     });
+            // Zoom  container content visible
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
 
+            // Zoom container visible
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
 
-            // clickedContainer.forEach(function(container) {
-            // container.style.transform = 'scale(1)';
-            // container.style.visibility = 'visible';
-
-        // });
+        });
 
         } else {
             fourthInnerCircle.style.height = '100%';
@@ -284,29 +309,43 @@ document.addEventListener('DOMContentLoaded', function() {
     backElement.addEventListener('click', function() {
         
         if (mediaQuery.matches) {
-           
-            firstElement.style.left = '25vw';
-            firstElement.style.transform = 'translate(-50%, -50%) scale(1)';
+            // Mind Circle
+            firstElement.style.top = '';
+            firstElement.style.left = '';
+            firstElement.style.transform = '';
+            firstElement.style.opacity = '';
+            firstElement.style.pointerEvents = '';
 
-            secondElement.style.left = '50vw';
-            secondElement.style.transform = 'translate(-50%, -50%) scale(1)';
 
-            thirdElement.style.left = '75vw';
-            thirdElement.style.transform = 'translateX(-50%) translateY(-50%) scale(1)';
-
-            firstElement.style.opacity = '1';
-
-            secondElement.style.opacity = '1';
+            // Swym Circle
+            secondElement.style.top = '';
+            secondElement.style.left = '';
+            secondElement.style.transform = '';
+            secondElement.style.opacity = '';
             secondElement.style.pointerEvents = '';
-            thirdElement.style.opacity = '1';
+
+            // Fitness Circle
+            thirdElement.style.top = '';
+            thirdElement.style.left = '';
+            thirdElement.style.transform = '';
+            thirdElement.style.opacity = '';
+            thirdElement.style.pointerEvents = '';
+
+            // Event Circle
+            fourthElement.style.top = '';
+            fourthElement.style.left = '';
+            fourthElement.style.transform = '';
+            fourthElement.style.opacity = '';
+            fourthElement.style.pointerEvents = '';
+
 
                                 /*wordbullet resets*/
-        wordMind.style.fontWeight = 'normal';
-        wordMind.style.textDecoration = "normal";
-        wordSwym.style.fontWeight = 'normal';
-        wordSwym.style.textDecoration = "normal";
-        wordFitness.style.fontWeight = 'normal';
-        wordFitness.style.textDecoration = "normal";
+        wordMind.style.fontWeight = '';
+        wordMind.style.textDecoration = "";
+        wordSwym.style.fontWeight = '';
+        wordSwym.style.textDecoration = "";
+        wordFitness.style.fontWeight = '';
+        wordFitness.style.textDecoration = "";
 
 
 
