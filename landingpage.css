@@ -153,7 +153,7 @@ header nav ul #wordEvent{
     transform: translateY(-50%) translateX(-50%);
     border-radius: 50%;
     margin:0px;
-    /* overflow: hidden;             */
+    /* overflow: hidden;*/
 
     z-index: 2;
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
@@ -197,7 +197,7 @@ header nav ul #wordEvent{
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 50%;
     background-position: center;
     z-index: 5;
@@ -229,7 +229,7 @@ header nav ul #wordEvent{
     position: relative;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translateX(-50%) translateY(-50%);
     border-radius: 50%;
     background-position: center;
     z-index: 5;
@@ -243,11 +243,11 @@ header nav ul #wordEvent{
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
     display: block;
     position: absolute;
-    bottom: 25%;
+    top: 75%;
     right: 30%;
     aspect-ratio: 1/1;
     height: 20%;
-    transform: translateX(50%) translateY(50%);
+    transform: translateX(50%) translateY(-50%);
     border-radius: 50%;
     margin:  0px;
     overflow: default;
@@ -374,36 +374,53 @@ overflow: hidden;
     /* Computer Screen */
 @media screen and (min-width: 786px) {
     .absolute1:hover,
-.absolute2:hover,
 .absolute3:hover{
 transform: translate(-50%, -50%) scale(1.2)
 }
 
-
+.absolute2:hover,
+.absolute4:hover{
+    transform: translate(50%, -50%) scale(1.2)
+}
     .absolute1 {
-        top: 50vh;
-        left: 25vw;
-        width: 25vh;
-        height: 25vh;
-        transform: translate(-50%, -50%);
+        top: 40%;
+        left: 20%;
+        width: 35vh;
+        height: 35vh;
+        /* aspect-ratio: 1/1; */
+        /* transform: translate(-50%, -50%); */
         transition: left 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
     }
     .absolute2 {                
-        top: 50vh;
-        left: 50vw;
-        width: 25vh;
-        height: 25vh;
-        transform: translate(-50%, -50%);
+        top: 40%;
+        right: 40%;
+        width: 35vh;
+        height: 35vh;
+        /* transform: translate(50%, -50%); */
         transition: transform 1.3s ease, opacity 0.9s ease;
     }
 
     .absolute3 {
-        top: 50vh;
-        left: 75vw;
-        width: 25vh;
-        height: 25vh;
-        transform: translateX(-50%) translateY(-50%);
+        top: 75%;
+        left: 40%;
+        width: 35vh;
+        height: 35vh;
+        /* transform: translate(-50%); */
         transition: left 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+    }
+    .absolute4{
+        top: 75%;
+        right: 20%;
+        width: 35vh;
+        height: 35vh;
+        /* transform: translate(0%); */
+        transition: right 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+    }
+    .babsolute1,
+    .babsolute2,
+    .babsolute3,
+    .babsolute4{
+        display: none;
     }
     #fingerTap{
         display: none;
