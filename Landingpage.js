@@ -109,8 +109,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         if (mediaQuery.matches) {
             secondElement.style.top = '50vh';
-            secondElement.style.left = "50vw";
-            secondElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            secondElement.style.right = "50vw";
+            secondElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledSecond = true;
 
             // PASSIVE CIRCLES
@@ -243,8 +243,8 @@ document.addEventListener('DOMContentLoaded', function() {
         if (mediaQuery.matches) {
             // Event Circle
             fourthElement.style.top = '50vh';
-            fourthElement.style.left = "50vw";
-            fourthElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            fourthElement.style.right = "50vw";
+            fourthElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledFirst = true;
 
             // PASSIVE CIRCLES
@@ -319,7 +319,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Swym Circle
             secondElement.style.top = '';
-            secondElement.style.left = '';
+            secondElement.style.right = '';
             secondElement.style.transform = '';
             secondElement.style.opacity = '';
             secondElement.style.pointerEvents = '';
@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Event Circle
             fourthElement.style.top = '';
-            fourthElement.style.left = '';
+            fourthElement.style.right = '';
             fourthElement.style.transform = '';
             fourthElement.style.opacity = '';
             fourthElement.style.pointerEvents = '';
