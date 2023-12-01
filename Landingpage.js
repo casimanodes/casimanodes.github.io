@@ -44,6 +44,9 @@ document.addEventListener('DOMContentLoaded', function() {
             firstElement.style.top = '50vh';
             firstElement.style.left = "50vw";
             firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            linkEnabledFirst = true;
+
             // PASSIVE CIRCLES
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
@@ -64,13 +67,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
-            linkEnabledFirst = true;
             firstInnerCircle.style.height = '100%';
-            header.style.backgroundColor = 'rgb(246, 177, 166)';
             firstElement.style.top = '50vh';
             firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            linkEnabledFirst = true;
 
-// Passive circles
+
+
+            // Passive circles
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';            
@@ -111,6 +116,7 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.top = '50vh';
             secondElement.style.right = "50vw";
             secondElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
+            header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
 
             // PASSIVE CIRCLES
@@ -133,13 +139,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
-            secondInnerCircle.style.height = '100%';/*changes*/
+            secondInnerCircle.style.height = '100%';
+            secondElement.style.top = '50vh';
+            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
             header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
 
-
-            secondElement.style.top = '50vh';
-            secondElement.style.transform = 'translateY(-50%) scale(1.5)';/*changes*/
 
             // Passive circles
             firstElement.style.opacity = '0';
@@ -178,6 +183,7 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.top = '50vh';
             thirdElement.style.left = "50vw";
             thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
 
             // PASSIVE CIRCLES
@@ -203,18 +209,17 @@ document.addEventListener('DOMContentLoaded', function() {
         });
         } else {
             thirdInnerCircle.style.height = '100%';
-            header.style.backgroundColor = 'rgb(198, 199, 196)';
-
             thirdElement.style.top = '50vh';
             thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            header.style.backgroundColor = 'rgb(198, 199, 196)';
+            linkEnabledThird = true;
 
+            //PASSIVE CIRCLES
             firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
-            linkEnabledThird = true;
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
-            linkEnabledThird = true;
 
             fitnessContent.forEach(content => {
              content.style.display = "flex";
@@ -246,6 +251,8 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.right = "50vw";
             fourthElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledFirst = true;
+            header.style.backgroundColor = '#cc4406';
+
 
             // PASSIVE CIRCLES
             firstElement.style.opacity = '0';
@@ -269,12 +276,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else {
             fourthInnerCircle.style.height = '100%';
-            header.style.backgroundColor = '#cc4406';
-            linkEnabledFourth = true;
-
             fourthElement.style.top = '50vh';
             fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
-            
+            header.style.backgroundColor = '#cc4406';
+            linkEnabledFourth = true;           
 
             // passive circles
             firstElement.style.opacity = '0';
@@ -304,9 +309,9 @@ document.addEventListener('DOMContentLoaded', function() {
         });}
     });
 
-// ZURÜCK BUTTON
+            // ZURÜCK BUTTON
 
-    backElement.addEventListener('click', function() {
+            backElement.addEventListener('click', function() {
         
         if (mediaQuery.matches) {
             // Mind Circle
@@ -339,36 +344,24 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.pointerEvents = '';
 
 
-                                /*wordbullet resets*/
-        wordMind.style.fontWeight = '';
-        wordMind.style.textDecoration = "";
-        wordSwym.style.fontWeight = '';
-        wordSwym.style.textDecoration = "";
-        wordFitness.style.fontWeight = '';
-        wordFitness.style.textDecoration = "";
 
+            mindContent.forEach(content => {
+                content.style.display = "none";
+            });
+            swymContent.forEach(content => {
+                content.style.display = "none";
+            });
 
-
-mindContent.forEach(content => {
-    content.style.display = "none";
-});
-swymContent.forEach(content => {
-    content.style.display = "none";
-});
-
-fitnessContent.forEach(content => {
-    content.style.display = "none";
-});
+            fitnessContent.forEach(content => {
+                content.style.display = "none";
+            });
 
 
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
         });
 
-        linkEnabledFirst = false;
-        linkEnabledSecond = false;
-        linkEnabledThird = false;
-        linkEnabledFourth = false;
+
 
         } else {
             firstInnerCircle.style.height = '';
@@ -404,62 +397,64 @@ fitnessContent.forEach(content => {
             });
 
 
-            /*wordbullet resets*/ 
+            // content container
+            mindContent.forEach(content => {
+                content.style.display = "none";
+            });
+            swymContent.forEach(content => {
+                content.style.display = "none";
+            });
 
-        wordMind.style.textDecoration = "";
-        wordMind.style.fontWeight = '';
-        wordMind.style.fontSize = "";
-
-        wordSwym.style.textDecoration = "";
-        wordSwym.style.fontWeight = '';
-        wordSwym.style.fontSize = "";
-
-        wordFitness.style.textDecoration = "";
-        wordFitness.style.fontSize = "";
-        wordFitness.style.fontWeight = '';
-
-        wordEvent.style.fontWeight = '';
-        wordEvent.style.fontSize = "";        
-        wordEvent.style.textDecoration = "";
-
-        // wordMind.style.topPosition = '0.1rem'; try again later
+            fitnessContent.forEach(content => {
+                content.style.display = "none";
+            });
+            eventContent.forEach(content => {
+                content.style.display= "none";
+            });
 
 
-
-// content container
-mindContent.forEach(content => {
-    content.style.display = "none";
-});
-swymContent.forEach(content => {
-    content.style.display = "none";
-});
-
-fitnessContent.forEach(content => {
-    content.style.display = "none";
-});
-eventContent.forEach(content => {
-    content.style.display= "none";
-});
-
-
-// Zoom content container zoom away
+            // Zoom content container zoom away
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
             secondElement.style.pointerEvents = '';
-        }); 
+             }); 
 
-        /*link reset*/
-            linkEnabledFirst = false;
-            linkEnabledSecond = false;
-            linkEnabledThird = false;
-            linkEnabledFourth = false;
-            header.style.backgroundColor = '';
+
         }
+            /*FUNKTIONS THAT WORK FOR ALL THE PAGE-SIZES*/
 
+                    /*======WORDBULLET RESETS=======*/ 
+
+                    wordMind.style.textDecoration = "";
+                    wordMind.style.fontWeight = '';
+                    wordMind.style.fontSize = "";
+            
+                    wordSwym.style.textDecoration = "";
+                    wordSwym.style.fontWeight = '';
+                    wordSwym.style.fontSize = "";
+            
+                    wordFitness.style.textDecoration = "";
+                    wordFitness.style.fontSize = "";
+                    wordFitness.style.fontWeight = '';
+            
+                    wordEvent.style.fontWeight = '';
+                    wordEvent.style.fontSize = "";        
+                    wordEvent.style.textDecoration = "";
+
+                    /*link reset*/
+                    linkEnabledFirst = false;
+                    linkEnabledSecond = false;
+                    linkEnabledThird = false;
+                    linkEnabledFourth = false;
+                    header.style.backgroundColor = '';
+                    
     });
 });
 
-/*fingerTap*/
+
+
+
+/*=== FINGER TAP ===*/
 // Function to fade out the fingerTap element
 function fadeOutFingerTap() {
     var fingerTapElement = document.getElementById('fingerTap');
@@ -479,7 +474,7 @@ setTimeout(fadeOutFingerTap, 3000);
 
 
 
-/*wordbullet*/
+/*=====WORDBULLET END======*/
 document.addEventListener('DOMContentLoaded', function() {
     const firstTrigger = document.getElementById('first1');
     const secondTrigger = document.getElementById('second2');
@@ -491,15 +486,23 @@ document.addEventListener('DOMContentLoaded', function() {
     const wordEvent = document.getElementById('wordEvent');
 
     // Initialize the inline styles based on the CSS values
-    wordMind.style.top = '0rem';
-    wordSwym.style.top = '0.7rem';
-    wordFitness.style.top = '1.4rem';
-    wordEvent.style.top = '2.1rem';
+    if (mediaQuery.matches) {
+        // wordMind.style.top = '';
+        // wordSwym.style.top = '';
+        // wordFitness.style.top = '';
+        // wordEvent.style.top = '';
+    } else{
+    wordMind.style.top = '0em';
+    wordSwym.style.top = '0.7em';
+    wordFitness.style.top = '1.4em';
+    wordEvent.style.top = '2.1em';
+    }
 
-    let topPosition = '0rem';
-    let middlePosition1 = '0.7rem';
-    let middlePosition2 = '1.4rem'; /*use this value to take the word back to its original spot even after klicking the back button*/
-    let bottomPosition = '2.1rem';
+
+    let topPosition = '0em';
+    let middlePosition1 = '0.7em';
+    let middlePosition2 = '1.4em'; /*use this value to take the word back to its original spot even after klicking the back button*/
+    let bottomPosition = '2.1em';
 
     firstTrigger.addEventListener('click', function() {
         if (wordMind.style.top !== bottomPosition) {
@@ -562,13 +565,15 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     function resetFontWeights() {
-        wordMind.style.fontWeight = 'normal';
-        wordSwym.style.fontWeight = 'normal';
-        wordFitness.style.fontWeight = 'normal';
-        wordEvent.style.fontweight = "normal";
+        wordMind.style.fontWeight = '';
+        wordSwym.style.fontWeight = '';
+        wordFitness.style.fontWeight = '';
+        wordEvent.style.fontweight = '';
     }
 });
-/*wordbullet end*/
+/*===== WORDBULLET END =======*/
+
+
 
 
 /*navbar start*/

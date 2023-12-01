@@ -333,12 +333,17 @@ transform: translate(-50%, -50%) scale(1.2)
     .babsolute4{
         display: none;
     }
-    #fingerTap{
+    /* #fingerTap{
         display: none;
+    } */
+    #wordMind,
+    #wordSwym,
+    #wordFitness,
+    #wordEvent{
+        left: 90%;
+        transform: translateX(-50%, -50%)
     }
-    .wordbullet{
-        display: none;
-    }
+
 }
 
 /*======== COMPUTER-VERION END======== */
@@ -503,92 +508,6 @@ transition: all .4s ease-in-out;
 
 
 
-/*add nav start*/
-/* 
-.menu__toggler {
-position: absolute;
-top: 5%;
-right: 0.1rem;
-transform: translate(-50%, -50%);
-z-index: 999;
-height: 28px;
-width: 28px;
-outline: none;
-cursor: pointer;
-display: flex;
-align-items: center;
-}
-
-.menu__toggler span,
-.menu__toggler span::before,
-.menu__toggler span::after {
-position: absolute;
-content: '';
-width: 28px;
-height: 2.5px;
-background: #fff;
-border-radius: 20px;
-transition: 500ms cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.menu__toggler span::before {
-top: -8px;
-}
-
-.menu__toggler span::after {
-top: 8px;
-}
-
-.menu__toggler.active > span {
-background: transparent;
-}
-
-.menu__toggler.active > span::before,
-.menu__toggler.active > span::after {
-background: #005c9c;
-top: 0px;
-}
-
-.menu__toggler.active > span::before {
-transform: rotate(-225deg);
-}
-
-.menu__toggler.active > span::after {
-transform: rotate(225deg);
-}
-
-.menu {
-top: 0;
-position: fixed;
-right: -90%;
-z-index: 998;
-color: #005c9c;
-background: rgba(7, 159, 224, 0.9); /* Corrected the rgba function syntax 
-clip-path: polygon(5% 0, 100% 0, 100% 100%, 0% 100%);
-width: 90%;
-height: 100%;
-padding: 100px;
-display: flex;
-flex-direction: column;
-justify-content: center;
-transition: 300ms right cubic-bezier(0.77, 0, 0.175, 1);
-overflow: hidden;
-}
-
-
-
-.menu.active {
-right: 0;
-}
-
-.menu p {
-color: white;
-font-size: 1.4rem;
-margin-bottom: 1rem;
-} */
-/*add nav end*/
-
-
 
 /* @keyframes tapAnimation {
 0% { transform: translateY(0); }
@@ -666,8 +585,6 @@ padding-top: 1rem;
     font-family: 'NeoTechPro-Light';
     src: url('NeoTechPro-Light (2) (1).woff2') format('woff2'),
     url('dropdownNavbar\assets\css\NeoTechPro-Light (2) (1).woff2') format('woff');
-    /* font-weight: normal;
-    font-style: normal; */
   }
   
   /*=============== VARIABLES CSS ===============*/
@@ -683,6 +600,8 @@ padding-top: 1rem;
     --text-color-header: hsl(0, 0%, 100%);
     --body-color: hsl(220, 100%, 99%);
     --header-color: transparent;
+    --background-color-transition: background-color 0.9s ease;
+
     /*========== Font and typography ==========*/
     /*.5rem = 8px | 1rem = 16px ...*/
     --body-font: 'NeoTechPro-Light', sans-serif;
@@ -741,6 +660,7 @@ padding-top: 1rem;
     box-shadow: 0 2px 8px hsla(220, 68%, 12%, 0.1);
     background-color: var(--header-color);
     z-index: var(--z-fixed);
+    transition: var(--background-color-transition);
   }
   
   /*=============== NAV ===============*/
@@ -1019,6 +939,7 @@ padding-top: 1rem;
     --transition-wordbullet: all 0.5s ease;
     --padding-wordbullet: 0px;
     --margin-wordbullet: 0px;
+    --transform-wordbullet: translate(-50%)
   }
   /* #wordbullet ul{
     position: absolute;
@@ -1040,7 +961,7 @@ padding-top: 1rem;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
-  
+    transform: var(--transform-wordbullet)
   }
   header nav ul #wordSwym{
     display: var(--display-wordbullet);
@@ -1049,6 +970,7 @@ padding-top: 1rem;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
+    transform: var(--transform-wordbullet)
   }
   header nav ul #wordFitness{
     display: var(--display-wordbullet);
@@ -1057,6 +979,7 @@ padding-top: 1rem;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
+    transform: var(--transform-wordbullet)
   }
   
   header nav ul #wordEvent{
@@ -1066,6 +989,8 @@ padding-top: 1rem;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
+    transform: var(--transform-wordbullet)
+
   }
 
   #wordMind, #wordSwym, #wordFitness, #wordEvent {
