@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to toggle the expansion of the content area
     function toggleContentArea(expand) {
-        var contentArea = document.querySelectorAll('contentArea');
+        var contentArea = document.getElementById('contentArea');
         contentArea.classList.toggle('expanded', expand);
     }
 
@@ -58,7 +58,7 @@ document.addEventListener('DOMContentLoaded', function() {
         clearTimeout(autoExpandTimeout);
         clearTimeout(autoContractTimeout);
 
-        var isExpanded = document.querySelectorAll('contentArea').classList.contains('expanded');
+        var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
         isManuallyToggled = true; // Set the flag to indicate manual toggle
         toggleContentArea(!isExpanded);
         
