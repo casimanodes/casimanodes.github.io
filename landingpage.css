@@ -468,7 +468,7 @@ transition: all .4s ease-in-out;
 
 }
 
-.contentArea {
+#contentArea {
   position: absolute; /* Changed to absolute */
   bottom: -1px; /* Aligns to the bottom of the container */
   left: -1px; /* Aligns to the right of the container */
@@ -479,7 +479,7 @@ transition: all .4s ease-in-out;
   z-index: 1; /* Lower than circleButton */
 }
 
-.contentArea.expanded {
+#contentArea.expanded {
   width: 6rem; /* Adjust as needed */
   height: 8rem; /* Adjust as needed */
   background-color: grey;
