@@ -4,9 +4,15 @@ document.addEventListener('DOMContentLoaded', function() {
     const thirdElement = document.getElementById("third3");
     const fourthElement = document.getElementById("fourth4");
     
+    const firstTitle = document.getElementById("firstTitle");
+    const secondTitle = document.getElementById("secondTitle");
+    const thirdTitle = document.getElementById("thirdTitle");
+    const fourthTitle = document.getElementById("fourthTitle");
+
     const disappear = document.querySelectorAll(".disappear");
     const backElement = document.getElementById("back1");
-    const backgroundElement = document.getElementById("background");
+    const buchenElement = document.querySelector(".buchen");
+    // const backgroundElement = document.getElementById("background");
     const clickedContainer = document.querySelectorAll(".top-leftklick, .top-rightklick, .middle-leftklick, .middle-rightklick"); 
 
     const mrContent = document.querySelector(".mrContent");
@@ -19,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // let fitnesscontent = document.getElementById("fitness-content-container");
     // let contentContainer = document.getElementById("content-container");
 
-    const swymContent = document.querySelectorAll('.swym-content');
-    const mindContent = document.querySelectorAll('.mind-content');
-    const fitnessContent = document.querySelectorAll('.fitness-content');
-    const eventContent = document.querySelectorAll('.event-content');
+    const mindContent = document.querySelectorAll('.vorschule-content');
+    const swymContent = document.querySelectorAll('.slk-content');
+    const fitnessContent = document.querySelectorAll('.seepferd-content');
+    const eventContent = document.querySelectorAll('.club-content');
     let linkEnabledFirst = false;
     let linkEnabledSecond = false;
     let linkEnabledThird = false;
@@ -37,7 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     firstElement.addEventListener('click', function() {
         if (linkEnabledFirst) {
-            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
+            window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)";
             return;
         }
         if (mediaQuery.matches) {
@@ -46,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
             firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
             secondElement.style.opacity = '0';
@@ -69,12 +76,14 @@ document.addEventListener('DOMContentLoaded', function() {
         } else {
             firstInnerCircle.style.height = '100%';
             firstElement.style.top = '50vh';
-            firstElement.style.transform = 'translateY(-50%)scale(1.5)';
+            firstElement.style.left = '50%';
+            // firstElement.style.transform = 'scale(1.5)';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
+            firstElement.style.height = '15%';
+            firstTitle.style.opacity= '0';
 
-
-
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
             // Passive circles
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
@@ -109,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     secondElement.addEventListener('click', function() {
         if (linkEnabledSecond) {
-            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388b312-69de-11e8-bdc6-02bd505aa7b2";
+            window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)";
             return;
         }
         if (mediaQuery.matches) {
@@ -118,6 +127,7 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
             firstElement.style.opacity = '0';
@@ -139,12 +149,16 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            secondElement.style.height = '15%';
             secondInnerCircle.style.height = '100%';
             secondElement.style.top = '50vh';
-            secondElement.style.transform = 'translateY(-50%) scale(1.5)';
+            secondElement.style.right = '50%';
+            // secondElement.style.transform = 'translateY(-50%)';
             header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
+            secondTitle.style.opacity= '0';
 
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // Passive circles
             firstElement.style.opacity = '0';
@@ -176,7 +190,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     thirdElement.addEventListener('click', function() {
         if (linkEnabledThird) {
-            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b38743da-69de-11e8-bdc6-02bd505aa7b2";
+            window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)";
             return;
         }
         if (mediaQuery.matches) {
@@ -185,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
             // PASSIVE CIRCLES
             firstElement.style.opacity = '0';
@@ -208,11 +223,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
         } else {
+            thirdElement.style.height = '15%';
             thirdInnerCircle.style.height = '100%';
             thirdElement.style.top = '50vh';
-            thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
+            thirdElement.style.left = '50%';
+            // thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
             header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
+            thirdTitle.style.opacity= '0';
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
             //PASSIVE CIRCLES
             firstElement.style.pointerEvents = 'none';
@@ -242,7 +261,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     fourthElement.addEventListener('click', function() {
         if (linkEnabledFourth) {
-            window.location.href = "https://www.eversports.de/scl/swym-bad?sport=b388be71-69de-11e8-bdc6-02bd505aa7b2";
+            window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)";
             return;
         }
         if (mediaQuery.matches) {
@@ -252,6 +271,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledFirst = true;
             header.style.backgroundColor = '#cc4406';
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)");
 
 
             // PASSIVE CIRCLES
@@ -275,11 +295,15 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            fourthElement.style.height = '15%';
             fourthInnerCircle.style.height = '100%';
             fourthElement.style.top = '50vh';
-            fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
+            fourthElement.style.right = '50%';
+            // fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
             header.style.backgroundColor = '#cc4406';
             linkEnabledFourth = true;           
+            fourthTitle.style.opacity= '0';
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)");
 
             // passive circles
             firstElement.style.opacity = '0';
@@ -364,32 +388,50 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
         } else {
+            // Inner circles
             firstInnerCircle.style.height = '';
             secondInnerCircle.style.height = '';
             thirdInnerCircle.style.height = '';
             fourthInnerCircle.style.height = '';
 
-  
-
+            // Absolute1
+            firstElement.style.height = '';
             firstElement.style.top = '';
+            firstElement.style.left = '';
             firstElement.style.transform = '';
             firstElement.style.opacity = '';
             firstElement.style.pointerEvents = '';
 
+            // Absolute2
+            secondElement.style.height = '';
             secondElement.style.top ="";
+            secondElement.style.right = '';
             secondElement.style.transform = '';
             secondElement.style.opacity = '';
             secondElement.style.pointerEvents = '';
 
+            // Absolute3
+            thirdElement.style.height = '';
             thirdElement.style.top = '';
+            thirdElement.style.left = '';
             thirdElement.style.transform = '';
             thirdElement.style.opacity = '';
             thirdElement.style.pointerEvents = '';
 
+            // Absolute4
+            fourthElement.style.height = '';
             fourthElement.style.top = '';
+            fourthElement.style.right = '';
             fourthElement.style.transform = '';
             fourthElement.style.opacity = '';
             fourthElement.style.pointerEvents = '';
+
+            // Titles
+            firstTitle.style.opacity= '1';
+            secondTitle.style.opacity= '1';
+            thirdTitle.style.opacity= '1';
+            fourthTitle.style.opacity= '1';
+
 
             disappear.forEach(function(disappear) {
                 disappear.style.opacity ="1";
@@ -425,21 +467,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
                     /*======WORDBULLET RESETS=======*/ 
 
-                    wordMind.style.textDecoration = "";
+                    // wordMind.style.textDecoration = "";
                     wordMind.style.fontWeight = '';
                     wordMind.style.fontSize = "";
             
-                    wordSwym.style.textDecoration = "";
+                    // wordSwym.style.textDecoration = "";
                     wordSwym.style.fontWeight = '';
                     wordSwym.style.fontSize = "";
             
-                    wordFitness.style.textDecoration = "";
+                    // wordFitness.style.textDecoration = "";
                     wordFitness.style.fontSize = "";
                     wordFitness.style.fontWeight = '';
             
                     wordEvent.style.fontWeight = '';
                     wordEvent.style.fontSize = "";        
-                    wordEvent.style.textDecoration = "";
+                    // wordEvent.style.textDecoration = "";
 
                     /*link reset*/
                     linkEnabledFirst = false;
@@ -470,125 +512,6 @@ setTimeout(fadeOutFingerTap, 3000);
 ['first1', 'second2', 'third3'].forEach(function(id) {
     document.getElementById(id).addEventListener('click', fadeOutFingerTap);
 });
-
-
-
-
-/*=====WORDBULLET END======*/
-document.addEventListener('DOMContentLoaded', function() {
-    const firstTrigger = document.getElementById('first1');
-    const secondTrigger = document.getElementById('second2');
-    const thirdTrigger = document.getElementById('third3');
-    const fourthTrigger = document.getElementById('fourth4');
-    const wordMind = document.getElementById('wordMind');
-    const wordSwym = document.getElementById('wordSwym');
-    const wordFitness = document.getElementById('wordFitness');
-    const wordEvent = document.getElementById('wordEvent');
-
-    // Initialize the inline styles based on the CSS values
-    if (mediaQuery.matches) {
-        // wordMind.style.top = '';
-        // wordSwym.style.top = '';
-        // wordFitness.style.top = '';
-        // wordEvent.style.top = '';
-    } else{
-    wordMind.style.top = '0em';
-    wordSwym.style.top = '0.7em';
-    wordFitness.style.top = '1.4em';
-    wordEvent.style.top = '2.1em';
-    }
-
-
-    let topPosition = '0em';
-    let middlePosition1 = '0.7em';
-    let middlePosition2 = '1.4em'; /*use this value to take the word back to its original spot even after klicking the back button*/
-    let bottomPosition = '2.1em';
-
-    firstTrigger.addEventListener('click', function() {
-        if (wordMind.style.top !== bottomPosition) {
-            swapPositions(wordMind, currentMiddleWord());
-        }
-            resetFontWeights();
-            wordMind.style.fontWeight = 'bold';
-            wordMind.style.textDecoration = "underline";
-            wordMind.style.textDecorationColor = "white";
-            wordMind.style.fontSize = "1.1rem";
-            
-    });
-
-    secondTrigger.addEventListener('click', function() {
-        if (wordSwym.style.top !== bottomPosition) {
-            swapPositions(wordSwym, currentMiddleWord());
-        }
-            resetFontWeights();
-            wordSwym.style.fontWeight = 'bold';
-            wordSwym.style.textDecoration = "underline";
-            wordSwym.style.textDecorationColor = "white";
-            wordSwym.style.fontSize = "1.1rem";
-    });
-
-    thirdTrigger.addEventListener('click', function() {
-        if (wordFitness.style.top !== bottomPosition) {
-            swapPositions(wordFitness, currentMiddleWord());
-        }
-            resetFontWeights();
-            wordFitness.style.fontWeight = 'bold';
-            wordFitness.style.textDecoration = "underline";
-            wordFitness.style.textDecorationColor = "white";
-            wordFitness.style.fontSize = "1.1rem";
-    });
-
-    fourthTrigger.addEventListener('click', function() {
-        if (wordEvent.style.top !== bottomPosition) {
-            swapPositions(wordEvent, currentMiddleWord());
-        }
-            resetFontWeights();
-            wordEvent.style.fontWeight = 'bold';
-            wordEvent.style.textDecoration = "underline";
-            wordEvent.style.textDecorationColor = "white";
-            wordEvent.style.fontSize = "1.1rem";
-
-    });
-
-    function currentMiddleWord() {
-        if (wordMind.style.top === bottomPosition) return wordMind;
-        if (wordSwym.style.top === bottomPosition) return wordSwym;
-        if (wordFitness.style.top === bottomPosition) return wordFitness;
-        if(wordEvent.style.top === bottomPosition) return wordEvent;
-    }
-
-    function swapPositions(word1, word2) {
-        let temp = word1.style.top;
-        word1.style.top = word2.style.top;
-        word2.style.top = temp;
-        
-    }
-
-    function resetFontWeights() {
-        wordMind.style.fontWeight = '';
-        wordSwym.style.fontWeight = '';
-        wordFitness.style.fontWeight = '';
-        wordEvent.style.fontweight = '';
-    }
-});
-/*===== WORDBULLET END =======*/
-
-
-
-
-/*navbar start*/
-// const toggler = document.querySelector('.menu__toggler');
-// const menu    = document.querySelector('.menu');
-
-// /*
-//  * Toggles on and off the 'active' class on the menu
-//  * and the toggler button.
-//  */
-// toggler.addEventListener('click', () => {
-//   toggler.classList.toggle('active');
-//   menu.classList.toggle('active');
-// })
-
 
 
 
