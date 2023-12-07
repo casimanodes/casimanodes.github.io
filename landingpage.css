@@ -446,7 +446,7 @@ transition: all .4s ease-in-out;
 .svg{
   z-index: 3;
 }
-#dynamicElementContainer {
+.dynamicElementContainer {
   position: absolute;
   width: 3rem;
   height: 3rem;
