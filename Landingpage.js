@@ -1,9 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const erwachsene = document.getElementById('erwachsene');
     const firstElement = document.getElementById("first1");
     const secondElement = document.getElementById("second2");
     const thirdElement = document.getElementById("third3");
     const fourthElement = document.getElementById("fourth4");
     
+    const erwTitle = document.getElementById("erwTitle");
     const firstTitle = document.getElementById("firstTitle");
     const secondTitle = document.getElementById("secondTitle");
     const thirdTitle = document.getElementById("thirdTitle");
@@ -33,13 +35,144 @@ document.addEventListener('DOMContentLoaded', function() {
     let linkEnabledSecond = false;
     let linkEnabledThird = false;
     let linkEnabledFourth = false;
+
+    const erwInnerCircle = document.querySelector('.innercircle_erw');
     const firstInnerCircle = document.querySelector('.innercircle')
     const secondInnerCircle = document.querySelector('.innercircle2')
     const thirdInnerCircle = document.querySelector('.innercircle3')
     const fourthInnerCircle = document.querySelector('.innercircle4')
     const header = document.querySelector('header');
 
-    // MIND ELEMENT
+    var autoExpandTimeout, autoContractTimeout;
+    var isManuallyToggled = false;
+    var firstExpansionDone = false;
+
+    // Function to toggle the expansion of the content area
+    function toggleContentArea(expand) {
+        var contentArea = document.getElementById('contentArea');
+        contentArea.classList.toggle('expanded', expand);
+    }
+
+    // Event listener for manual toggle by clicking the circle button
+    document.getElementById('circleButton').addEventListener('click', function() {
+        clearTimeout(autoExpandTimeout);
+        clearTimeout(autoContractTimeout);
+
+        var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
+        isManuallyToggled = true; // Set the flag to indicate manual toggle
+        toggleContentArea(!isExpanded);
+        
+        // Set delay for next automatic expansion after manual contraction
+        if (!isExpanded) {
+            autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
+        }
+    });
+
+    // Function to handle the automatic expansion and contraction
+    function handleAutomaticToggle() {
+        if (!isManuallyToggled) {
+            // Expand the content area
+            toggleContentArea(true);
+            
+            // Contract the content area after 10 seconds
+            autoContractTimeout = setTimeout(function() {
+                toggleContentArea(false);
+
+                // Set delay for next automatic expansion
+                autoExpandTimeout = setTimeout(handleAutomaticToggle, firstExpansionDone ? 10000 : 3000);
+                firstExpansionDone = true;
+                isManuallyToggled = false; // Reset the manual flag after automatic contraction
+            }, 10000);
+        }
+    }
+
+    // Start the automatic toggle process with an initial delay of 3 seconds
+    autoExpandTimeout = setTimeout(handleAutomaticToggle, 3000);
+
+    erwachsene.addEventListener('click', function() {
+        if (linkEnabledFirst) {
+            window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)";
+            return;
+        }
+        if (mediaQuery.matches) {
+            firstElement.style.top = '50vh';
+            firstElement.style.left = "50vw";
+            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            linkEnabledFirst = true;
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
+
+            // PASSIVE CIRCLES
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
+            linkEnabledFirst = true;
+            secondElement.style.pointerEvents = 'none';
+            thirdElement.style.pointerEvents = 'none';  
+            fourthElement.style.pointerEvents = 'none';
+
+            // Zoom Container content Visible
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
+                // Zoom container visible
+            clickedContainer.forEach(function(container) {
+            container.style.transform = 'scale(1)';
+            container.style.visibility = 'visible';
+        });
+
+        } else {
+            erwachsene.style.height = '100%';
+            erwachsene.style.top = '50vh';
+            erwachsene.style.right = '50%';
+            header.style.backgroundColor = 'blue';
+            linkEnabledFirst = true;
+            erwachsene.style.height = '15%';
+            erwTitle.style.opacity= '0';
+            erwInnerCircle.style.height = '100%';
+            
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Erwachsene%20-%20Schwimmlernkurs%20(Stufe%201)");
+            
+            
+            
+            
+            // Passive circles
+            firstElement.style.opacity = '0';
+            firstElement.style.pointerEvents = 'none';
+
+            secondElement.style.opacity = '0';
+            thirdElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';            
+            thirdElement.style.pointerEvents = 'none';
+            secondElement.style.pointerEvents = 'none';
+            fourthElement.style.pointerEvents = 'none';
+
+         
+         
+            // Zoom content Container Visible
+            clickedContainer.forEach(function(container) {
+                container.style.transform = 'scale(1)';
+                container.style.visibility = 'visible';          
+            });
+
+            // Zoom Content disappear
+            disappear.forEach(function(disappear) {
+                disappear.style.opacity="0";
+            
+            });
+            // Zoom Content klicked element Appear
+            mindContent.forEach(content => {
+             content.style.display = "flex";
+                });
+        }
+
+
+    });
+
+
+
+
+    // Vorschule ELEMENT
 
     firstElement.addEventListener('click', function() {
         if (linkEnabledFirst) {
@@ -85,9 +218,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
             // Passive circles
+            erwachsene.style.opacity = '0';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';            
+            fourthElement.style.opacity = '0';      
+            erwachsene.style.pointerEvents = 'none';      
             thirdElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
@@ -149,6 +284,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            
             secondElement.style.height = '15%';
             secondInnerCircle.style.height = '100%';
             secondElement.style.top = '50vh';
@@ -161,10 +297,11 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // Passive circles
+            erwachsene.style.opacity = '0';
             firstElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
-
+            erwachsene.style.pointerEvents = 'none';
             firstElement.style.pointerEvents = 'none';
             thirdElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
@@ -202,9 +339,11 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
             // PASSIVE CIRCLES
+            erwachsene.style.opacity = '0';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
+            erwachsene.style.pointerEvents = 'none';
             firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
@@ -227,18 +366,20 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdInnerCircle.style.height = '100%';
             thirdElement.style.top = '50vh';
             thirdElement.style.left = '50%';
-            // thirdElement.style.transform = 'translateY(-50%) scale(1.5)';
             header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
             thirdTitle.style.opacity= '0';
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
             //PASSIVE CIRCLES
+            erwachsene.style.pointerEvents = 'none';
             firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
+            erwachsene.style.opacity = '0';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
+            fourthElement.style.opacity = '0';
 
             fitnessContent.forEach(content => {
              content.style.display = "flex";
@@ -250,7 +391,6 @@ document.addEventListener('DOMContentLoaded', function() {
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
-            fourthElement.style.opacity = '0';
 
         });
         }
@@ -306,10 +446,11 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)");
 
             // passive circles
+            erwachsene.style.opacity = '0';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
-            
+            erwachsene.style.pointerEvents = 'none'; 
             firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             thirdElement.style.pointerEvents = 'none';
@@ -369,6 +510,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+
             mindContent.forEach(content => {
                 content.style.display = "none";
             });
@@ -389,10 +531,19 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else {
             // Inner circles
+            erwInnerCircle.style.height = '';
             firstInnerCircle.style.height = '';
             secondInnerCircle.style.height = '';
             thirdInnerCircle.style.height = '';
             fourthInnerCircle.style.height = '';
+
+            //erwachsene
+            erwachsene.style.height = '';
+            erwachsene.style.top = '';
+            erwachsene.style.right = '';
+            erwachsene.style.transform = '';
+            erwachsene.style.opacity = '';
+            erwachsene.style.pointerEvents = '';
 
             // Absolute1
             firstElement.style.height = '';
@@ -427,6 +578,7 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.pointerEvents = '';
 
             // Titles
+            erwTitle.style.opacity= '1';
             firstTitle.style.opacity= '1';
             secondTitle.style.opacity= '1';
             thirdTitle.style.opacity= '1';
@@ -512,11 +664,6 @@ setTimeout(fadeOutFingerTap, 3000);
 ['first1', 'second2', 'third3'].forEach(function(id) {
     document.getElementById(id).addEventListener('click', fadeOutFingerTap);
 });
-
-
-
-
-
 
 
 

@@ -37,7 +37,7 @@ main{
   overflow: hidden;  
   z-index:2;
 }
-
+ #erwachsene h3,
  #first1 h3, 
  #second2 h3,
  #third3 h3,
@@ -50,82 +50,136 @@ main{
     left: 50%;
     top: -28px;
     transform: translateX(-50%);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
     z-index: 100;      
 }
 
+:root{
+  --display-absolute: block;
+  --position-absolute: absolute;
+  --aspect-ratio-absolute: 1/1;
+  --height-absolute: 19%;
+  --transform-absolute:  translateX(50%)translateY(-50%);
+  --border-radius-absolute: 50%;
+  --margin-absolute:0px;
+  --z-index-absolute: 3;
+  /* --transition-absolute: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease; */
+}
+
+.erwachsene{
+  right: 30%;
+  top: 21%;
+  background-color: rgb(6, 20, 148);
+  transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
+  transform: translateX(50%) translateY(-50%);
+  height: 16%;
+
+  /* border-radius: 25%; */
+  border-radius: var(--border-radius-absolute);
+  display: var(--display-absolute);
+  position: var(--position-absolute);
+  aspect-ratio: var(--aspect-ratio-absolute);
+  transform: var(--transform-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
+}
+
 .absolute1{
-    display: block;
-    position: absolute;
     left: 30%;
     top: 25%;
-    /* left: 2rem; */
-    background-color: rgb(246, 177, 166);
-    aspect-ratio: 1/1;
-    height: 20%;
     transform:  translateX(-50%)translateY(-50%);
-    border-radius: 50%;
-    margin:0px;
-    /* overflow: hidden;*/
-
-    z-index: 2;
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
+    background-color: rgb(246, 177, 166);
+
+    height: var(--height-absolute);
+    display: var(--display-absolute);
+    position: var(--position-absolute);
+    aspect-ratio: var(--aspect-ratio-absolute);
+    border-radius: var(--border-radius-absolute);
+    margin: var(--margin-absolute);
+    z-index: var(--z-index-absolute);
+    border-radius: var(--border-radius-absolute);
+    margin: var(--margin-absolute);
+    z-index: var(--z-index-absolute);
 }
 
 .absolute2{
-    display: block;
-    position: absolute;
-    right: 30%;
-    top: 42%;
-    background-color: rgb(0, 125, 195);
-    aspect-ratio: 1/1;
-    height: 20%;
-    transform: translateX(50%) translateY(-50%);
-    border-radius: 50%;
-    margin:  0px;
-    overflow: default;
-    transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
-    z-index:2;
+  transform: translateX(50%) translateY(-50%);
+  transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
+  right: 30%;
+  top: 42%;
+  background-color: rgb(0, 125, 195);
+
+  height: var(--height-absolute);
+  display: var(--display-absolute);
+  position: var(--position-absolute);
+  aspect-ratio: var(--aspect-ratio-absolute);
+  border-radius: var(--border-radius-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
+  border-radius: var(--border-radius-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
 }
 
 .absolute3{
-    transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
-    display: block;
-    position: absolute;
-    top: 58%;
-    left: 30%;
-    background-color: rgb(198, 199, 196);
-    aspect-ratio: 1/1;
-    height: 20%;
-    transform: translateX(-50%) translateY(-50%);
-    border-radius: 50%;
-    margin:  0px;
-    overflow: default;
-    z-index:2;
+  left: 30%;
+  top: 58%;
+  transform: translateX(-50%) translateY(-50%);
+  background-color: rgb(198, 199, 196);
+  transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
+  height: var(--height-absolute);
+  display: var(--display-absolute);
+  position: var(--position-absolute);
+  aspect-ratio: var(--aspect-ratio-absolute);
+  border-radius: var(--border-radius-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
+  border-radius: var(--border-radius-absolute);
+  margin: var(--margin-absolute);
+  z-index: var(--z-index-absolute);
 }
 
 .absolute4{
-    transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
-    /* transition: right 0.9s ease, left 0.9s ease ,top 0.9s ease, bottom 0.9s ease, transform 1.3s ease, opacity 0.5s ease; */
-
-    display: block;
-    position: absolute;
-    top: 75%;
     right: 30%;
-    aspect-ratio: 1/1;
-    height: 20%;
+    top: 75%;
     transform: translateX(50%) translateY(-50%);
-    border-radius: 50%;
-    margin:  0px;
-    overflow: default;
-    z-index: 1;
     background-color: #cc4406;
-    z-index:2;
+    transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
+    height: var(--height-absolute);
+    display: var(--display-absolute);
+    position: var(--position-absolute);
+    aspect-ratio: var(--aspect-ratio-absolute);
+    border-radius: var(--border-radius-absolute);
+    margin: var(--margin-absolute);
+    z-index: var(--z-index-absolute);
+    border-radius: var(--border-radius-absolute);
+    margin: var(--margin-absolute);
+    z-index: var(--z-index-absolute);
 }
+
 /*=======ABSLUTE CIRCLES END=======*/
 
 
 /*========INNER CIRCLE=========*/
+.innercircle_erw{
+  background-image: url('Images/yoga1.jpg');
+  background-size: cover;
+  display: flex;
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  background-position: center;
+  z-index: 5;
+  height: 90%;
+  aspect-ratio: 1/1;
+  transition: height 0.9s;
+}
+
 .innercircle{
   background-image: url('Images/yoga1.jpg');
   background-size: cover;
@@ -365,6 +419,7 @@ transform: translate(-50%, -50%) scale(1.2)
     position: absolute;
     align-items: center;
     justify-content: center;
+    font-size: 1.25rem;
     border-radius: 10px;
     width: 10rem;
     height: 3rem;
@@ -387,11 +442,58 @@ background-position: 100% 0;
 transition: all .4s ease-in-out;
 }
 
+/*===== NEWS ======*/
+.svg{
+  z-index: 3;
+}
+#dynamicElementContainer {
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  bottom: 0.5rem;
+  left: 0.5rem;
+  /* transform: translateX(-50%) translateY(-50%); */
+}
+
+#circleButton {
+  position: absolute; /* Changed to absolute */
+  width: 3rem;
+  height: 3rem;
+  background-color: white;
+  /* border-bottom-left-radius: 50%;
+  border-top-left-radius: 50%; */
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 2; /* Ensures it stays on top */
+
+}
+
+#contentArea {
+  position: absolute; /* Changed to absolute */
+  bottom: -1px; /* Aligns to the bottom of the container */
+  left: -1px; /* Aligns to the right of the container */
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  transition: width 0.5s, height 0.5s;
+  z-index: 1; /* Lower than circleButton */
+}
+
+#contentArea.expanded {
+  width: 6rem; /* Adjust as needed */
+  height: 8rem; /* Adjust as needed */
+  background-color: grey;
+  border: 1px solid #ddd;
+  border-bottom-left-radius: 25%;
+  border-top-right-radius: 25%;
+
+}
 .back1{
     /* background-size: 300% 100%;
     display:flex;
     align-items: center;
     justify-content: center; */
+    display: none;
     position: absolute;
     /* border-radius: 50%; */
     /* background-color: red; */
