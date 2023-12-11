@@ -47,7 +47,7 @@ main{
   height: 100%;
   width: 100%;
   overflow: hidden;  
-  z-index:2;
+  z-index:1;
 }
  #erwachsene h3,
  #first1 h3, 
@@ -616,7 +616,7 @@ li::marker{
 .top-rightklick ul li a,
 .middle-leftklick ul li a,
 .middle-rightklick ul li a{
-  z-index:100;
+  z-index:999;
 }
 
 .top-rightklick{
@@ -683,6 +683,8 @@ li::marker{
 .seepferd-content,
 .club-content{
   display: none;
+  /* pointer-events: visiblePainted; */
+  pointer-events: auto ;
   }  
   #scroll-tag{
       scroll-snap-align: start;
