@@ -13,7 +13,19 @@ body{
     overflow-X: hidden;
     /* background: linear-gradient(90deg,#e52e71,#ff8a00); */
     font-family: 'NeoTechPro-Light', sans-serif;
-}
+
+    background-image: url("Images/Swym Lied Illustration 01I21 (1).JPG");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60% 0%;
+  }
+
+/* @keyframes bodyAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+    
+  } */
 
 main{
   height: 100%;
@@ -43,7 +55,7 @@ main{
  #third3 h3,
  #fourth4 h3
   {
-    color: #0078bf;
+    color: white;
     font-weight: 700;
     font-size: 1.5rem;
     position: absolute;
