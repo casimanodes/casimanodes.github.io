@@ -86,8 +86,8 @@ h1{
 .absolute-title{
   position: absolute;
   top: 4.5rem;
-  left: 6rem;
-  transform: translatex(-50%);
+  left: 1.5rem;
+  /* transform: translatex(-50%); */
   color: black;
 }
 
@@ -371,76 +371,6 @@ h1{
 
 
 
-    /*======= COMPUTER VERSION ========= */
-@media screen and (min-width: 786px) {
-    .absolute1:hover,
-.absolute3:hover{
-transform: translate(-50%, -50%) scale(1.2)
-}
-
-.absolute2:hover,
-.absolute4:hover{
-    transform: translate(50%, -50%) scale(1.2)
-}
-/* MIND */
-    .absolute1 {
-        top: 40%;
-        left: 20%;
-        width: 35vh;
-        height: 35vh;
-
-        transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    }
-    /* SWYM */
-    .absolute2 {                
-        top: 40%;
-        right: 40%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(50%, -50%); */
-        transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    }
-    /* Fitness */
-    .absolute3 {
-        top: 75%;
-        left: 40%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(-50%); */
-        transition: left 0.9s ease, right 0.9s ease,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
-    }
-    /* Event */
-    .absolute4{
-        top: 75%;
-        right: 20%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(0%); */
-        transition: right 0.9s ease, left 0.9s ease ,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
-    }
-    .babsolute1,
-    .babsolute2,
-    .babsolute3,
-    .babsolute4{
-        display: none;
-    }
-    /* #fingerTap{
-        display: none;
-    } */
-    #wordMind,
-    #wordSwym,
-    #wordFitness,
-    #wordEvent{
-        left: 90%;
-        transform: translateX(-50%, -50%)
-    }
-
-}
-
-/*======== COMPUTER-VERION END======== */
-
-
-
 /*======== BUCHEN & BACK BUTTON ========*/
 .buchen{
     background-image: linear-gradient(to right, #25aae1, #4481eb, #04befe, #3f86ed);
@@ -560,7 +490,7 @@ transition: all .4s ease-in-out;
 /* ========= ZOOM CONTAINER ==========  */
 :root{
   --width: 10rem;
-  --height: 13rem;
+  --height: calc(35vh - 2rem);
   --display: flex;
   --position: absolute;
   --border-radius: 1rem;
@@ -738,6 +668,131 @@ transition: opacity 1s ease;
 }
 
 
+
+
+
+    /*======= COMPUTER VERSION ========= */
+    @media screen and (min-width: 786px) {
+      .absolute1:hover,
+  .absolute3:hover{
+  transform: translate(-50%, -50%) scale(1.1)
+  }
+  .erwachsene:hover,
+  .absolute2:hover,
+  .absolute4:hover{
+      transform: translate(50%, -50%) scale(1.1)
+  }
+  /* MIND */
+  
+      .erwachsene{
+          top: 40%;
+          right: 15%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(50%, -50%); */
+          transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      .absolute1 {
+          top: 40%;
+          left: 15%;
+          width: 35vh;
+          height: 35vh;
+  
+          transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      /* SWYM */
+      .absolute2 {                
+          top: 40%;
+          left: calc(50% - 35vh);
+          width: 35vh;
+          height: 35vh;
+          transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      /* Fitness */
+      .absolute3 {
+          top: 75%;
+          left: 30%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(-50%); */
+          transition: left 0.9s ease, right 0.9s ease,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+      }
+      /* Event */
+      .absolute4{
+          top: 75%;
+          right: 30%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(0%); */
+          transition: right 0.9s ease, left 0.9s ease ,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+      }
+      .babsolute1,
+      .babsolute2,
+      .babsolute3,
+      .babsolute4{
+          display: none;
+      }
+      /* #fingerTap{
+          display: none;
+      } */
+      #wordMind,
+      #wordSwym,
+      #wordFitness,
+      #wordEvent{
+          left: 90%;
+          transform: translateX(-50%, -50%)
+      }
+      .absolute-title{
+        display: none;
+        top: 6.5rem;
+        left: 6rem;
+      }
+  
+  
+      /*ZOOM CONTENT*/
+      .top-leftklick{
+        top: 5.5rem;
+        left: 0;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .top-rightklick{
+        top: 5.5rem;
+        right: 0;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .middle-leftklick{
+        left: 0; 
+        bottom: 4.5rem;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .middle-rightklick{
+        right: 0;
+        margin: 2rem;
+
+        bottom: 4.5rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .buchen{
+        bottom: 2rem;
+        right: 2rem;
+        font-size: 1.5rem;
+        width: 13rem;
+        height: 4rem;
+      }
+  
+    }
+  
+  /*======== COMPUTER-VERION END======== */
+  
+  
+  
 
 
 

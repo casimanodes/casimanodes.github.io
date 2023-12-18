@@ -95,18 +95,20 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         if (mediaQuery.matches) {
-            firstElement.style.top = '50vh';
-            firstElement.style.left = "50vw";
-            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            erwachsene.style.top = 'calc(35vh + 5rem)';
+            erwachsene.style.right = "50vw";
+            erwachsene.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
+            firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
             linkEnabledFirst = true;
+            firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             thirdElement.style.pointerEvents = 'none';  
             fourthElement.style.pointerEvents = 'none';
@@ -119,6 +121,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
+            pointerEvents = 'auto';
         });
 
         } else {
@@ -152,7 +155,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Zoom content Container Visible
             clickedContainer.forEach(function(container) {
                 container.style.transform = 'scale(1)';
-                container.style.visibility = 'visible';          
+                container.style.visibility = 'visible';  
+            pointerEvents = 'auto';
+
             });
 
             // Zoom Content disappear
@@ -188,6 +193,8 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
+            erwachsene.style.opacity = '0';
+            erwachsene.style.pointerEvents = 'none';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
@@ -204,6 +211,8 @@ document.addEventListener('DOMContentLoaded', function() {
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(1)';
             container.style.visibility = 'visible';
+            // pointerEvents = 'auto';
+
         });
 
         } else {
@@ -232,7 +241,9 @@ document.addEventListener('DOMContentLoaded', function() {
             // Zoom content Container Visible
             clickedContainer.forEach(function(container) {
                 container.style.transform = 'scale(1)';
-                container.style.visibility = 'visible';          
+                container.style.visibility = 'visible';    
+            // pointerEvents = 'auto';
+
             });
 
             // Zoom Content disappear
@@ -265,6 +276,8 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
+            erwachsene.style.opacity = '0';
+            erwachsene.style.pointerEvents = 'none';
             firstElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
@@ -339,6 +352,7 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
             // PASSIVE CIRCLES
+            
             erwachsene.style.opacity = '0';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
@@ -415,6 +429,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             // PASSIVE CIRCLES
+            erwachsene.style.opacity = '0';
+            erwachsene.style.pointerEvents = 'none';
             firstElement.style.opacity = '0';
             secondElement.style.opacity = '0';
             thirdElement.style.opacity = '0';
@@ -479,6 +495,16 @@ document.addEventListener('DOMContentLoaded', function() {
             backElement.addEventListener('click', function() {
         
         if (mediaQuery.matches) {
+            //erwachsene Circle
+            erwachsene.style.top = '';
+            erwachsene.style.right = '';
+            erwachsene.style.transform = '';
+            erwachsene.style.opacity = '';
+            erwachsene.style.pointerEvents = '';
+            
+
+
+
             // Mind Circle
             firstElement.style.top = '';
             firstElement.style.left = '';
@@ -508,6 +534,8 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.opacity = '';
             fourthElement.style.pointerEvents = '';
 
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kategorie");
+            
 
 
 
@@ -583,6 +611,8 @@ document.addEventListener('DOMContentLoaded', function() {
             secondTitle.style.opacity= '1';
             thirdTitle.style.opacity= '1';
             fourthTitle.style.opacity= '1';
+
+            buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kategorie");
 
 
             disappear.forEach(function(disappear) {
