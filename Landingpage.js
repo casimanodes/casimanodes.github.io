@@ -78,7 +78,7 @@ function setWidth() {
 
 
 // Step 3: Call the function every 5 seconds
-var intervalId = setInterval(setWidth, 5000);
+var intervalId = setInterval(setWidth, 4000);
 
 // Step 4: Stop the interval after 5 seconds
 setTimeout(function() {
@@ -167,7 +167,7 @@ setTimeout(function() {
                 firstExpansionDone = true;
                 isManuallyToggled = false; // Reset the manual flag after automatic contraction
 
-            }, 10000);
+            }, 30000);
         }
     }
 
@@ -284,7 +284,20 @@ setTimeout(function() {
             secondElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
 
-         
+            backElement.style.opacity = '1';
+            backElement.style.pointerEvents = 'auto';
+            backElement.style.zIndex = '901';
+              
+                circle2.style.opacity = '0';
+                circle2.style.pointerEvents = 'none';
+                circle2.style.zIndex = '0';
+                circleI.style.opacity = '0';
+                circleI.style.pointerEvents = 'none';
+                circleI.style.zIndex = '0';
+              
+                moreinfo.style.opacity = '0';
+                info.style.opacity = '0';
+                contentArea.style.opacity = '0';
          
             // Zoom content Container Visible
             clickedContainer.forEach(function(container) {
