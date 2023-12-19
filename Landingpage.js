@@ -43,6 +43,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const fourthInnerCircle = document.querySelector('.innercircle4')
     const header = document.querySelector('header');
 
+
+
+
+
+
+// Step 1: Select the element
+var moreinfo = document.getElementById('moreinfo');
+const circleI = document.getElementById('function_button');
+const circle2 = document.getElementById('arrow_container');
+const info = document.querySelector('.info');
+// Step 2: Create a function that sets the width
+
+function setWidth() {
+  circleI.style.transition = 'transform 0.5s ease-in-out';
+  circleI.style.transform = 'rotate(360deg)';
+  moreinfo.style.width = '8rem';
+  moreinfo.style.opacity = '1'
+  moreinfo.style.zIndex = '999';
+  moreinfo.style.pointerEvents = 'auto';
+// setTimeout(() => {
+// }, 150);
+
+  setTimeout(() => {
+
+    circle2.style.opacity = '1';
+    circle2.style.transition = 'transform 0.65s ease';
+  circle2.style.transform = 'rotate(360deg)';
+            }, 250);
+  setTimeout(() => {
+                info.style.opacity = '0';
+            }, 350);
+}
+
+
+
+// Step 3: Call the function every 5 seconds
+var intervalId = setInterval(setWidth, 5000);
+
+// Step 4: Stop the interval after 5 seconds
+setTimeout(function() {
+  clearInterval(intervalId);
+}, 5000);
+
     var autoExpandTimeout, autoContractTimeout;
     var isManuallyToggled = false;
     var firstExpansionDone = false;
@@ -51,22 +94,37 @@ document.addEventListener('DOMContentLoaded', function() {
     function toggleContentArea(expand) {
         var contentArea = document.getElementById('contentArea');
         contentArea.classList.toggle('expanded', expand);
+//         setTimeout(() => {
+//           moreinfo.style.width = '8rem';
+//         moreinfo.style.opacity = '1'
+//         moreinfo.style.zIndex = '999';
+//         moreinfo.style.pointerEvents = 'auto';
+// },1000);
+
     }
 
     // Event listener for manual toggle by clicking the circle button
-    document.getElementById('circleButton').addEventListener('click', function() {
-        clearTimeout(autoExpandTimeout);
-        clearTimeout(autoContractTimeout);
+    // document.getElementById('container_expand').addEventListener('click', function() {
+    //     clearTimeout(autoExpandTimeout);
+    //     clearTimeout(autoContractTimeout);
+    //     moreinfo.style.width = '8rem';
+    //     moreinfo.style.opacity = '1'
+    //     moreinfo.style.zIndex = '999';
+    //     moreinfo.style.pointerEvents = 'auto';
 
-        var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
-        isManuallyToggled = true; // Set the flag to indicate manual toggle
-        toggleContentArea(!isExpanded);
+
+    //     var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
+    //     isManuallyToggled = true; 
+    //     toggleContentArea(!isExpanded);
         
-        // Set delay for next automatic expansion after manual contraction
-        if (!isExpanded) {
-            autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
-        }
-    });
+    //     if (!isExpanded) {
+    //         autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
+    //         moreinfo.style.width = '3rem';
+    //     moreinfo.style.opacity = '0'
+    //     moreinfo.style.zIndex = '0';
+    //     moreinfo.style.pointerEvents = 'none';
+    //     }
+    // });
 
     // Function to handle the automatic expansion and contraction
     function handleAutomaticToggle() {
@@ -77,17 +135,94 @@ document.addEventListener('DOMContentLoaded', function() {
             // Contract the content area after 10 seconds
             autoContractTimeout = setTimeout(function() {
                 toggleContentArea(false);
+                moreinfo.style.width = '3rem';
+                moreinfo.style.opacity = '0';
+                moreinfo.style.zIndex = '0';
+                moreinfo.style.pointerEvents = 'none';
+
+                setTimeout(() => {
+        circle2.style.transform = 'rotate(360deg)'; 
+        circle2.style.transition = 'transform 0.65s ease';
+
+      }, 10);
+
+
+      setTimeout(() => {
+
+        info.style.opacity = '1';
+        info.style.transition = 'transform 0.65s ease';
+        info.style.transform = 'rotate(360deg)';
+                }, 250);
+
+      setTimeout(() => {
+        circle2.style.transform = 'rotate(360deg)'; 
+
+        circle2.style.opacity = '0';
+
+      }, 350);
+
+
 
                 // Set delay for next automatic expansion
                 autoExpandTimeout = setTimeout(handleAutomaticToggle, firstExpansionDone ? 10000 : 3000);
                 firstExpansionDone = true;
                 isManuallyToggled = false; // Reset the manual flag after automatic contraction
+
             }, 10000);
         }
     }
 
     // Start the automatic toggle process with an initial delay of 3 seconds
     autoExpandTimeout = setTimeout(handleAutomaticToggle, 3000);
+
+
+
+
+    // var autoExpandTimeout, autoContractTimeout;
+    // var isManuallyToggled = false;
+    // var firstExpansionDone = false;
+
+    // // Function to toggle the expansion of the content area
+    // function toggleContentArea(expand) {
+    //     var contentArea = document.getElementById('contentArea');
+    //     contentArea.classList.toggle('expanded', expand);
+    // }
+
+    // // Event listener for manual toggle by clicking the circle button
+    // document.getElementById('circleButton').addEventListener('click', function() {
+    //     clearTimeout(autoExpandTimeout);
+    //     clearTimeout(autoContractTimeout);
+
+    //     var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
+    //     isManuallyToggled = true; // Set the flag to indicate manual toggle
+    //     toggleContentArea(!isExpanded);
+        
+    //     // Set delay for next automatic expansion after manual contraction
+    //     if (!isExpanded) {
+    //         autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
+    //     }
+    // });
+
+    // // Function to handle the automatic expansion and contraction
+    // function handleAutomaticToggle() {
+    //     if (!isManuallyToggled) {
+    //         // Expand the content area
+    //         toggleContentArea(true);
+            
+    //         // Contract the content area after 10 seconds
+    //         autoContractTimeout = setTimeout(function() {
+    //             toggleContentArea(false);
+
+    //             // Set delay for next automatic expansion
+    //             autoExpandTimeout = setTimeout(handleAutomaticToggle, firstExpansionDone ? 10000 : 3000);
+    //             firstExpansionDone = true;
+    //             isManuallyToggled = false; // Reset the manual flag after automatic contraction
+    //         }, 10000);
+    //     }
+    // }
+
+    // // Start the automatic toggle process with an initial delay of 3 seconds
+    // autoExpandTimeout = setTimeout(handleAutomaticToggle, 3000);
 
     erwachsene.addEventListener('click', function() {
         if (linkEnabledFirst) {
@@ -228,6 +363,23 @@ document.addEventListener('DOMContentLoaded', function() {
             fourthElement.style.pointerEvents = 'none';
 
          
+        
+            backElement.style.opacity = '1';
+            backElement.style.pointerEvents = 'auto';
+            backElement.style.zIndex = '901';
+              
+                circle2.style.opacity = '0';
+                circle2.style.pointerEvents = 'none';
+                circle2.style.zIndex = '0';
+                circleI.style.opacity = '0';
+                circleI.style.pointerEvents = 'none';
+                circleI.style.zIndex = '0';
+              
+                moreinfo.style.opacity = '0';
+                info.style.opacity = '0';
+                contentArea.style.opacity = '0';
+              
+
          
             // Zoom content Container Visible
             clickedContainer.forEach(function(container) {
@@ -306,6 +458,23 @@ document.addEventListener('DOMContentLoaded', function() {
             thirdElement.style.pointerEvents = 'none';
             fourthElement.style.pointerEvents = 'none';
 
+
+            backElement.style.opacity = '1';
+            backElement.style.pointerEvents = 'auto';
+            backElement.style.zIndex = '901';
+              
+                circle2.style.opacity = '0';
+                circle2.style.pointerEvents = 'none';
+                circle2.style.zIndex = '0';
+                circleI.style.opacity = '0';
+                circleI.style.pointerEvents = 'none';
+                circleI.style.zIndex = '0';
+              
+                moreinfo.style.opacity = '0';
+                info.style.opacity = '0';
+                contentArea.style.opacity = '0';
+
+
             // Zoom Content Conainter Appear
             clickedContainer.forEach(function(container) {
                 container.style.transform = 'scale(1)';
@@ -381,6 +550,23 @@ document.addEventListener('DOMContentLoaded', function() {
             secondElement.style.opacity = '0';
             fourthElement.style.opacity = '0';
 
+
+            backElement.style.opacity = '1';
+            backElement.style.pointerEvents = 'auto';
+            backElement.style.zIndex = '901';
+              
+                circle2.style.opacity = '0';
+                circle2.style.pointerEvents = 'none';
+                circle2.style.zIndex = '0';
+                circleI.style.opacity = '0';
+                circleI.style.pointerEvents = 'none';
+                circleI.style.zIndex = '0';
+              
+                moreinfo.style.opacity = '0';
+                info.style.opacity = '0';
+                contentArea.style.opacity = '0';
+
+
             fitnessContent.forEach(content => {
              content.style.display = "flex";
                 });
@@ -454,6 +640,22 @@ document.addEventListener('DOMContentLoaded', function() {
             firstElement.style.pointerEvents = 'none';
             secondElement.style.pointerEvents = 'none';
             thirdElement.style.pointerEvents = 'none';
+
+
+            backElement.style.opacity = '1';
+            backElement.style.pointerEvents = 'auto';
+            backElement.style.zIndex = '901';
+              
+                circle2.style.opacity = '0';
+                circle2.style.pointerEvents = 'none';
+                circle2.style.zIndex = '0';
+                circleI.style.opacity = '0';
+                circleI.style.pointerEvents = 'none';
+                circleI.style.zIndex = '0';
+              
+                moreinfo.style.opacity = '0';
+                info.style.opacity = '0';
+                contentArea.style.opacity = '0';
 
 
             // Zoom clicked container visible
@@ -583,6 +785,25 @@ document.addEventListener('DOMContentLoaded', function() {
             secondTitle.style.opacity= '1';
             thirdTitle.style.opacity= '1';
             fourthTitle.style.opacity= '1';
+
+
+            
+            backElement.style.opacity = '';
+            backElement.style.pointerEvents = '';
+            backElement.style.zIndex = '';
+              
+                circle2.style.opacity = '';
+                circle2.style.pointerEvents = '';
+                circle2.style.zIndex = '';
+                circleI.style.opacity = '';
+                circleI.style.pointerEvents = '';
+                circleI.style.zIndex = '';
+              
+                moreinfo.style.opacity = '';
+                info.style.opacity = '';
+                contentArea.style.opacity = '';
+              
+
 
 
             disappear.forEach(function(disappear) {
