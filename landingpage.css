@@ -7,7 +7,7 @@
     /* scroll-padding-top: 10vh; */
 }
 body{
-     height: 100vh;
+     height: auto;
    /* width: 100vw; */
    /* overflow-y: scroll; */
     overflow-X: hidden;
@@ -1219,3 +1219,100 @@ transition: opacity 1s ease;
     /* font-weight: 550; */
     }
     
+
+
+    /*BENTO GRID */
+
+    
+    .parent {
+      position: relative;
+      margin-top: 10vh;
+      top: 100vh;
+display: grid;
+height: 90vh;
+grid-template-columns: repeat(4, 1fr);
+grid-template-rows: repeat(8, 1fr);
+grid-column-gap: 0.5rem;
+grid-row-gap: 0.75rem;
+padding: 1rem;
+}
+
+:root{
+--background-color-bento: #1d1c20;
+--border-bento: 1px solid rgba(255,255,255,.08);
+--border-radius-bento: 24px;
+}
+
+/*general card stylings*/
+.grid-item{
+background-color: var(--background-color-bento);
+border: var(--border-bento);
+border-radius: var(--border-radius-bento);
+transition: scale 0.5s ease-in-out;
+transition-property: transform;
+transition-timing-function: cubic-bezier(.4,0,.2,1);
+transition-duration: .25s;
+}
+
+/* Inside the grid content  */
+.card{
+position: relative;
+color: white;
+padding: 1rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100%;
+}
+/* Inside the grid title */
+.card-title{
+position: absolute;
+display: flex;
+justify-content: center;
+top: 1rem;
+left: 50%;
+transform: translateX(-50%);
+font-size: 1.5rem;
+font-weight: 600;
+}   
+
+/*each grid item positioning*/
+#title { 
+grid-area: 1 / 1 / 3 / 4; }
+
+#side-note { 
+grid-area: 1 / 4 / 3 / 5; }
+#center { 
+grid-area: 3 / 2 / 9 / 4; }
+#left-note {
+grid-area: 3 / 1 / 9 / 2;}
+#right-note { 
+grid-area: 3 / 4 / 9 / 5; }
+
+.grid-item:hover{
+transform: scale(1.03);
+}
+
+
+@media screen and (max-width: 768px) {
+.parent {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+grid-template-rows: repeat(8, 1fr);
+grid-column-gap: 0.3rem;
+grid-row-gap: 0.3rem;
+padding: 1rem;
+}
+
+#title { grid-area: 1 / 1 / 3 / 5; }
+#center { grid-area: 3 / 1 / 9 / 3; }
+#side-note { grid-area: 6 / 3 / 9 / 4; }
+#right-note { grid-area: 3 / 3 / 6 / 4; }
+#left-note{
+display: none;
+} 
+.gird-item:hover{
+transform: scale(1.02);
+}
+}
