@@ -13,7 +13,19 @@ body{
     overflow-X: hidden;
     /* background: linear-gradient(90deg,#e52e71,#ff8a00); */
     font-family: 'NeoTechPro-Light', sans-serif;
-}
+
+    /* background-image: url("Images/background.JPG"); */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 60% 0%;
+  }
+
+/* @keyframes bodyAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+    
+  } */
 
 main{
   height: 100%;
@@ -28,14 +40,17 @@ main{
 }
 
 
-
+h1{
+  color: black;
+  font-size: 1.75rem;
+}
 
 /*=======ABSLUTE CIRCLES=======*/
 #circle_container{
   height: 100%;
   width: 100%;
   overflow: hidden;  
-  z-index:2;
+  z-index:1;
 }
  #erwachsene h3,
  #first1 h3, 
@@ -43,14 +58,14 @@ main{
  #third3 h3,
  #fourth4 h3
   {
-    color: #0078bf;
+    color: black;
     font-weight: 700;
     font-size: 1.5rem;
     position: absolute;
     left: 50%;
     top: -28px;
     transform: translateX(-50%);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); 
     z-index: 100;      
 }
 
@@ -58,7 +73,9 @@ main{
   --display-absolute: block;
   --position-absolute: absolute;
   --aspect-ratio-absolute: 1/1;
-  --height-absolute: 19%;
+  /* --height-absolute: 19%; */
+  --height-absolute: 20%;
+
   --transform-absolute:  translateX(50%)translateY(-50%);
   --border-radius-absolute: 50%;
   --margin-absolute:0px;
@@ -66,13 +83,21 @@ main{
   /* --transition-absolute: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease; */
 }
 
+.absolute-title{
+  position: absolute;
+  top: 4.5rem;
+  left: 1.5rem;
+  /* transform: translatex(-50%); */
+  color: black;
+}
+
 .erwachsene{
-  right: 30%;
-  top: 21%;
+  right: 6rem;
+  top: calc(var(--height-absolute) + 1.5rem);
   background-color: rgb(6, 20, 148);
   transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
   transform: translateX(50%) translateY(-50%);
-  height: 16%;
+  height: var(--height-absolute);
 
   /* border-radius: 25%; */
   border-radius: var(--border-radius-absolute);
@@ -82,13 +107,11 @@ main{
   transform: var(--transform-absolute);
   margin: var(--margin-absolute);
   z-index: var(--z-index-absolute);
-  margin: var(--margin-absolute);
-  z-index: var(--z-index-absolute);
 }
 
 .absolute1{
-    left: 30%;
-    top: 25%;
+    left: 6rem;
+    top: calc(var(--height-absolute) + 13% + 1.5rem);
     transform:  translateX(-50%)translateY(-50%);
     transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
     background-color: rgb(246, 177, 166);
@@ -108,8 +131,10 @@ main{
 .absolute2{
   transform: translateX(50%) translateY(-50%);
   transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
-  right: 30%;
-  top: 42%;
+  /* right: 30%;
+  top: 42%; */
+  right: 6rem;
+  top: calc(var(--height-absolute) + 26% + 1.5rem);
   background-color: rgb(0, 125, 195);
 
   height: var(--height-absolute);
@@ -125,8 +150,10 @@ main{
 }
 
 .absolute3{
-  left: 30%;
-  top: 58%;
+  /* left: 30%;
+  top: 58%; */
+  left: 6rem;
+  top: calc(var(--height-absolute) + 39% + 1.5rem);
   transform: translateX(-50%) translateY(-50%);
   background-color: rgb(198, 199, 196);
   transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
@@ -143,8 +170,11 @@ main{
 }
 
 .absolute4{
-    right: 30%;
-    top: 75%;
+    /* right: 30%;
+    top: 75%; */
+    right: 6rem;
+    top: calc(var(--height-absolute) + 52% + 1.5rem);
+    
     transform: translateX(50%) translateY(-50%);
     background-color: #cc4406;
     transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
@@ -254,7 +284,7 @@ main{
 /*========= CIRCLE BUCHEN BUTTONS ==========*/
 
 .babsolute1{
-    display:flex;
+    display:none;
     position: absolute;
     top: 30%;
     left: 20%;
@@ -275,7 +305,7 @@ main{
 }
 
 .babsolute2{
-    display:flex;
+    display:none;
     position: absolute;
     transform: translateX(90%) translateY(-10%)rotate(-45deg);
     top: 47%;
@@ -294,7 +324,7 @@ main{
 }
 
 .babsolute3{
-    display:flex;
+    display:none;
     position: absolute;
     top: 63%;
     left: 20%;
@@ -314,7 +344,7 @@ main{
 }
 
 .babsolute4{
-    display:flex;
+    display:none;
     position: absolute;
     top: 80%;
     right: 20%;
@@ -338,76 +368,6 @@ main{
 }
 
 /*========= CIRCLE BUCHEN BUTTONS END ==========*/
-
-
-
-    /*======= COMPUTER VERSION ========= */
-@media screen and (min-width: 786px) {
-    .absolute1:hover,
-.absolute3:hover{
-transform: translate(-50%, -50%) scale(1.2)
-}
-
-.absolute2:hover,
-.absolute4:hover{
-    transform: translate(50%, -50%) scale(1.2)
-}
-/* MIND */
-    .absolute1 {
-        top: 40%;
-        left: 20%;
-        width: 35vh;
-        height: 35vh;
-
-        transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    }
-    /* SWYM */
-    .absolute2 {                
-        top: 40%;
-        right: 40%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(50%, -50%); */
-        transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
-    }
-    /* Fitness */
-    .absolute3 {
-        top: 75%;
-        left: 40%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(-50%); */
-        transition: left 0.9s ease, right 0.9s ease,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
-    }
-    /* Event */
-    .absolute4{
-        top: 75%;
-        right: 20%;
-        width: 35vh;
-        height: 35vh;
-        /* transform: translate(0%); */
-        transition: right 0.9s ease, left 0.9s ease ,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
-    }
-    .babsolute1,
-    .babsolute2,
-    .babsolute3,
-    .babsolute4{
-        display: none;
-    }
-    /* #fingerTap{
-        display: none;
-    } */
-    #wordMind,
-    #wordSwym,
-    #wordFitness,
-    #wordEvent{
-        left: 90%;
-        transform: translateX(-50%, -50%)
-    }
-
-}
-
-/*======== COMPUTER-VERION END======== */
 
 
 
@@ -500,7 +460,7 @@ transition: all .4s ease-in-out;
 /* ========= ZOOM CONTAINER ==========  */
 :root{
   --width: 10rem;
-  --height: 13rem;
+  --height: calc(35vh - 2rem);
   --display: flex;
   --position: absolute;
   --border-radius: 1rem;
@@ -574,7 +534,7 @@ li::marker{
 .top-rightklick ul li a,
 .middle-leftklick ul li a,
 .middle-rightklick ul li a{
-  z-index:100;
+  z-index:999;
 }
 
 .top-rightklick{
@@ -641,6 +601,8 @@ li::marker{
 .seepferd-content,
 .club-content{
   display: none;
+  /* pointer-events: visiblePainted; */
+  pointer-events: auto ;
   }  
   #scroll-tag{
       scroll-snap-align: start;
@@ -676,6 +638,131 @@ transition: opacity 1s ease;
 }
 
 
+
+
+
+    /*======= COMPUTER VERSION ========= */
+    @media screen and (min-width: 786px) {
+      .absolute1:hover,
+  .absolute3:hover{
+  transform: translate(-50%, -50%) scale(1.1)
+  }
+  .erwachsene:hover,
+  .absolute2:hover,
+  .absolute4:hover{
+      transform: translate(50%, -50%) scale(1.1)
+  }
+  /* MIND */
+  
+      .erwachsene{
+          top: 40%;
+          right: 15%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(50%, -50%); */
+          transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      .absolute1 {
+          top: 40%;
+          left: 15%;
+          width: 35vh;
+          height: 35vh;
+  
+          transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      /* SWYM */
+      .absolute2 {                
+          top: 40%;
+          left: calc(50% - 35vh);
+          width: 35vh;
+          height: 35vh;
+          transition: top 0.9s ease, right 0.9s ease, transform 1.3s ease, opacity 0.9s ease;
+      }
+      /* Fitness */
+      .absolute3 {
+          top: 75%;
+          left: 30%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(-50%); */
+          transition: left 0.9s ease, right 0.9s ease,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+      }
+      /* Event */
+      .absolute4{
+          top: 75%;
+          right: 30%;
+          width: 35vh;
+          height: 35vh;
+          /* transform: translate(0%); */
+          transition: right 0.9s ease, left 0.9s ease ,top 0.9s ease, transform 1.3s ease, opacity 0.5s ease;
+      }
+      .babsolute1,
+      .babsolute2,
+      .babsolute3,
+      .babsolute4{
+          display: none;
+      }
+      /* #fingerTap{
+          display: none;
+      } */
+      #wordMind,
+      #wordSwym,
+      #wordFitness,
+      #wordEvent{
+          left: 90%;
+          transform: translateX(-50%, -50%)
+      }
+      .absolute-title{
+        display: none;
+        top: 6.5rem;
+        left: 6rem;
+      }
+  
+  
+      /*ZOOM CONTENT*/
+      .top-leftklick{
+        top: 5.5rem;
+        left: 0;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .top-rightklick{
+        top: 5.5rem;
+        right: 0;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .middle-leftklick{
+        left: 0; 
+        bottom: 4.5rem;
+        margin: 2rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .middle-rightklick{
+        right: 0;
+        margin: 2rem;
+
+        bottom: 4.5rem;
+        height: 30vh;
+        width: 30vw;
+      }
+      .buchen{
+        bottom: 2rem;
+        right: 2rem;
+        font-size: 1.5rem;
+        width: 13rem;
+        height: 4rem;
+      }
+  
+    }
+  
+  /*======== COMPUTER-VERION END======== */
+  
+  
+  
 
 
 
