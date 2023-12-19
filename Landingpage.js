@@ -47,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-
 // Step 1: Select the element
 var moreinfo = document.getElementById('moreinfo');
 const circleI = document.getElementById('function_button');
