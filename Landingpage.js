@@ -57,9 +57,9 @@ const info = document.querySelector('.info');
 function setWidth() {
   circleI.style.transition = 'transform 0.5s ease-in-out';
   circleI.style.transform = 'rotate(360deg)';
-  moreinfo.style.width = '8rem';
+  moreinfo.style.width = '12rem';
   moreinfo.style.opacity = '1'
-  moreinfo.style.zIndex = '999';
+  moreinfo.style.zIndex = '900';
   moreinfo.style.pointerEvents = 'auto';
 // setTimeout(() => {
 // }, 150);
