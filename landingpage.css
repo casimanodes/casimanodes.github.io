@@ -861,7 +861,7 @@ transition: opacity 1s ease;
     align-items: center;
   }
   .nav__logo {
-    position: relative;
+    position: absolute;
     display: inline-flex;
     align-items: center;
     column-gap: 0.25rem;
@@ -1136,6 +1136,7 @@ transition: opacity 1s ease;
     --margin-wordbullet: 0px;
     --transform-wordbullet: translate(-50%);
     --color-wordbullet: black;
+    --wordbullet-left: 50%;
   }
   /* #wordbullet ul{
     position: absolute;
@@ -1157,7 +1158,8 @@ transition: opacity 1s ease;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
-    transform: var(--transform-wordbullet)
+    transform: var(--transform-wordbullet);
+    left: var(--wordbullet-left);
   }
   header nav ul #wordSwym{
     display: var(--display-wordbullet);
@@ -1166,7 +1168,9 @@ transition: opacity 1s ease;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
-    transform: var(--transform-wordbullet)
+    transform: var(--transform-wordbullet);
+    left: var(--wordbullet-left);
+    
   }
   header nav ul #wordFitness{
     display: var(--display-wordbullet);
@@ -1175,7 +1179,9 @@ transition: opacity 1s ease;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
-    transform: var(--transform-wordbullet)
+    transform: var(--transform-wordbullet);
+    left: var(--wordbullet-left);
+
   }
   
   header nav ul #wordEvent{
@@ -1185,7 +1191,8 @@ transition: opacity 1s ease;
     transition: var(--transition-wordbullet);
     padding: var(--padding-wordbullet);
     margin: var(--margin-wordbullet);
-    transform: var(--transform-wordbullet)
+    transform: var(--transform-wordbullet);
+    left: var(--wordbullet-left);
 
   }
 
