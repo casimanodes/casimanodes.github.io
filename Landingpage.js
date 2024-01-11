@@ -57,7 +57,7 @@ const info = document.querySelector('.info');
 function setWidth() {
   circleI.style.transition = 'transform 0.5s ease-in-out';
   circleI.style.transform = 'rotate(360deg)';
-  moreinfo.style.width = '12rem';
+  moreinfo.style.width = 'calc(45vw - 0.5rem)';
   moreinfo.style.opacity = '1'
   moreinfo.style.zIndex = '900';
   moreinfo.style.pointerEvents = 'auto';
@@ -102,28 +102,31 @@ setTimeout(function() {
 
     }
 
+
+    //FIX manual toggle
+
     // Event listener for manual toggle by clicking the circle button
-    // document.getElementById('container_expand').addEventListener('click', function() {
-    //     clearTimeout(autoExpandTimeout);
-    //     clearTimeout(autoContractTimeout);
-    //     moreinfo.style.width = '8rem';
-    //     moreinfo.style.opacity = '1'
-    //     moreinfo.style.zIndex = '999';
-    //     moreinfo.style.pointerEvents = 'auto';
+    document.getElementById('container_expand').addEventListener('click', function() {
+        clearTimeout(autoExpandTimeout);
+        clearTimeout(autoContractTimeout);
+        moreinfo.style.width = '35vw';
+        moreinfo.style.opacity = '1'
+        moreinfo.style.zIndex = '999';
+        moreinfo.style.pointerEvents = 'auto';
 
 
-    //     var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
-    //     isManuallyToggled = true; 
-    //     toggleContentArea(!isExpanded);
+        var isExpanded = document.getElementById('contentArea').classList.contains('expanded');
+        isManuallyToggled = true; 
+        toggleContentArea(!isExpanded);
         
-    //     if (!isExpanded) {
-    //         autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
-    //         moreinfo.style.width = '3rem';
-    //     moreinfo.style.opacity = '0'
-    //     moreinfo.style.zIndex = '0';
-    //     moreinfo.style.pointerEvents = 'none';
-    //     }
-    // });
+        if (!isExpanded) {
+            autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
+            moreinfo.style.width = '3rem';
+        moreinfo.style.opacity = '0'
+        moreinfo.style.zIndex = '0';
+        moreinfo.style.pointerEvents = 'none';
+        }
+    });
 
     // Function to handle the automatic expansion and contraction
     function handleAutomaticToggle() {
