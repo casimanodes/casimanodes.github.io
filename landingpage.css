@@ -44,7 +44,7 @@ h1{
 
 /*=======ABSLUTE CIRCLES=======*/
 #circle_container{
-  height: 100%;
+  height: 150dvh;
   width: 100%;
   overflow: hidden;  
   z-index:1;
@@ -72,19 +72,20 @@ h1{
   --aspect-ratio-absolute: 1/1;
   /* --height-absolute: 19%; */
   --height-absolute: 20%;
-
+ --absolute-opactiy: 1;
   --transform-absolute:  translateX(50%)translateY(-50%);
   --border-radius-absolute: 50%;
   --margin-absolute:0px;
   --z-index-absolute: 3;
+  --z-index-innercircle: 4;
   /* --transition-absolute: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease; */
 }
 
 .absolute-title{
-  max-width: calc(50%-1.5rem);
+  max-width: calc(48%-1rem);
   position: absolute;
   top: 4.5rem;
-  left: 1.5rem;
+  left: 0.5rem;
   /* transform: translatex(-50%); */
   color: black;
 }
@@ -105,6 +106,11 @@ h1{
   transform: var(--transform-absolute);
   margin: var(--margin-absolute);
   z-index: var(--z-index-absolute);
+
+  background-image: url('Images/yoga1.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: var(--absolute-opactiy);
 }
 
 .absolute1{
@@ -124,6 +130,11 @@ h1{
     border-radius: var(--border-radius-absolute);
     margin: var(--margin-absolute);
     z-index: var(--z-index-absolute);
+    background-image: url('Images/yoga1.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: var(--absolute-opactiy);
+  
 }
 
 .absolute2{
@@ -145,6 +156,12 @@ h1{
   border-radius: var(--border-radius-absolute);
   margin: var(--margin-absolute);
   z-index: var(--z-index-absolute);
+
+  background-image: url('Images/jumpwater.jpg');
+  background-size: cover;
+  background-position: center;
+  opacity: var(--absolute-opactiy);
+
 }
 
 .absolute3{
@@ -164,7 +181,12 @@ h1{
   z-index: var(--z-index-absolute);
   border-radius: var(--border-radius-absolute);
   margin: var(--margin-absolute);
-  z-index: var(--z-index-absolute);
+  opacity: var(--absolute-opactiy);
+
+  background-image: url('Images/fitness.jpg');
+  background-size: cover;
+  background-position: center;
+
 }
 
 .absolute4{
@@ -185,7 +207,12 @@ h1{
     z-index: var(--z-index-absolute);
     border-radius: var(--border-radius-absolute);
     margin: var(--margin-absolute);
-    z-index: var(--z-index-absolute);
+    opacity: var(--absolute-opactiy);
+
+    background-image: url('Images/yoga1.jpg');
+    background-size: cover;
+    background-position: center;
+
 }
 
 /*=======ABSLUTE CIRCLES END=======*/
@@ -193,49 +220,56 @@ h1{
 
 /*========INNER CIRCLE=========*/
 .innercircle_erw{
-  background-image: url('Images/yoga1.jpg');
-  background-size: cover;
+border: black solid 5px;
   display: flex;
   position: relative;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-position: center;
-  z-index: 5;
-  height: 90%;
+  z-index: var(--z-index-innercircle);
+  height: 0%;
   aspect-ratio: 1/1;
   transition: height 0.9s;
 }
 
 .innercircle{
-  background-image: url('Images/yoga1.jpg');
-  background-size: cover;
+  z-index: var(--z-index-innercircle);
+  opacity: 0.85;
   display: flex;
   position: relative;
+  align-items: center;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  background-position: center;
-  z-index: 5;
+  z-index: 2;
   height: 90%;
   aspect-ratio: 1/1;
   transition: height 0.9s;
 
 }
-
+.innercircle h2,
+.innercircle2 h2,
+.innercircle3 h2,
+.innercircle4 h2{
+  color: white;
+  font-size: 3.5rem;
+  font-weight: 800;
+  text-shadow: 4px 4px 0px black;
+}
 .innercircle2{
-  background-image: url('Images/jumpwater.jpg');
-  background-size: cover;
+  pointer-events: none;
   display: flex;
   position: relative;
+  align-items: center;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
-  background-position: center;
-  z-index: 5;
+  z-index: var(--z-index-innercircle);
   height: 90%;
   aspect-ratio: 1/1;
   opacity: 1;
@@ -243,33 +277,33 @@ h1{
 }
 
 .innercircle3{
-  background-image: url('Images/fitness.jpg');
-  background-size: cover;
+  pointer-events: none;
+
   display: flex;
   position: relative;
+  align-items: center;
+  justify-content: center;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
   border-radius: 50%;
-  background-position: center;
-  z-index: 5;
-  height: 90%;
+  z-index: var(--z-index-innercircle);
+  height: 100%;
   aspect-ratio: 1/1;
   transition: height 0.9s;
-
 }
 
 .innercircle4{
-    background-image: url('Images/yoga1.jpg');
-    background-size: cover;
+
     display: flex;
     position: relative;
+    align-items: center;
+    justify-content: center;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 50%;
-    background-position: center;
-    z-index: 5;
+    z-index: var(--z-index-innercircle);
     aspect-ratio: 1/1;
 
     height: 90%;
@@ -278,7 +312,110 @@ h1{
 
 /*====== INNER CIRCLE END ==========*/
 
+/* ====Credentials===== */
+.credentials_container{
+  position: absolute;
+  top: 100dvh;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #f4cea7;
+  display: flex;
+  flex-direction: column;
+  border: yellow solid 3px;
+  color: black;
+}
+.credentials{ 
+  position: relative ;
+  display: flex;
+  align-items: center;
+  border: green solid 3px
+}
+.credentials_checks{
+  position: relative ;
+  display: flex;
+    width: 100%;
+    align-items: center;
+    border: black solid 3px;
+text-align: center;
+justify-content: center;
+}
 
+.credentials_checks ul li h2
+{
+  padding: 0.3rem 0;
+  font-size: 1.25rem;
+}
+.credentials_checks ul li h2 a{
+  color: blue;
+  padding: 0.3rem 0;
+  font-size: 1.25rem;
+}
+
+.alg_infos{
+  padding: 0.5rem;
+  position: relative;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/*=======FORM======*/
+
+.form {
+  border: 1px solid #ddd;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100dvw;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+input[type="text"]{
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+/* .one-line{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+} */
+input[type="email"] {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+input[type="number"]{
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: flex-end;
+}
+button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
 /*========= CIRCLE BUCHEN BUTTONS ==========*/
 
 .babsolute1{
@@ -789,6 +926,8 @@ transition: opacity 1s ease;
     --text-color-header: hsl(0, 0%, 100%);
     --body-color: hsl(220, 100%, 99%);
     --header-color: transparent;
+    
+
     --background-color-transition: background-color 0.9s ease;
 
     /*========== Font and typography ==========*/
@@ -850,6 +989,7 @@ transition: opacity 1s ease;
     background-color: var(--header-color);
     z-index: var(--z-fixed);
     transition: var(--background-color-transition);
+  backdrop-filter: var(--backdrop-filter-bento);
   }
   
   /*=============== NAV ===============*/
@@ -1219,13 +1359,14 @@ transition: opacity 1s ease;
 .parent {
   position: absolute;
   display: grid;
-  top: calc(100vh + 3.5rem);
+  top: calc(200dvh + 3.5rem);
   left: 0;
   height: calc(100vh - 3.5rem);
   width: 100%;
-  margin-top: 3.5rem;
+  /* margin-top: 3.5rem; */
   /* grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(4, 1fr); */
+  padding-top: 3.5rem;
   grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0.75rem;
@@ -2292,4 +2433,69 @@ address a:hover {
   .ct-section_header--type4 + p {
       font-size: 28px
   }
+}
+
+
+/* UNSER TEAM  */
+
+.team{
+  height: auto;
+  width: 100%;
+  position: relative;
+  top: calc(200vh + 3.5rem);
+}
+.team_container{
+  /* height: calc(150vh - 3.5rem); */
+  position: relative;
+  height: calc(40vh * 6 + 2rem);
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #cc4406;
+  padding: 1rem;
+}
+.team_item{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border-radius: 3px;
+  margin: 0 auto;
+  height: 45dvh;
+  width: 45vw;
+  /* background-color: #25aae1; */
+  border: #fff solid 2px;
+  margin-bottom: 0.1rem;
+  margin-top: 0.1rem;
+}
+
+/* vh to dvh */
+/* svh = smallviewheight */
+
+.team_item img{
+  position: relative;
+  width: 100%;
+}
+
+.team_item img:hover{
+    width: 60%;
+    position: relative;
+    left: 20%;
+    top: 0;
+}
+
+.team_info{
+  display: flex;
+  flex-grow: 1;
+  padding: auto 0;
+  border: #000 solid 3px;
+  flex-direction: column;
+  padding-left: 0.25rem;
+}
+
+
+
+.team_info_extra{
+  display: flex;
+  flex-direction: column;
+  color: black;
 }

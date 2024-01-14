@@ -103,6 +103,18 @@ setTimeout(function() {
     }
 
 
+
+
+    /* TEAM JS*/
+
+    // document.querySelector('.team_img_container').addEventListener('mouseover', function() {
+    //     document.querySelector('.team_info_extra').style.display = 'block';
+    // });
+    
+    // document.querySelector('.hover-element').addEventListener('mouseout', function() {
+    //     document.querySelector('.team_info_extra').style.display = 'none';
+    // });
+    
     //FIX manual toggle
 
     // Event listener for manual toggle by clicking the circle button
@@ -269,7 +281,7 @@ setTimeout(function() {
             linkEnabledFirst = true;
             erwachsene.style.height = '15%';
             erwTitle.style.opacity= '0';
-            erwInnerCircle.style.height = '100%';
+            // erwInnerCircle.style.height = '100%';
             
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Erwachsene%20-%20Schwimmlernkurs%20(Stufe%201)");
             
