@@ -325,6 +325,7 @@ border: black solid 5px;
   display: flex;
   flex-direction: column;
   color: black;
+  margin-bottom: 1rem;
 }
 .credentials{ 
   position: relative ;
@@ -2489,6 +2490,7 @@ address a:hover {
 /* UNSER TEAM  */
 
 .team{
+  display: none;
   height: auto;
   width: 100%;
   position: relative;
