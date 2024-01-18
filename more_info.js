@@ -1,3 +1,4 @@
+
 // Step 1: Select the element
 var moreinfo = document.getElementById('moreinfo');
 const circleI = document.getElementById('function_button');
@@ -83,7 +84,7 @@ setTimeout(function() {
         toggleContentArea(!isExpanded);
         
         if (!isExpanded) {
-            autoExpandTimeout = setTimeout(handleAutomaticToggle, 10000);
+            autoExpandTimeout = setTimeout(handleAutomaticToggle, 100000);
             moreinfo.style.width = '3rem';
         moreinfo.style.opacity = '0'
         moreinfo.style.zIndex = '0';
@@ -109,7 +110,7 @@ setTimeout(function() {
         circle2.style.transform = 'rotate(360deg)'; 
         circle2.style.transition = 'transform 0.65s ease';
 
-      }, 10);
+      }, 1000000);
 
 
       setTimeout(() => {
