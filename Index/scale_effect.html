@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Webpage Setup</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.bottom {
+  height: 100vh;
+}
+
+.top {
+  height: 80vh;
+}
+.zoom {
+  position: sticky;
+  top: 20vh;
+  will-change: transform;
+  height: auto;
+  /* aspect-ratio: 1/1; */
+  width: 100%;
+  transform: scale(2.2);
+}
+main {
+    max-width: 100vw;
+    display: flex;
+    margin: 20px;
+}
+
+#content {
+    flex: 3;
+}
+
+
+
+
+
+.wrap {
+  height: 200vh;
+}
+
+.color1 {
+    background-color: red;
+}
+
+.color2{
+    background-color: blue;
+}
+    </style>
+</head>
+<body>
+
+
+    <main>
+        <section id="content">
+            
+            <section class="top">                <p class="color1">
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Excepturi ad corporis magni asperiores ipsam veritatis sint doloremque eaque. Fugit et, voluptatum dolorem fuga officia ea itaque. Ratione rem distinctio fugit, odio error, voluptate, aut doloremque aspernatur natus earum id repellendus culpa perspiciatis expedita nemo? Minus eius unde voluptate, aspernatur officia voluptatum, sequi numquam soluta deleniti fuga expedita aliquid officiis ducimus tempora nemo. Libero dignissimos, quas totam reiciendis quidem ut eum alias, quis neque obcaecati eligendi cupiditate eveniet nihil laudantium iusto! Voluptatum at nulla omnis nemo sit, quasi ab illum corporis doloribus quas, perferendis, asperiores sint. Culpa voluptate ex dolore dolorum ipsum iure? Alias odit, minus sit ipsum obcaecati dolorum deleniti consequuntur. Perspiciatis atque animi, ipsa nesciunt fugit dolores autem eum magni qui corporis et deserunt quia quasi libero hic, inventore doloremque magnam architecto quibusdam voluptas error beatae nostrum optio molestias! Sed fugiat natus, perspiciatis, expedita soluta unde enim laboriosam ducimus similique, molestias tenetur tempora asperiores dicta omnis! Adipisci minima, illum praesentium aliquid natus architecto, iusto numquam nostrum cumque itaque repudiandae, placeat nulla molestias? Repudiandae dolor at iure mollitia. Accusamus, ex! Nulla soluta dolores assumenda quo debitis suscipit voluptas laborum non officiis, quae ea excepturi fugit pariatur, maiores adipisci reprehenderit libero?
+            </p></section>
+            <div class="wrap">
+                <img class="zoom" src="trash\swymbadbild.jpg" >
+            </div>
+            <div>
+                <p class="color2">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Non aspernatur consequuntur obcaecati perferendis quae inventore, voluptates itaque impedit velit officiis molestias accusantium quibusdam doloremque ipsa deserunt explicabo nesciunt est, ex saepe sunt porro officia! Mollitia voluptates quo eaque debitis itaque aspernatur placeat maiores temporibus. Harum quasi, at veniam temporibus qui maxime quia. Dicta, hic! Saepe beatae hic in assumenda? Accusantium fuga tenetur nulla, quam provident suscipit ullam ex unde facere explicabo quisquam rem assumenda nobis. Hic reiciendis cumque iure quasi ab aliquam molestias molestiae aut eum consequuntur vero fugit dolore totam dolores maiores, quam ipsa magni laboriosam temporibus at fugiat natus soluta! Quaerat ex beatae rerum magnam eos, in, sit nobis atque error nisi vitae nam et facilis, voluptas accusamus blanditiis ipsum molestias libero nihil sint ipsa natus omnis cum molestiae. Non libero excepturi, delectus ad illum perspiciatis officia nesciunt, id illo soluta ipsum modi aut molestias vero veritatis velit. Officiis mollitia, possimus blanditiis magni in adipisci, ducimus numquam fuga esse asperiores nobis tempora. Ea perferendis quibusdam praesentium, corporis facilis est consequatur laudantium modi consectetur eum commodi. Et debitis molestias deserunt earum omnis delectus sequi voluptatibus fugiat aut? Ducimus distinctio repudiandae tempore dolor quidem fugit esse quam vero voluptate nulla?
+                </p>
+            </div>
+        </section>
+        <section class="bottom"></section>
+    </main>
+
+    <script>
+        const zoom = document.querySelector('.zoom');
+const minZoom = 1;
+const maxZoom = 2;
+
+addEventListener('scroll', e => {
+	const vh = window.innerHeight / 100;
+  const scrollTop = document.documentElement.scrollTop;
+  const start = 100 * vh;
+  const stop = 200 * vh;
+  if (scrollTop > start && scrollTop < stop) {
+	  const scale = Math.max(2.2 - (scrollTop - start) / 500, 1);
+  	zoom.style.transform = `scale(${scale})`
+  }
+})
+    </script>
+</body>
+</html>
