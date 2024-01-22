@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
     const erwachsene = document.getElementById('erwachsene');
-    const firstElement = document.getElementById("first1");
-    const secondElement = document.getElementById("second2");
-    const thirdElement = document.getElementById("third3");
-    const fourthElement = document.getElementById("fourth4");
+    const vorschule = document.getElementById("first1");
+    const schwimmlernkurs = document.getElementById("second2");
+    const seepferdchen = document.getElementById("third3");
+    const clubs = document.getElementById("fourth4");
     const buchenButton = document.getElementById("buchen");
     
     const erwTitle = document.getElementById("erwTitle");
@@ -47,6 +47,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+    function toggleHeight() {
+        var element = document.getElementById('swym_team');
+    
+        if (currentHeight === '110svh') {
+            element.style.height = '200svh';
+        } else {
+            element.style.height = '100svh';
+        }
+    }
+    
+
 
 
     erwachsene.addEventListener('click', function() {
@@ -63,15 +74,15 @@ document.addEventListener('DOMContentLoaded', function() {
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
             // PASSIVE CIRCLES
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';
             linkEnabledFirst = true;
-            firstElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';  
-            fourthElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';  
+            clubs.style.pointerEvents = 'none';
 
             // Zoom Container content Visible
             mindContent.forEach(content => {
@@ -100,15 +111,15 @@ document.addEventListener('DOMContentLoaded', function() {
             
             
             // Passive circles
-            firstElement.style.opacity = '0';
-            firstElement.style.pointerEvents = 'none';
+            vorschule.style.opacity = '0';
+            vorschule.style.pointerEvents = 'none';
 
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';            
-            thirdElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';            
+            seepferdchen.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
 
             backElement.style.opacity = '1';
             backElement.style.pointerEvents = 'auto';
@@ -152,15 +163,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Vorschule ELEMENT
 
-    firstElement.addEventListener('click', function() {
+    vorschule.addEventListener('click', function() {
         if (linkEnabledFirst) {
             window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)";
             return;
         }
         if (mediaQuery.matches) {
-            firstElement.style.top = '50vh';
-            firstElement.style.left = "50vw";
-            firstElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            vorschule.style.top = '50vh';
+            vorschule.style.left = "50vw";
+            vorschule.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
@@ -168,13 +179,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // PASSIVE CIRCLES
             erwachsene.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';
             linkEnabledFirst = true;
-            secondElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';  
-            fourthElement.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';  
+            clubs.style.pointerEvents = 'none';
 
             // Zoom Container content Visible
             mindContent.forEach(content => {
@@ -190,25 +201,25 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else {
             firstInnerCircle.style.height = '100%';
-            firstElement.style.top = '50vh';
-            firstElement.style.left = '50%';
-            // firstElement.style.transform = 'scale(1.5)';
+            vorschule.style.top = '50vh';
+            vorschule.style.right = '50%';
+            // vorschule.style.transform = 'scale(1.5)';
             header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
-            firstElement.style.height = '15%';
+            vorschule.style.height = '15%';
             firstTitle.style.opacity= '0';
             buchenButton.style.opacity = '1';
 
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
             // Passive circles
             erwachsene.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';      
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';      
             erwachsene.style.pointerEvents = 'none';      
-            thirdElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
 
          
         
@@ -253,15 +264,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // SWYM ELEMENT 
 
-    secondElement.addEventListener('click', function() {
+    schwimmlernkurs.addEventListener('click', function() {
         if (linkEnabledSecond) {
             window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)";
             return;
         }
         if (mediaQuery.matches) {
-            secondElement.style.top = '50vh';
-            secondElement.style.right = "50vw";
-            secondElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
+            schwimmlernkurs.style.top = '50vh';
+            schwimmlernkurs.style.right = "50vw";
+            schwimmlernkurs.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
@@ -269,13 +280,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // PASSIVE CIRCLES
             erwachsene.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none';
-            firstElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';
 
-            firstElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
 
             // Zoom Content Container Visible
             clickedContainer.forEach(function(container) {
@@ -289,11 +300,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
         } else {
             
-            secondElement.style.height = '15%';
+            schwimmlernkurs.style.height = '15%';
             secondInnerCircle.style.height = '100%';
-            secondElement.style.top = '50vh';
-            secondElement.style.right = '50%';
-            // secondElement.style.transform = 'translateY(-50%)';
+            schwimmlernkurs.style.top = '50vh';
+            schwimmlernkurs.style.left = '50%';
+            // schwimmlernkurs.style.transform = 'translateY(-50%)';
             header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
             secondTitle.style.opacity= '0';
@@ -303,13 +314,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // Passive circles
             erwachsene.style.opacity = '0';
-            firstElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            clubs.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none';
-            firstElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
 
 
             backElement.style.opacity = '1';
@@ -347,15 +358,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // FITNESS ELEMENT
 
-    thirdElement.addEventListener('click', function() {
+    seepferdchen.addEventListener('click', function() {
         if (linkEnabledThird) {
             window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)";
             return;
         }
         if (mediaQuery.matches) {
-            thirdElement.style.top = '50vh';
-            thirdElement.style.left = "50vw";
-            thirdElement.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
+            seepferdchen.style.top = '50vh';
+            seepferdchen.style.left = "50vw";
+            seepferdchen.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
             header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
@@ -363,13 +374,13 @@ document.addEventListener('DOMContentLoaded', function() {
             // PASSIVE CIRCLES
             
             erwachsene.style.opacity = '0';
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            clubs.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none';
-            firstElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
 
             // Zoom Container content visible
             fitnessContent.forEach(content => {
@@ -385,10 +396,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
         } else {
-            thirdElement.style.height = '15%';
+            seepferdchen.style.height = '15%';
             thirdInnerCircle.style.height = '100%';
-            thirdElement.style.top = '50vh';
-            thirdElement.style.left = '50%';
+            seepferdchen.style.top = '50vh';
+            seepferdchen.style.right = '50%';
             header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
             thirdTitle.style.opacity= '0';
@@ -397,13 +408,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             //PASSIVE CIRCLES
             erwachsene.style.pointerEvents = 'none';
-            firstElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            fourthElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            clubs.style.pointerEvents = 'none';
             erwachsene.style.opacity = '0';
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            fourthElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            clubs.style.opacity = '0';
 
 
             backElement.style.opacity = '1';
@@ -440,16 +451,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // EVENT ELEMENT
 
-    fourthElement.addEventListener('click', function() {
+    clubs.addEventListener('click', function() {
         if (linkEnabledFourth) {
             window.location.href = "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)";
             return;
         }
         if (mediaQuery.matches) {
             // Event Circle
-            fourthElement.style.top = '50vh';
-            fourthElement.style.right = "50vw";
-            fourthElement.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
+            clubs.style.top = '50vh';
+            clubs.style.right = "50vw";
+            clubs.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledFirst = true;
             header.style.backgroundColor = '#cc4406';
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kinder%20-%20Schwimmclub%20(Stufe%203)");
@@ -458,12 +469,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // PASSIVE CIRCLES
             erwachsene.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none';
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
-            firstElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';
+            vorschule.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
+            vorschule.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';
 
             // Zoom  container content visible
             mindContent.forEach(content => {
@@ -478,11 +489,11 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
-            fourthElement.style.height = '15%';
+            clubs.style.height = '15%';
             fourthInnerCircle.style.height = '100%';
-            fourthElement.style.top = '50vh';
-            fourthElement.style.right = '50%';
-            // fourthElement.style.transform = 'translateY(-50%)scale(1.5)';
+            clubs.style.top = '50vh';
+            clubs.style.left = '50%';
+            // clubs.style.transform = 'translateY(-50%)scale(1.5)';
             header.style.backgroundColor = '#cc4406';
             linkEnabledFourth = true;           
             fourthTitle.style.opacity= '0';
@@ -491,13 +502,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
             // passive circles
             erwachsene.style.opacity = '0';
-            firstElement.style.opacity = '0';
-            secondElement.style.opacity = '0';
-            thirdElement.style.opacity = '0';
+            vorschule.style.opacity = '0';
+            schwimmlernkurs.style.opacity = '0';
+            seepferdchen.style.opacity = '0';
             erwachsene.style.pointerEvents = 'none'; 
-            firstElement.style.pointerEvents = 'none';
-            secondElement.style.pointerEvents = 'none';
-            thirdElement.style.pointerEvents = 'none';
+            vorschule.style.pointerEvents = 'none';
+            schwimmlernkurs.style.pointerEvents = 'none';
+            seepferdchen.style.pointerEvents = 'none';
 
 
             backElement.style.opacity = '1';
@@ -550,33 +561,33 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
             // Mind Circle
-            firstElement.style.top = '';
-            firstElement.style.left = '';
-            firstElement.style.transform = '';
-            firstElement.style.opacity = '';
-            firstElement.style.pointerEvents = '';
+            vorschule.style.top = '';
+            vorschule.style.left = '';
+            vorschule.style.transform = '';
+            vorschule.style.opacity = '';
+            vorschule.style.pointerEvents = '';
 
 
             // Swym Circle
-            secondElement.style.top = '';
-            secondElement.style.right = '';
-            secondElement.style.transform = '';
-            secondElement.style.opacity = '';
-            secondElement.style.pointerEvents = '';
+            schwimmlernkurs.style.top = '';
+            schwimmlernkurs.style.right = '';
+            schwimmlernkurs.style.transform = '';
+            schwimmlernkurs.style.opacity = '';
+            schwimmlernkurs.style.pointerEvents = '';
 
             // Fitness Circle
-            thirdElement.style.top = '';
-            thirdElement.style.left = '';
-            thirdElement.style.transform = '';
-            thirdElement.style.opacity = '';
-            thirdElement.style.pointerEvents = '';
+            seepferdchen.style.top = '';
+            seepferdchen.style.left = '';
+            seepferdchen.style.transform = '';
+            seepferdchen.style.opacity = '';
+            seepferdchen.style.pointerEvents = '';
 
             // Event Circle
-            fourthElement.style.top = '';
-            fourthElement.style.right = '';
-            fourthElement.style.transform = '';
-            fourthElement.style.opacity = '';
-            fourthElement.style.pointerEvents = '';
+            clubs.style.top = '';
+            clubs.style.right = '';
+            clubs.style.transform = '';
+            clubs.style.opacity = '';
+            clubs.style.pointerEvents = '';
 
             buchenElement.setAttribute("href", "https://www.swym-hamburg.de/kursuebersicht.html#/Kategorie");
             
@@ -619,36 +630,36 @@ document.addEventListener('DOMContentLoaded', function() {
             erwachsene.style.pointerEvents = '';
 
             // Absolute1
-            firstElement.style.height = '';
-            firstElement.style.top = '';
-            firstElement.style.left = '';
-            firstElement.style.transform = '';
-            firstElement.style.opacity = '';
-            firstElement.style.pointerEvents = '';
+            vorschule.style.height = '';
+            vorschule.style.top = '';
+            vorschule.style.right = '';
+            vorschule.style.transform = '';
+            vorschule.style.opacity = '';
+            vorschule.style.pointerEvents = '';
 
             // Absolute2
-            secondElement.style.height = '';
-            secondElement.style.top ="";
-            secondElement.style.right = '';
-            secondElement.style.transform = '';
-            secondElement.style.opacity = '';
-            secondElement.style.pointerEvents = '';
+            schwimmlernkurs.style.height = '';
+            schwimmlernkurs.style.top ="";
+            schwimmlernkurs.style.left = '';
+            schwimmlernkurs.style.transform = '';
+            schwimmlernkurs.style.opacity = '';
+            schwimmlernkurs.style.pointerEvents = '';
 
             // Absolute3
-            thirdElement.style.height = '';
-            thirdElement.style.top = '';
-            thirdElement.style.left = '';
-            thirdElement.style.transform = '';
-            thirdElement.style.opacity = '';
-            thirdElement.style.pointerEvents = '';
+            seepferdchen.style.height = '';
+            seepferdchen.style.top = '';
+            seepferdchen.style.right = '';
+            seepferdchen.style.transform = '';
+            seepferdchen.style.opacity = '';
+            seepferdchen.style.pointerEvents = '';
 
             // Absolute4
-            fourthElement.style.height = '';
-            fourthElement.style.top = '';
-            fourthElement.style.right = '';
-            fourthElement.style.transform = '';
-            fourthElement.style.opacity = '';
-            fourthElement.style.pointerEvents = '';
+            clubs.style.height = '';
+            clubs.style.top = '';
+            clubs.style.left = '';
+            clubs.style.transform = '';
+            clubs.style.opacity = '';
+            clubs.style.pointerEvents = '';
 
             // Titles
             erwTitle.style.opacity= '1';
@@ -704,7 +715,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Zoom content container zoom away
             clickedContainer.forEach(function(container) {
             container.style.transform = 'scale(0)';
-            secondElement.style.pointerEvents = '';
+            schwimmlernkurs.style.pointerEvents = '';
              }); 
 
 
