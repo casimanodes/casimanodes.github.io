@@ -81,6 +81,8 @@ h1{
   --margin-absolute:0px;
   --z-index-absolute: 3;
   --z-index-innercircle: 4;
+  --box-shadow-absolute: 0 2px 4px rgba(0, 0, 0, 0.9);
+
   /* --transition-absolute: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease; */
 }
 
@@ -94,8 +96,28 @@ h1{
   color: black;
   text-align: center;
 }
+.circle_title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 
+}
+.circle_title p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: black solid 2px;
+  border-radius: 50%;
+  height: 1.8rem;
+  width: 1.8rem;
+  font-size: large;
+  margin-left: 0.25rem;
+  font-weight: 700;
+}
 .erwachsene{
+  box-shadow: var(--box-shadow-absolute);
+
   right: 6rem;
   top: calc(var(--height-absolute) + 52% + 1.5rem);
   /* right: 6rem;
@@ -122,6 +144,8 @@ h1{
 }
 
 .vorschule{
+  box-shadow: var(--box-shadow-absolute);
+
   right: 6rem;
   top: calc(var(--height-absolute) + 1.5rem);
     /* left: 6rem;
@@ -153,6 +177,7 @@ h1{
 }
 
 .schwimmlernkurs{
+  box-shadow: var(--box-shadow-absolute);
   transform: translateX(-50%) translateY(-50%);
   transition: top 0.9s ease, left 0.9s ease, transform 1.3s ease, opacity 0.9s ease, height 0.9s ease;
   /* right: 30%;
@@ -184,6 +209,8 @@ h1{
 .seepferdchen{
   /* left: 30%;
   top: 58%; */
+  box-shadow: var(--box-shadow-absolute);
+
     right: 6rem;
   top: calc(var(--height-absolute) + 26% + 1.5rem);
   /* left: 6rem;
@@ -209,6 +236,8 @@ h1{
 }
 
 .clubs{
+  box-shadow: var(--box-shadow-absolute);
+
     /* right: 30%;
     top: 75%; */
     /* right: 6rem;
@@ -241,7 +270,7 @@ h1{
 /*========INNER CIRCLE=========*/
 .innercircle_erw{
 border: black solid 5px;
-  display: flex;
+  display: none;
   position: relative;
   top: 50%;
   left: 50%;
@@ -256,7 +285,7 @@ border: black solid 5px;
 .innercircle{
   z-index: var(--z-index-innercircle);
   opacity: 0.85;
-  display: flex;
+  display: none;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -281,7 +310,7 @@ border: black solid 5px;
 }
 .innercircle2{
   pointer-events: none;
-  display: flex;
+  display: none;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -299,7 +328,7 @@ border: black solid 5px;
 .innercircle3{
   pointer-events: none;
 
-  display: flex;
+  display: none;
   position: relative;
   align-items: center;
   justify-content: center;
@@ -315,7 +344,7 @@ border: black solid 5px;
 
 .innercircle4{
 
-    display: flex;
+  display: none;
     position: relative;
     align-items: center;
     justify-content: center;
@@ -922,13 +951,13 @@ transition: opacity 1s ease;
 
     /*======= COMPUTER VERSION ========= */
     @media screen and (min-width: 786px) {
-      .absolute1:hover,
-  .absolute3:hover{
+      .vorschule:hover,
+  .seepferdchen:hover{
   transform: translate(-50%, -50%) scale(1.1)
   }
   .erwachsene:hover,
-  .absolute2:hover,
-  .absolute4:hover{
+  .schwimmlernkurs:hover,
+  .clubs:hover{
       transform: translate(50%, -50%) scale(1.1)
   }
   /* MIND */
@@ -1511,17 +1540,17 @@ transition: opacity 1s ease;
   display: grid;
   top: calc(300svh + 3.5rem);
   left: 0;
-  height: calc(100svh - 3.5rem);
+  /* height: calc(100svh - 3.5rem); */
+  height: 100svh;
   width: 100%;
   /* margin-top: 3.5rem; */
   /* grid-template-columns: repeat(8, 1fr);
   grid-template-rows: repeat(4, 1fr); */
-  padding-top: 3.5rem;
   grid-template-columns: repeat(2, 1fr);
 grid-template-rows: repeat(4, 1fr);
   grid-column-gap: 0.75rem;
   grid-row-gap: 0.75rem;
-  padding: 0.75rem;
+  padding: 3.5rem 0.75rem 0.75rem 0.75rem;
 
   background: linear-gradient(to bottom right, #194253, #325661, #436c7e, #607996);
     
@@ -2595,22 +2624,24 @@ address a:hover {
 }
 .team{
   padding-top: 3.5rem;
-  /* height: calc(100svh + 3.5rem); */
-  height: 110svh;
+  height: calc(100svh + 3.5rem);
+  /* height: 110svh; */
   width: 100%;
   overflow: hidden;
-}
-#swym-team{
   transition: height 0.9s ease-in-out;
 
 }
+
 .team_title{
   height: 3.5rem;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  border: solid 3px black;
+}
+.team_title h1{
+  font-size: 2rem;
+font-weight: 750;
 }
 .team_container{
   position: relative;
@@ -2671,6 +2702,7 @@ address a:hover {
 }
 .team_info p{
   color: black;
+  font-size: 0.925rem;
 }
 
 .team_info_extra{

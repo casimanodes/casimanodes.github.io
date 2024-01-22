@@ -45,20 +45,25 @@ document.addEventListener('DOMContentLoaded', function() {
     const header = document.querySelector('header');
 
 
+    var isExpanded = false; // Flag to track the toggle state
 
-
-    function toggleHeight() {
-        var element = document.getElementById('swym_team');
+    document.getElementById("more_team").addEventListener("click", function() {
+        var element = document.querySelector(".team");
+        var team_button = document.getElementById("team_button");
     
-        if (currentHeight === '110svh') {
-            element.style.height = '200svh';
+        if (!isExpanded) {
+            // Expand the element
+            element.style.height = "200vh ";
+            team_button.innerHTML = "Weniger anzeigen";
+            isExpanded = true; // Update the state
         } else {
-            element.style.height = '100svh';
+            // Collapse the element
+            element.style.height = "calc(100vh + 3.5rem)";
+            team_button.innerHTML = "Weitere Team Mitglieder";
+            isExpanded = false; // Update the state
         }
-    }
+    });
     
-
-
 
     erwachsene.addEventListener('click', function() {
         if (linkEnabledFirst) {
