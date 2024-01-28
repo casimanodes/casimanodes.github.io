@@ -51,14 +51,15 @@ document.addEventListener('DOMContentLoaded', function() {
     
         if (!isExpanded) {
             // Expand the element
-            element.style.height = "calc(calc(50svh - 5rem)* 5 )";
+            element.style.height = "calc(calc(50svh - 4.5rem)* 5 )";
             team_button.innerHTML = "Weniger anzeigen";
             isExpanded = true; // Update the state
         } else {
             // Collapse the element
-            element.style.height = "";
             team_button.innerHTML = "Ganzes Team";
-            isExpanded = false; // Update the state
+            element.style.height = "0";
+            isExpanded = false; 
+
         }
     });
     

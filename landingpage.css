@@ -2734,15 +2734,17 @@ address a:hover {
   padding-top: 3.5rem;
   /* height: calc(100svh + 3.5rem); */
   height: auto;
-  /* height: 110svh; */
   width: 100%;
+  border: orange solid 3px;
   overflow: hidden;
+}
+.first_team_container{
+  height: 100svh;
 }
 .second_team_container{
   height: 0rem;
   overflow: hidden;
   transition: height 0.9s ease-in-out;
-
 }
 .team_title{
   height: 3rem;
@@ -2752,6 +2754,7 @@ address a:hover {
   justify-content: center;
 /* border: black  solid 3px; */
 margin-bottom: 0.25rem;
+border: black solid 3px;
 }
 .team_title h1{
   font-size: 2rem;
@@ -2763,12 +2766,13 @@ color: #00386d;
 
 .team_item{
   /* background-color: #cc4406; */
+  border: green solid 3px;
 
   display: flex;
   flex-direction: column;
   position: block;
   border-radius: 3px;
-  margin: 0.25rem auto 0;
+  margin: 0.25rem auto 1rem;
   max-height: calc(50svh - 5rem);
   width: 80%;
   /* background-color: #25aae1; */
@@ -2889,13 +2893,17 @@ color: #00386d;
 
 
 #more_team{
+  position: relative;
+  bottom: 0rem;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 100svw;
+  width: auto;
   height: 3rem;
-  margin: 0.25rem 0;
-  /* border: black  solid 3px; */
+  border: blue  solid 3px;
+  margin: 0.5 0;
 }
 #more_team button{
 height: 100%;
