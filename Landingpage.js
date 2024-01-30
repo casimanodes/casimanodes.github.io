@@ -12,6 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const thirdTitle = document.getElementById("thirdTitle");
     const fourthTitle = document.getElementById("fourthTitle");
 
+    const header_title = document.getElementById("header_title_id");
     // const disappear = document.querySelectorAll(".disappear");
     const backElement = document.getElementById("back1");
     const buchenElement = document.getElementById("buchen");
@@ -99,9 +100,10 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            header_title.innerHTML = 'Erwachsene';
             erwachsene.style.top = 'calc(50vh - 9.5rem)';
             erwachsene.style.right = '50%';
-            header.style.backgroundColor = 'blue';
+            // header.style.backgroundColor = 'blue';
             linkEnabledFirst = true;
             erwachsene.style.height = '15%';
             erwTitle.style.opacity= '0';
@@ -171,7 +173,7 @@ document.addEventListener('DOMContentLoaded', function() {
             vorschule.style.top = '50vh';
             vorschule.style.left = "50vw";
             vorschule.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            // header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
             buchenElement.setAttribute("href", "https://buchung.schwimmschul.app/swym-hamburg/kursliste/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
@@ -199,11 +201,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            header_title.innerHTML = 'Vorschule';
+
             // firstInnerCircle.style.height = '100%';
             vorschule.style.top = 'calc(50vh - 9.5rem)';
             vorschule.style.right = '50%';
             // vorschule.style.transform = 'scale(1.5)';
-            header.style.backgroundColor = 'rgb(246, 177, 166)';
+            // header.style.backgroundColor = 'rgb(246, 177, 166)';
             linkEnabledFirst = true;
             vorschule.style.height = '15%';
             firstTitle.style.opacity= '0';
@@ -266,7 +270,7 @@ document.addEventListener('DOMContentLoaded', function() {
             schwimmlernkurs.style.top = '50vh';
             schwimmlernkurs.style.right = "50vw";
             schwimmlernkurs.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
-            header.style.backgroundColor = 'rgb(0, 125, 195)';
+            // header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
             buchenElement.setAttribute("href", "https://buchung.schwimmschul.app/swym-hamburg/kursliste/Kinder%20-%20Schwimmlernkurse%2f-vorschule%20(Stufe%201)");
 
@@ -292,13 +296,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            header_title.innerHTML = 'Schwimmkurse';
             
             schwimmlernkurs.style.height = '15%';
             // secondInnerCircle.style.height = '100%';
             schwimmlernkurs.style.top = 'calc(50vh - 9.5rem)';
             schwimmlernkurs.style.left = '50%';
             // schwimmlernkurs.style.transform = 'translateY(-50%)';
-            header.style.backgroundColor = 'rgb(0, 125, 195)';
+            // header.style.backgroundColor = 'rgb(0, 125, 195)';
             linkEnabledSecond = true;
             secondTitle.style.opacity= '0';
             lptitle.style.opacity = '0';
@@ -355,7 +360,7 @@ document.addEventListener('DOMContentLoaded', function() {
             seepferdchen.style.top = '50vh';
             seepferdchen.style.left = "50vw";
             seepferdchen.style.transform = 'translateX(-50%)translateY(-50%)scale(1.5)';
-            header.style.backgroundColor = 'rgb(198, 199, 196)';
+            // header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
             buchenElement.setAttribute("href", "https://buchung.schwimmschul.app/swym-hamburg/kursliste/Kinder%20-%20Seepferdchenkurs%20(Stufe%202)");
 
@@ -384,11 +389,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
         });
         } else {
+            header_title.innerHTML = 'Seepferdchen';
+
             seepferdchen.style.height = '15%';
             // thirdInnerCircle.style.height = '100%';
             seepferdchen.style.top = 'calc(50vh - 9.5rem)';
             seepferdchen.style.right = '50%';
-            header.style.backgroundColor = 'rgb(198, 199, 196)';
+            // header.style.backgroundColor = 'rgb(198, 199, 196)';
             linkEnabledThird = true;
             thirdTitle.style.opacity= '0';
             lptitle.style.opacity = '0';
@@ -446,7 +453,7 @@ document.addEventListener('DOMContentLoaded', function() {
             clubs.style.right = "50vw";
             clubs.style.transform = 'translateX(50%)translateY(-50%)scale(1.5)';
             linkEnabledFirst = true;
-            header.style.backgroundColor = '#cc4406';
+            // header.style.backgroundColor = '#cc4406';
             buchenElement.setAttribute("href", "https://buchung.schwimmschul.app/swym-hamburg/kursliste/Kinder%20-%20Schwimmclub%20(Stufe%203)");
 
 
@@ -473,12 +480,14 @@ document.addEventListener('DOMContentLoaded', function() {
         });
 
         } else {
+            header_title.innerHTML = 'Clubs';
+
             clubs.style.height = '15%';
             // fourthInnerCircle.style.height = '100%';
             clubs.style.top = 'calc(50vh - 9.5rem)';
             clubs.style.left = '50%';
             // clubs.style.transform = 'translateY(-50%)scale(1.5)';
-            header.style.backgroundColor = '#cc4406';
+            // header.style.backgroundColor = '#cc4406';
             linkEnabledFourth = true;           
             fourthTitle.style.opacity= '0';
             lptitle.style.opacity = '0';
@@ -600,6 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // thirdInnerCircle.style.height = '';
             // fourthInnerCircle.style.height = '';
             buchenButton.style.opacity = '';
+            header_title.innerHTML = 'Schwimmkurse';
 
             //erwachsene
             erwachsene.style.height = '';

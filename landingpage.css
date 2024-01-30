@@ -399,8 +399,6 @@ border: black solid 5px;
   display: flex;
   flex-direction: column;
   color: #fff;
-  margin-bottom: 1rem;
-  margin-top: 3.5rem;
   background-color: #0274c8;
   padding-top: 3.5rem;
 }
@@ -443,7 +441,7 @@ padding-bottom: 1rem;
 
 }
 .credentials_checks ul li .check1{
-  width: 50%;
+  width: 30%;
   display: flex;
   justify-content: center;
 }
@@ -452,8 +450,8 @@ padding-bottom: 1rem;
   font-size: 1.5rem;
 }
 .credentials_checks ul li .check12{
-  width: 50%;
-
+  width: 60%;
+  margin-left: 1rem;
 }
 
 .credentials_checks p{
@@ -538,6 +536,7 @@ padding-bottom: 1rem;
 .rezension-container p{
   max-height: 25svh;
   overflow-y: scroll;
+  font-size: 0.8rem;
 }
 
 .rezension-container .star{
@@ -551,7 +550,7 @@ padding-bottom: 1rem;
 }
 /*=======FORM======*/
 .interessentIn{
-  display: flex;
+  display: none;
   width: 100%;
 margin-top: 3.5rem;
 flex-direction: column;
@@ -868,10 +867,10 @@ transition: all .4s ease-in-out;
 .top-leftklick::before{
   content: '';
   position: absolute;
-  bottom: -2.5rem;
-  right: -2.5rem;
-  width: 5rem;
-  height: 5rem;
+  bottom: -2rem;
+  right: -2rem;
+  width: 4rem;
+  height: 4rem;
   background-color: white;
   border-radius: 50%;
 }
@@ -903,10 +902,10 @@ transition: all .4s ease-in-out;
 .top-rightklick::before{
   content: '';
   position: absolute;
-  bottom: -2.5rem;
-  left: -2.5rem;
-  width: 5rem;
-  height: 5rem;
+  bottom: -2rem;
+  left: -2rem;
+  width: 4rem;
+  height: 4rem;
   background-color: white;
   border-radius: 50%;
 }
@@ -930,10 +929,10 @@ transition: all .4s ease-in-out;
 .middle-leftklick::before{
   content: '';
   position: absolute;
-  top: -2.5rem;
-  right: -2.5rem;
-  width: 5rem;
-  height: 5rem;
+  top: -2rem;
+  right: -2rem;
+  width: 4rem;
+  height: 4rem;
   background-color: white;
   border-radius: 50%;
 }
@@ -958,10 +957,10 @@ transition: all .4s ease-in-out;
 .middle-rightklick::before{
   content: '';
   position: absolute;
-  top: -2.5rem;
-  left: -2.5rem;
-  width: 5rem;
-  height: 5rem;
+  top: -2rem;
+  left: -2rem;
+  width: 4rem;
+  height: 4rem;
   background-color: white;
   border-radius: 50%;
 }
@@ -990,6 +989,13 @@ transition: all .4s ease-in-out;
   list-style-position: inside;
 }
 
+
+.top-leftklick ul a,
+.top-rightklick ul a,
+.middle-leftklick ul a,
+.middle-rightklick ul a{
+  color: blue;
+}
 .top-leftklick ul li,
 .top-rightklick ul li,
 .middle-leftklick ul li,
@@ -998,6 +1004,17 @@ transition: all .4s ease-in-out;
   font-size: 1.2rem;
   font-weight: 600;
   color: black;
+}
+.middle-leftklick ul li{
+  display: flex;
+  height: 25%;
+  width: 100%;
+  background-color: green;
+  margin: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: calc(var(--width) - 1.5rem);
 }
 
 li::marker{
@@ -1286,6 +1303,7 @@ transition: opacity 1s ease;
     z-index: 999;
     height: 4rem;
     width: 6rem;
+    transform: translateX(-1rem);
   }
   .nav__logo {
     position: absolute;
@@ -1553,11 +1571,20 @@ transition: opacity 1s ease;
   
 
 
-
-
+.header_title{
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.header_title h3{
+color: black;
+font-size: 1.25rem;
+}
   /* ======== WORDBULLET ======== */
   :root{
-    --display-wordbullet: flex;
+    --display-wordbullet: none;
     --position-wordbullet: absolute;
     --font-size-wordbullet: 1rem;
     --transition-wordbullet: all 0.5s ease;
@@ -1968,14 +1995,14 @@ transform: none;
         #container_expand {
           position: absolute;
           width: calc(50svw - 1rem);
-          height: calc(5rem + 100svh - 90svh );
+          height: calc(6rem + 100svh - 90svh );
           bottom: 0.5rem;
           left: 0.5rem;
           /* transform: translateX(-50%) translateY(-50%); */
 
           /* width: calc(45svw - 0.5rem);  */
           /* height: calc(100svh - 72svh - 1.5rem);   */
-          background-color: #e50246;
+          background-color: lightblue;
           border: 1px solid rgba(0, 0, 0, 0.5);
           border-bottom-left-radius: 1.5rem;
           border-bottom-right-radius:1.5rem ;
@@ -2052,8 +2079,8 @@ transform: none;
         margin: auto;
         left: 0.5rem;
         bottom: 0.5rem;
-        width: 2.5rem; 
-        height: 2.5rem;
+        width: 3rem; 
+        height: 3rem;
         border-bottom-right-radius: 1.5rem;
         border-bottom-left-radius: 1.5rem;
         z-index: 2;
@@ -2118,14 +2145,39 @@ transform: none;
           text-align: center;
           font-weight: 600;
           font-size: 1rem;
+          color: black;
         }
         .area p{
           text-align: left;
           font-weight: 500;
           font-size: 0.975rem;
         }
+        
 
+        .area_h3_container{
+          height: 15%;
+        }
+.area_h3_container h3{
+    font-size: 1.1rem;
+}
+        .area_container{
+          height: 100%;
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+        }
 
+        .area_container ul{
+          list-style-type: circle;
+        }
+        .area_container p{
+          color: black;
+        }
+        .area_container a {
+          color: black;
+          text-decoration: underline;
+          font-weight: 600;
+        }
 
 
         /*===== Form ======*/
@@ -2381,7 +2433,7 @@ footer{
 }
 
 .ct-footer-list > li ul li a:hover {
-  text-decoration: underline
+  text-decoration: underline;
 }
 
 .ct-footer-post {
@@ -2770,7 +2822,7 @@ color: #00386d;
   position: block;
   border-radius: 3px;
   margin: 0.25rem auto 1rem;
-  height: calc(38svh - 0.1rem);
+  height: calc(34svh - 0.1rem);
   width: 80%;
   /* background-color: #25aae1; */
   /* border: black solid 2px; */
@@ -2825,7 +2877,17 @@ color: #00386d;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 0.5rem;
+  padding: 0.3rem;
+}
+.lehrer_titel ul{
+display: flex;
+flex-direction: row;
+}
+.team_info_text .lehrer_titel ul li{
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem;
+  display: flex;
 }
 .team_info_text p{
   color: #fff;
