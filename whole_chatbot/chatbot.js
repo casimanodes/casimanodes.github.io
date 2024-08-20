@@ -4,20 +4,15 @@ const open_chatbot = document.querySelector('.chatbot');
 
 // bot svg: 
 const svg_open_chatbot = document.querySelector('.gg-bot');
-// const ggBot = document.querySelector('.gg-bot');
-// const ggCloseO = document.querySelector('.gg-close-o');
 
 // Close svg: 
 const close_chatbot = document.querySelector('.gg-close-o');
-// const ggCloseAfter = document.querySelector('.gg-close-o::after');
-// const ggCloseBefore = document.querySelector('.gg-close-o::before');
 
 const chatbot_seiten_container = document.querySelector('.chatbot_seiten_container');
 const chatbot_menü_container = document.querySelector('.chatbot_menü_container')
-// const titleOfChatbot = document.getElementById('titleOfChatbot')
 
 let chatbot_opened = false;
-// const body = document.querySelector('body');
+const body = document.querySelector('body');
 
 let mitarbeiter_antwort_opened = false;
 let menü_opened = false;
@@ -41,12 +36,10 @@ const mitarbeiter_answer_contianer = document.querySelector(".mitarbeiter_answer
 // OPEN THE CHATBOT 
 document.querySelector('.chatbot_icons').addEventListener('click', function() {
   if(!chatbot_opened){
-    chatbot_opened = true;
-    // body.style.overflow  = "hidden";
+    body.style.overflow  = "hidden";
     open_chatbot.classList.add('expanded');
-    actual_menü.style.display = "block";
-    chatbot_seiten_container.style.display = "flex";
-    // chatbot_menü_container.style.display = "block";
+    // actual_menü.style.display = "block";
+    chatbot_menü_container.style.display = "block";
 
     // chatbot svg animation 
     svg_open_chatbot.style.transform ='rotate(180deg)'
@@ -60,23 +53,24 @@ document.querySelector('.chatbot_icons').addEventListener('click', function() {
 
     setTimeout(() => {
     
-            // add close button to chatbot
+    chatbot_seiten_container.style.opacity = "1";
+    // add close button to chatbot
             close_chatbot.style.opacity = "1";
-            close_chatbot.style.display = "block";
             close_chatbot.style.transform ='rotate(180deg)'
             close_chatbot.style.pointerEvents = "all";
 
     }, 300);
     
+    chatbot_opened = true;
 
 
   } else {
     // chatbot schließen
     open_chatbot.classList.remove('expanded');
-    // body.style.overflow  = "auto";
+    body.style.overflow  = "auto";
 
 
-    chatbot_seiten_container.style.display = "";
+    chatbot_seiten_container.style.opacity = "";
     chatbot_menü_container.style.display = "";
 
     mitarbeiter_antwort_container.style.display = ""
@@ -87,14 +81,13 @@ document.querySelector('.chatbot_icons').addEventListener('click', function() {
     close_chatbot.style.transform ='rotate(0deg)'
     close_chatbot.style.pointerEvents = "none";
     close_chatbot.style.opacity = "0";
-    close_chatbot.style.display = "none";
     
     setTimeout(() => {
       svg_open_chatbot.style.opacity = "";
       svg_open_chatbot.style.pointerEvents = "";
       svg_open_chatbot.style.transform ='rotate(0)'
       svg_open_chatbot.style.display = "block";
-    }, 300);
+    }, 250);
     chatbot_opened = false;
   }
 });
