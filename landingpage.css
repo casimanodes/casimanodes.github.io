@@ -1209,6 +1209,9 @@ transform: translate(-50%, -50%) scale(1.1)
 .clubs:hover{
     transform: translate(50%, -50%) scale(1.1)
 }
+ .expanded{
+  width: 27.5%;
+}
 /* MIND */
 
     .erwachsene{
