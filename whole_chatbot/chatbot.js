@@ -53,7 +53,7 @@ document.querySelector('.chatbot_icons').addEventListener('click', function() {
 
     setTimeout(() => {
     
-    chatbot_seiten_container.style.opacity = "1";
+            chatbot_seiten_container.style.opacity = "1";
     // add close button to chatbot
             close_chatbot.style.opacity = "1";
             close_chatbot.style.transform ='rotate(180deg)'
