@@ -127,7 +127,6 @@ app.get('/', (req, res) => {
     // res.send('Server is running');
     console.log('Server is running');
 });
-let currentThreadId = null;  // Globale Variable zum Speichern des aktuellen Threads (einfaches Beispiel, kann durch Datenbank ersetzt werden)
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
@@ -165,6 +164,8 @@ const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
     }
     throw new Error('Assistant response not available in time');
 };
+// Globale Variable, um den aktuellen Thread zu speichern (kann durch Datenbank ersetzt werden)
+let currentThreadId = null;
 
 app.post('/api/server', async (req, res) => {
     const userMessage = req.body.message;
@@ -205,7 +206,7 @@ app.post('/api/server', async (req, res) => {
         });
         console.log('Message response:', JSON.stringify(messageResponse.data, null, 2));
 
-        // Führe den Assistenten im bestehenden Thread aus
+        // Stelle sicher, dass die Verarbeitung abgeschlossen ist, bevor die Antwort gesendet wird
         const runResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/runs`, {
             assistant_id: process.env.ASSISTANT_ID
         }, {
@@ -217,6 +218,7 @@ app.post('/api/server', async (req, res) => {
         });
         console.log('Run response:', JSON.stringify(runResponse.data, null, 2));
 
+        // Warte auf die Antwort des Assistenten und gib diese zurück
         const assistantMessageContent = await fetchAssistantResponse(threadId);
         res.json({ message: assistantMessageContent });
     } catch (error) {
@@ -226,11 +228,13 @@ app.post('/api/server', async (req, res) => {
 });
 
 
+
 module.exports = app;
 
 
 
-// AKTUELLSTER CODE === 26.08 Funnktioninert in verel 
+// AKTUELLSTER CODE === 26.08 Funnktioninert in vercel 
+
 // require('dotenv').config();
 // const express = require('express');
 // const cors = require('cors');
