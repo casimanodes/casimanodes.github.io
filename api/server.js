@@ -123,45 +123,12 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.post('/api/server', async (req, res) => {
-    const userMessage = req.body.message;
-    let threadId = req.body.threadId;
-
-    if (!userMessage) {
-        return res.status(400).json({ error: 'Message is required' });
-    }
-
-    try {
-        if (!threadId) {
-            const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
-                headers: {
-                    'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'OpenAI-Beta': 'assistants=v2'
-                }
-            });
-            threadId = threadResponse.data.id;
-            return res.json({ message: 'Thread created', threadId });
-        }
-
-        const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
-            role: "user",
-            content: userMessage
-        }, {
-            headers: {
-                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
-                'Content-Type': 'application/json',
-                'OpenAI-Beta': 'assistants=v2'
-            }
-        });
-
-        const assistantMessageContent = await fetchAssistantResponse(threadId);
-        res.json({ message: assistantMessageContent });
-    } catch (error) {
-        console.error('Error:', error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
-        res.status(500).json({ error: 'Error communicating with OpenAI' });
-    }
+app.get('/', (req, res) => {
+    console.log('Server is running');
+    res.send('Server is running');
 });
+
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
 const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
     for (let i = 0; i < retries; i++) {
@@ -173,29 +140,84 @@ const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
             }
         });
 
+        console.log('Messages response:', JSON.stringify(messagesResponse.data, null, 2));
+
         const assistantMessage = messagesResponse.data.data.find(m => m.role === 'assistant');
         if (assistantMessage && assistantMessage.content && assistantMessage.content.length > 0) {
             const textContent = assistantMessage.content.find(c => c.type === 'text');
             if (textContent && textContent.text && textContent.text.value) {
                 try {
                     const jsonResponse = JSON.parse(textContent.text.value);
-                    return jsonResponse.message || textContent.text.value;
+                    if (jsonResponse.message) {
+                        return jsonResponse.message;
+                    } else {
+                        return textContent.text.value;
+                    }
                 } catch (error) {
+                    console.log('Received non-JSON response, returning as plain text.');
                     return textContent.text.value;
                 }
             }
         }
-
+        console.error('No valid text content found in assistant message:', JSON.stringify(assistantMessage, null, 2));
         await sleep(delay);
     }
-
     throw new Error('Assistant response not available in time');
 };
 
-const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+app.post('/api/server', async (req, res) => {
+    const userMessage = req.body.message;
+
+    if (!userMessage) {
+        return res.status(400).json({ error: 'Message is required' });
+    }
+
+    console.log('Received message:', userMessage);
+
+    try {
+        // Create a new thread for each request since there's no session management
+        const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
+        console.log('Thread response:', JSON.stringify(threadResponse.data, null, 2));
+        const threadId = threadResponse.data.id;
+
+        const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+            role: "user",
+            content: userMessage
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
+        console.log('Message response:', JSON.stringify(messageResponse.data, null, 2));
+
+        const runResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/runs`, {
+            assistant_id: process.env.ASSISTANT_ID
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
+        console.log('Run response:', JSON.stringify(runResponse.data, null, 2));
+
+        const assistantMessageContent = await fetchAssistantResponse(threadId);
+        res.json({ message: assistantMessageContent });
+    } catch (error) {
+        console.error('Error:', error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+        res.status(500).json({ error: 'Error communicating with OpenAI' });
+    }
+});
 
 module.exports = app;
-
 
 
 
