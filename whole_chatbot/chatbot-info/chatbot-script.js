@@ -59,51 +59,44 @@
 
 
 // Listen for Enter key press in the input field
+// This part remains in the frontend, typically in your main.js or app.js file
 document.querySelector('.chatInput').addEventListener('keypress', function (e) {
     if (e.key === 'Enter') {
         sendMessage();
     }
 });
 
-// Listen for click event on the send button
 document.querySelector('.message_send').addEventListener('click', function() {
     sendMessage();
 });
 
-// Function to display messages in the chat window
 function displayMessage(message, className) {
     const chatbotText = document.querySelector('.chatbot_answer_contianer .chatbotText_bot');
     const messageElement = document.createElement('div');
     messageElement.className = `message ${className}`;
     messageElement.textContent = message;
     chatbotText.appendChild(messageElement);
-    chatbotText.scrollTop = chatbotText.scrollHeight; // Auto-scroll to the bottom
+    chatbotText.scrollTop = chatbotText.scrollHeight;
 }
 
-// Function to send a message
 function sendMessage() {
     const chatInput = document.querySelector('.chatInput');
     const userMessage = chatInput.value.trim();
-    if (userMessage === '') return; // Prevent sending empty messages
+    if (userMessage === '') return;
 
-    // Display the user's message in the chat window
-    console.log("userMessage: ", userMessage);
     displayMessage(userMessage, 'user-message');
-    chatInput.value = ''; // Clear the input field
+    chatInput.value = '';
 
-    // Show spinner (indicating a loading state)
     document.querySelector('.pos_spinner').style.display = "block";
 
-    // Retrieve the thread ID from localStorage (if available)
     let threadId = localStorage.getItem('threadId');
 
-    // Send the message along with the thread ID to the server
     fetch('/api/server', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ message: userMessage, threadId: threadId }) // Send threadId if it exists
+        body: JSON.stringify({ message: userMessage, threadId: threadId })
     })
     .then(response => {
         if (!response.ok) {
@@ -112,12 +105,9 @@ function sendMessage() {
         return response.json();
     })
     .then(data => {
-        // Store the thread ID if it was created in this request
         if (data.threadId) {
             localStorage.setItem('threadId', data.threadId);
         }
-
-        // Display the assistant's response in the chat window
         displayMessage(data.message, 'bot-message');
     })
     .catch(error => {
@@ -125,9 +115,6 @@ function sendMessage() {
         displayMessage('Error: Could not retrieve the response.', 'bot-message');
     })
     .finally(() => {
-        // Hide spinner
         document.querySelector('.pos_spinner').style.display = "none";
     });
-    console.log("threadId: ", threadId);
-
 }
