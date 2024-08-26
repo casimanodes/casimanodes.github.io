@@ -114,6 +114,125 @@
 
 
 // New try ======================= now - thread funktioniert nur jede 2 nachricht.
+// require('dotenv').config();
+// const express = require('express');
+// const cors = require('cors');
+// const axios = require('axios');
+// const app = express();
+
+// app.use(express.json());
+// app.use(cors());
+
+// app.get('/', (req, res) => {
+//     // res.send('Server is running');
+//     console.log('Server is running');
+// });
+
+// const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
+//     for (let i = 0; i < retries; i++) {
+//         const messagesResponse = await axios.get(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+//             headers: {
+//                 'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+//                 'Content-Type': 'application/json',
+//                 'OpenAI-Beta': 'assistants=v2'
+//             }
+//         });
+
+//         console.log('Messages response:', JSON.stringify(messagesResponse.data, null, 2));
+
+//         const assistantMessage = messagesResponse.data.data.find(m => m.role === 'assistant');
+//         if (assistantMessage && assistantMessage.content && assistantMessage.content.length > 0) {
+//             const textContent = assistantMessage.content.find(c => c.type === 'text');
+//             if (textContent && textContent.text && textContent.text.value) {
+//                 try {
+//                     const jsonResponse = JSON.parse(textContent.text.value);
+//                     if (jsonResponse.message) {
+//                         return jsonResponse.message;
+//                     } else {
+//                         return textContent.text.value;
+//                     }
+//                 } catch (error) {
+//                     console.log('Received non-JSON response, returning as plain text.');
+//                     return textContent.text.value;
+//                 }
+//             }
+//         }
+//         console.error('No valid text content found in assistant message:', JSON.stringify(assistantMessage, null, 2));
+//         await sleep(delay);
+//     }
+//     throw new Error('Assistant response not available in time');
+// };
+// // Globale Variable, um den aktuellen Thread zu speichern (kann durch Datenbank ersetzt werden)
+// let currentThreadId = null;
+
+// app.post('/api/server', async (req, res) => {
+//     const userMessage = req.body.message;
+
+//     if (!userMessage) {
+//         return res.status(400).json({ error: 'Message is required' });
+//     }
+
+//     console.log('Received message:', userMessage);
+
+//     try {
+//         let threadId = currentThreadId;
+
+//         // Erstelle einen neuen Thread nur, wenn keiner existiert
+//         if (!threadId) {
+//             const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
+//                 headers: {
+//                     'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+//                     'Content-Type': 'application/json',
+//                     'OpenAI-Beta': 'assistants=v2'
+//                 }
+//             });
+//             console.log('Thread response:', JSON.stringify(threadResponse.data, null, 2));
+//             threadId = threadResponse.data.id;
+//             currentThreadId = threadId;  // Speichere den Thread für zukünftige Nachrichten
+//         }
+
+//         // Sende die Benutzer-Nachricht an den bestehenden Thread
+//         const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+//             role: "user",
+//             content: userMessage
+//         }, {
+//             headers: {
+//                 'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+//                 'Content-Type': 'application/json',
+//                 'OpenAI-Beta': 'assistants=v2'
+//             }
+//         });
+//         console.log('Message response:', JSON.stringify(messageResponse.data, null, 2));
+
+//         // Stelle sicher, dass die Verarbeitung abgeschlossen ist, bevor die Antwort gesendet wird
+//         const runResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/runs`, {
+//             assistant_id: process.env.ASSISTANT_ID
+//         }, {
+//             headers: {
+//                 'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+//                 'Content-Type': 'application/json',
+//                 'OpenAI-Beta': 'assistants=v2'
+//             }
+//         });
+//         console.log('Run response:', JSON.stringify(runResponse.data, null, 2));
+
+//         // Warte auf die Antwort des Assistenten und gib diese zurück
+//         const assistantMessageContent = await fetchAssistantResponse(threadId);
+//         res.json({ message: assistantMessageContent });
+//     } catch (error) {
+//         console.error('Error:', error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+//         res.status(500).json({ error: 'Error communicating with OpenAI' });
+//     }
+// });
+
+
+
+// module.exports = app;
+
+
+// NEw try grimoire 26.08 
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
@@ -124,11 +243,13 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req, res) => {
-    // res.send('Server is running');
     console.log('Server is running');
 });
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+// In-memory store to hold thread IDs per user (could be replaced by a database later)
+const userThreads = {};
 
 const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
     for (let i = 0; i < retries; i++) {
@@ -164,22 +285,21 @@ const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
     }
     throw new Error('Assistant response not available in time');
 };
-// Globale Variable, um den aktuellen Thread zu speichern (kann durch Datenbank ersetzt werden)
-let currentThreadId = null;
 
 app.post('/api/server', async (req, res) => {
     const userMessage = req.body.message;
+    const userId = req.body.userId; // Assume each client sends a unique userId with their request
 
-    if (!userMessage) {
-        return res.status(400).json({ error: 'Message is required' });
+    if (!userMessage || !userId) {
+        return res.status(400).json({ error: 'Message and userId are required' });
     }
 
-    console.log('Received message:', userMessage);
+    console.log('Received message from user:', userId, 'Message:', userMessage);
 
     try {
-        let threadId = currentThreadId;
+        let threadId = userThreads[userId];
 
-        // Erstelle einen neuen Thread nur, wenn keiner existiert
+        // Create a new thread if none exists for the user
         if (!threadId) {
             const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
                 headers: {
@@ -190,10 +310,10 @@ app.post('/api/server', async (req, res) => {
             });
             console.log('Thread response:', JSON.stringify(threadResponse.data, null, 2));
             threadId = threadResponse.data.id;
-            currentThreadId = threadId;  // Speichere den Thread für zukünftige Nachrichten
+            userThreads[userId] = threadId;  // Store the thread ID for the user
         }
 
-        // Sende die Benutzer-Nachricht an den bestehenden Thread
+        // Send the user's message to the existing thread
         const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
             role: "user",
             content: userMessage
@@ -206,7 +326,7 @@ app.post('/api/server', async (req, res) => {
         });
         console.log('Message response:', JSON.stringify(messageResponse.data, null, 2));
 
-        // Stelle sicher, dass die Verarbeitung abgeschlossen ist, bevor die Antwort gesendet wird
+        // Ensure the processing is complete before fetching the response
         const runResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/runs`, {
             assistant_id: process.env.ASSISTANT_ID
         }, {
@@ -218,7 +338,7 @@ app.post('/api/server', async (req, res) => {
         });
         console.log('Run response:', JSON.stringify(runResponse.data, null, 2));
 
-        // Warte auf die Antwort des Assistenten und gib diese zurück
+        // Wait for the assistant's response and return it
         const assistantMessageContent = await fetchAssistantResponse(threadId);
         res.json({ message: assistantMessageContent });
     } catch (error) {
@@ -226,8 +346,6 @@ app.post('/api/server', async (req, res) => {
         res.status(500).json({ error: 'Error communicating with OpenAI' });
     }
 });
-
-
 
 module.exports = app;
 
