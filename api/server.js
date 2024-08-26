@@ -114,77 +114,87 @@
 
 
 // New try ======================= now - thread funktioniert nur jede 2 nachricht.require('dotenv').config();
-// Listen for Enter key press in the input field
-document.querySelector('.chatInput').addEventListener('keypress', function (e) {
-    if (e.key === 'Enter') {
-        sendMessage();
+const express = require('express');
+const cors = require('cors');
+const axios = require('axios');
+
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+app.post('/api/server', async (req, res) => {
+    const userMessage = req.body.message;
+    let threadId = req.body.threadId;
+
+    if (!userMessage) {
+        return res.status(400).json({ error: 'Message is required' });
+    }
+
+    try {
+        if (!threadId) {
+            const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
+                headers: {
+                    'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                    'Content-Type': 'application/json',
+                    'OpenAI-Beta': 'assistants=v2'
+                }
+            });
+            threadId = threadResponse.data.id;
+            return res.json({ message: 'Thread created', threadId });
+        }
+
+        const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+            role: "user",
+            content: userMessage
+        }, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
+
+        const assistantMessageContent = await fetchAssistantResponse(threadId);
+        res.json({ message: assistantMessageContent });
+    } catch (error) {
+        console.error('Error:', error.response ? JSON.stringify(error.response.data, null, 2) : error.message);
+        res.status(500).json({ error: 'Error communicating with OpenAI' });
     }
 });
 
-// Listen for click event on the send button
-document.querySelector('.message_send').addEventListener('click', function() {
-    sendMessage();
-});
+const fetchAssistantResponse = async (threadId, retries = 10, delay = 1000) => {
+    for (let i = 0; i < retries; i++) {
+        const messagesResponse = await axios.get(`https://api.openai.com/v1/threads/${threadId}/messages`, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
 
-// Function to display messages in the chat window
-function displayMessage(message, className) {
-    const chatbotText = document.querySelector('.chatbot_answer_contianer .chatbotText_bot');
-    const messageElement = document.createElement('div');
-    messageElement.className = `message ${className}`;
-    messageElement.textContent = message;
-    chatbotText.appendChild(messageElement);
-    chatbotText.scrollTop = chatbotText.scrollHeight; // Auto-scroll to the bottom
-}
-
-// Function to send a message
-function sendMessage() {
-    const chatInput = document.querySelector('.chatInput');
-    const userMessage = chatInput.value.trim();
-    if (userMessage === '') return; // Prevent sending empty messages
-
-    // Display the user's message in the chat window
-    console.log("userMessage: ", userMessage);
-    displayMessage(userMessage, 'user-message');
-    chatInput.value = ''; // Clear the input field
-
-    // Show spinner (indicating a loading state)
-    document.querySelector('.pos_spinner').style.display = "block";
-
-    // Retrieve the thread ID from localStorage (if available)
-    let threadId = localStorage.getItem('threadId');
-
-    // Send the message along with the thread ID to the server
-    fetch('/api/server', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ message: userMessage, threadId: threadId }) // Send threadId if it exists
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Store the thread ID if it was created in this request
-        if (data.threadId) {
-            localStorage.setItem('threadId', data.threadId);
+        const assistantMessage = messagesResponse.data.data.find(m => m.role === 'assistant');
+        if (assistantMessage && assistantMessage.content && assistantMessage.content.length > 0) {
+            const textContent = assistantMessage.content.find(c => c.type === 'text');
+            if (textContent && textContent.text && textContent.text.value) {
+                try {
+                    const jsonResponse = JSON.parse(textContent.text.value);
+                    return jsonResponse.message || textContent.text.value;
+                } catch (error) {
+                    return textContent.text.value;
+                }
+            }
         }
 
-        // Display the assistant's response in the chat window
-        displayMessage(data.message, 'bot-message');
-    })
-    .catch(error => {
-        console.error('Error:', error);
-        displayMessage('Error: Could not retrieve the response.', 'bot-message');
-    })
-    .finally(() => {
-        // Hide spinner
-        document.querySelector('.pos_spinner').style.display = "none";
-    });
-}
+        await sleep(delay);
+    }
+
+    throw new Error('Assistant response not available in time');
+};
+
+const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
+module.exports = app;
 
 
 
