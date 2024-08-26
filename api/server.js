@@ -117,21 +117,15 @@
 const express = require('express');
 const cors = require('cors');
 const axios = require('axios');
-const session = require('express-session');
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
-app.use(session({
-    secret: 'deinGeheimnis',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false } // Für HTTPS Verbindungen auf true setzen
-}));
 
 app.get('/', (req, res) => {
     console.log('Server is running');
+    res.send('Server is running');
 });
 
 const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
@@ -181,20 +175,16 @@ app.post('/api/server', async (req, res) => {
     console.log('Received message:', userMessage);
 
     try {
-        let threadId = req.session.threadId;  // Verwende Session-ID zur Speicherung des Thread-IDs
-
-        if (!threadId) {
-            const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
-                headers: {
-                    'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
-                    'Content-Type': 'application/json',
-                    'OpenAI-Beta': 'assistants=v2'
-                }
-            });
-            console.log('Thread response:', JSON.stringify(threadResponse.data, null, 2));
-            threadId = threadResponse.data.id;
-            req.session.threadId = threadId;  // Speichere den Thread in der Session
-        }
+        // Create a new thread for each request since there's no session management
+        const threadResponse = await axios.post('https://api.openai.com/v1/threads', {}, {
+            headers: {
+                'Authorization': `Bearer ${process.env.OPENAI_PROJECT_API_KEY}`,
+                'Content-Type': 'application/json',
+                'OpenAI-Beta': 'assistants=v2'
+            }
+        });
+        console.log('Thread response:', JSON.stringify(threadResponse.data, null, 2));
+        const threadId = threadResponse.data.id;
 
         const messageResponse = await axios.post(`https://api.openai.com/v1/threads/${threadId}/messages`, {
             role: "user",
@@ -228,6 +218,7 @@ app.post('/api/server', async (req, res) => {
 });
 
 module.exports = app;
+
 
 
 // AKTUELLSTER CODE === 26.08 Funnktioninert in vercel 
