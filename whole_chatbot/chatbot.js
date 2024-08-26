@@ -34,63 +34,64 @@ const mitarbeiter_answer_contianer = document.querySelector(".mitarbeiter_answer
 
 
 // OPEN THE CHATBOT 
-document.querySelector('.chatbot_icons').addEventListener('click', function() {
-  if(!chatbot_opened){
-    body.style.overflow  = "hidden";
+// Function to handle opening and closing of the chatbot
+function toggleChatbot() {
+  if (!chatbot_opened) {
+    body.style.overflow = "hidden";
     open_chatbot.classList.add('expanded');
-    // actual_menü.style.display = "block";
     chatbot_menü_container.style.display = "block";
 
-    // chatbot svg animation 
-    svg_open_chatbot.style.transform ='rotate(180deg)'
+    // Chatbot svg animation
+    svg_open_chatbot.style.transform = 'rotate(180deg)';
     svg_open_chatbot.style.pointerEvents = "none";
     svg_open_chatbot.style.opacity = "0";
 
-    // ggBot.style.display = "none";
-    // ggCloseO.style.display = "none";
-    
-    // titleOfChatbot.innerHTML = "Menü"
-
     setTimeout(() => {
-    
-            chatbot_seiten_container.style.opacity = "1";
-    // add close button to chatbot
-            close_chatbot.style.opacity = "1";
-            close_chatbot.style.transform ='rotate(180deg)'
-            close_chatbot.style.pointerEvents = "all";
-
+      chatbot_seiten_container.style.opacity = "1";
+      close_chatbot.style.opacity = "1";
+      close_chatbot.style.transform = 'rotate(180deg)';
+      close_chatbot.style.pointerEvents = "all";
     }, 300);
-    
+
     chatbot_opened = true;
-
-
   } else {
-    // chatbot schließen
+    // Closing the chatbot
     open_chatbot.classList.remove('expanded');
-    body.style.overflow  = "auto";
-
+    body.style.overflow = "auto";
 
     chatbot_seiten_container.style.opacity = "";
     chatbot_menü_container.style.display = "";
 
-    mitarbeiter_antwort_container.style.display = ""
+    mitarbeiter_antwort_container.style.display = "";
     actual_menü.style.display = "";
-    chatbot_answer_contianer.style.display = ""
-    mitarbeiter_answer_contianer.style.display = ""
+    chatbot_answer_contianer.style.display = "";
+    mitarbeiter_answer_contianer.style.display = "";
 
-    close_chatbot.style.transform ='rotate(0deg)'
+    close_chatbot.style.transform = 'rotate(0deg)';
     close_chatbot.style.pointerEvents = "none";
     close_chatbot.style.opacity = "0";
-    
+
     setTimeout(() => {
       svg_open_chatbot.style.opacity = "";
       svg_open_chatbot.style.pointerEvents = "";
-      svg_open_chatbot.style.transform ='rotate(0)'
+      svg_open_chatbot.style.transform = 'rotate(0)';
       svg_open_chatbot.style.display = "block";
     }, 250);
+
     chatbot_opened = false;
   }
+}
+
+// Attach event listener to query selector
+document.querySelector('.chatbot_icons').addEventListener('click', toggleChatbot);
+
+// Add keyboard event listener (e.g., 'T' key for "Tastatur")
+document.addEventListener('keydown', function(event) {
+  if (event.key.toLowerCase() === 'x') {  // Check if 'T' key is pressed
+    toggleChatbot();
+  }
 });
+
 
 
 // Antwortseite für miotarbeiter 
